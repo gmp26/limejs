@@ -90,7 +90,7 @@ lime.audio.Audio.prototype.isPlaying = function() {
  * Start playing the audio
  */
 lime.audio.Audio.prototype.play = function() {
-    if (this.isLoaded() && !this.isPlaying()) {
+    if (this.isLoaded() /*&& !this.isPlaying()*/) {
         this.baseElement.play();
         this.playing_ = true;
     }
