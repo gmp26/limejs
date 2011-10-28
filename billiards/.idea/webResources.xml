@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebResourcesPaths">
+    <contentEntries>
+      <entry url="file://$PROJECT_DIR$/../box2d">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/../box2d" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+      <entry url="file://$PROJECT_DIR$/../closure">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/../closure" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+      <entry url="file://$PROJECT_DIR$/../lime">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/../lime" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+      <entry url="file://$PROJECT_DIR$/../org">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/../org" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+    </contentEntries>
+  </component>
+</project>
+

@@ -1,0 +1,240 @@
+module(...)
+
+
+-- This file is for use with Corona Game Edition
+--
+-- The function getSpriteSheetData() returns a table suitable for importing using sprite.newSpriteSheetFromData()
+--
+-- Usage example:
+--			local zwoptexData = require "ThisFile.lua"
+-- 			local data = zwoptexData.getSpriteSheetData()
+--			local spriteSheet = sprite.newSpriteSheetFromData( "Untitled.png", data )
+--
+-- For more details, see http://developer.anscamobile.com/content/game-edition-sprite-sheets
+
+function getSpriteSheetData()
+
+	local sheet = {
+		frames = {
+		
+			{
+				name = "BackRoomScene.png",
+				spriteColorRect = { x = 0, y = 0, width = 320, height = 460 }, 
+				textureRect = { x = 2, y = 2, width = 320, height = 460 }, 
+				spriteSourceSize = { width = 320, height = 460 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "backRoomClosedDoor.png",
+				spriteColorRect = { x = 0, y = 0, width = 78, height = 179 }, 
+				textureRect = { x = 800, y = 464, width = 78, height = 179 }, 
+				spriteSourceSize = { width = 78, height = 179 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "bell2.png",
+				spriteColorRect = { x = 0, y = 0, width = 38, height = 31 }, 
+				textureRect = { x = 852, y = 863, width = 38, height = 31 }, 
+				spriteSourceSize = { width = 38, height = 31 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "billiardScene.png",
+				spriteColorRect = { x = 0, y = 0, width = 320, height = 460 }, 
+				textureRect = { x = 324, y = 2, width = 320, height = 460 }, 
+				spriteSourceSize = { width = 320, height = 460 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "blackNote.png",
+				spriteColorRect = { x = 0, y = 0, width = 36, height = 37 }, 
+				textureRect = { x = 776, y = 863, width = 36, height = 37 }, 
+				spriteSourceSize = { width = 36, height = 37 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "blackPull.png",
+				spriteColorRect = { x = 0, y = 0, width = 52, height = 397 }, 
+				textureRect = { x = 968, y = 2, width = 52, height = 397 }, 
+				spriteSourceSize = { width = 52, height = 397 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "clock.png",
+				spriteColorRect = { x = 0, y = 0, width = 60, height = 60 }, 
+				textureRect = { x = 714, y = 863, width = 60, height = 60 }, 
+				spriteSourceSize = { width = 60, height = 60 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "clockBigHand.png",
+				spriteColorRect = { x = 27, y = 27, width = 26, height = 6 }, 
+				textureRect = { x = 900, y = 863, width = 26, height = 6 }, 
+				spriteSourceSize = { width = 60, height = 60 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "clockSmallHand.png",
+				spriteColorRect = { x = 27, y = 15, width = 6, height = 18 }, 
+				textureRect = { x = 892, y = 863, width = 6, height = 18 }, 
+				spriteSourceSize = { width = 60, height = 60 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "closedDoor.png",
+				spriteColorRect = { x = 0, y = 0, width = 78, height = 177 }, 
+				textureRect = { x = 880, y = 464, width = 78, height = 177 }, 
+				spriteSourceSize = { width = 78, height = 177 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "doorOpeningIn.png",
+				spriteColorRect = { x = 0, y = 0, width = 68, height = 203 }, 
+				textureRect = { x = 408, y = 464, width = 68, height = 203 }, 
+				spriteSourceSize = { width = 68, height = 203 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "greenPull.png",
+				spriteColorRect = { x = 0, y = 0, width = 52, height = 397 }, 
+				textureRect = { x = 56, y = 464, width = 52, height = 397 }, 
+				spriteSourceSize = { width = 52, height = 397 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "iCue.png",
+				spriteColorRect = { x = 0, y = 0, width = 10, height = 256 }, 
+				textureRect = { x = 396, y = 464, width = 10, height = 256 }, 
+				spriteSourceSize = { width = 10, height = 256 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "plan.png",
+				spriteColorRect = { x = 0, y = 0, width = 176, height = 288 }, 
+				textureRect = { x = 218, y = 464, width = 176, height = 288 }, 
+				spriteSourceSize = { width = 176, height = 288 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "planBilliardsNormal.png",
+				spriteColorRect = { x = 0, y = 0, width = 176, height = 145 }, 
+				textureRect = { x = 180, y = 863, width = 176, height = 145 }, 
+				spriteSourceSize = { width = 176, height = 145 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "planBilliardsOver.png",
+				spriteColorRect = { x = 0, y = 0, width = 176, height = 145 }, 
+				textureRect = { x = 2, y = 863, width = 176, height = 145 }, 
+				spriteSourceSize = { width = 176, height = 145 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "planStudyNormal.png",
+				spriteColorRect = { x = 0, y = 0, width = 176, height = 145 }, 
+				textureRect = { x = 358, y = 863, width = 176, height = 145 }, 
+				spriteSourceSize = { width = 176, height = 145 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "planStudyOver.png",
+				spriteColorRect = { x = 0, y = 0, width = 176, height = 145 }, 
+				textureRect = { x = 536, y = 863, width = 176, height = 145 }, 
+				spriteSourceSize = { width = 176, height = 145 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "pullPull.png",
+				spriteColorRect = { x = 0, y = 0, width = 52, height = 397 }, 
+				textureRect = { x = 2, y = 464, width = 52, height = 397 }, 
+				spriteSourceSize = { width = 52, height = 397 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "redPull.png",
+				spriteColorRect = { x = 0, y = 0, width = 52, height = 397 }, 
+				textureRect = { x = 110, y = 464, width = 52, height = 397 }, 
+				spriteSourceSize = { width = 52, height = 397 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "startupScene.png",
+				spriteColorRect = { x = 0, y = 0, width = 320, height = 460 }, 
+				textureRect = { x = 646, y = 2, width = 320, height = 460 }, 
+				spriteSourceSize = { width = 320, height = 460 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "tableTop.png",
+				spriteColorRect = { x = 0, y = 0, width = 320, height = 203 }, 
+				textureRect = { x = 478, y = 464, width = 320, height = 203 }, 
+				spriteSourceSize = { width = 320, height = 203 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "whiteNote.png",
+				spriteColorRect = { x = 0, y = 0, width = 36, height = 37 }, 
+				textureRect = { x = 814, y = 863, width = 36, height = 37 }, 
+				spriteSourceSize = { width = 36, height = 37 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+			{
+				name = "whitePull.png",
+				spriteColorRect = { x = 0, y = 0, width = 52, height = 397 }, 
+				textureRect = { x = 164, y = 464, width = 52, height = 397 }, 
+				spriteSourceSize = { width = 52, height = 397 }, 
+				spriteTrimmed = true,
+				textureRotated = false
+			},
+		
+		}
+	}
+
+	return sheet
+end
