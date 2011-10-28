@@ -7,14 +7,9 @@
  */
 goog.provide('racer.scene.Layout')
 
-goog.require('lime.Director');
 goog.require('lime.Scene');
 goog.require('lime.Layer');
-goog.require('lime.scheduleManager');
-
-goog.require('goog.events');
-goog.require('goog.dom');
-goog.require('goog.dom.ViewportSizeMonitor');
+goog.require('lime.animation.MoveTo');
 
 goog.require('org.maths.Panel');
 
@@ -52,20 +47,87 @@ racer.scene.Layout = function() {
         .setRadius(10);
     layer.appendChild(this.control2);
 
-    this.orientation = 0;
-
-    goog.events.listen(this, ["mousedown"], this.orientationChange_);
-
-    var vsm = new goog.dom.ViewportSizeMonitor();
-    goog.events.listen(vsm, goog.events.EventType.RESIZE,
-        this.resizeHandler, false, this);
-
-    goog.events.listen(goog.global, 'orientationchange',
-        this.orientationChange_, false, this);
-
+//    this.orientation = 0;
 
 };
 goog.inherits(racer.scene.Layout, lime.Scene);
+
+
+/**
+ * Set the scene size and layout content
+ * @param {(goog.math.Size|number)} value Elements new size.
+ * @param {number=} opt_height Optionaly use widht,height as parameter.
+ * @return {racer.scene.Layout} this scene
+ */
+racer.scene.Layout.prototype.setSize = function(value, opt_height) {
+
+    var oldSize = this.getSize();
+    var size;
+    if (arguments.length == 2) {
+        size = new goog.math.Size(arguments[0], arguments[1]);
+    }
+    else {
+        size = value;
+    }
+
+    // super.setSize(size) 
+    goog.base(this, "setSize", size);
+
+
+    // setSize gets called before the constructor has finished, so need to check
+    // that children exist before laying them out.
+    if(goog.isDefAndNotNull(this.main)) {
+
+        this.main.setPosition(160,160);
+
+        var portrait = (size.height >= size.width);
+
+        if(portrait) {
+            // Portrait
+            this.control1.runAction(new lime.animation.MoveTo(80,400));
+            this.control2.runAction(new lime.animation.MoveTo(240,400));
+            /*
+            this.control1.setPosition(80,400);
+            this.control2.setPosition(240,400);
+            */
+        }
+        else {
+            // Landscape
+            this.control1.runAction(new lime.animation.MoveTo(400,80));
+            this.control2.runAction(new lime.animation.MoveTo(400,240));
+            //this.control1.setPosition(400,80);
+            //this.control2.setPosition(400,240);
+        }
+    }
+    return this;
+}
+
+
+/**
+ * this code has move to org.maths.Stage
+ *
+ * @param {lime.Director} stage
+ *
+racer.scene.Layout.prototype.goLandscape = function() {
+    // Landscape
+    //alert("" + this.getDirector().getSize().width + " " + this.getDirector().getSize().height);
+    this.main.setPosition(160,160);
+    this.control1.setPosition(400,80);
+    this.control2.setPosition(400,240);
+};
+
+/**
+ *
+ * @param {lime.Director} stage
+ *
+
+racer.scene.Layout.prototype.goPortrait = function() {
+    //alert("" + this.getDirector().getSize().width + " " + this.getDirector().getSize().height);
+    this.main.setPosition(160,160);
+    this.control1.setPosition(80,400);
+    this.control2.setPosition(240,400);
+};
+
 
 racer.scene.Layout.prototype.orientationChange_ = function(event) {
 
@@ -75,66 +137,35 @@ racer.scene.Layout.prototype.orientationChange_ = function(event) {
         return;
     }
 
-    //alert("Hi");
-    /*
-    this.orientation += 90;
-    if (this.orientation > 180) this.orientation -= 360;
-    if (this.orientation < -180) this.orientation += 360;
-    */
-
     if(goog.isDefAndNotNull(goog.global.orientation)) {
         var orientation = goog.global.orientation;
 
         if(orientation === 0 || orientation === 180) {
             // Portrait
-            //stage.setSize(320,480);
+            stage.setSize(320,480);
             this.setSize(320,480);
             this.goPortrait(stage);
         }
         else {
             // Landscape
-            //stage.setSize(480,320);
+            stage.setSize(480,320);
             this.setSize(480,320);
             this.goLandscape(stage);
         }
     }
 }
 
-
-/**
- *
- * @param {lime.Director} stage
- */
-racer.scene.Layout.prototype.goLandscape = function(stage) {
-    // Landscape
-    //alert("" + this.getDirector().getSize().width + " " + this.getDirector().getSize().height);
-    this.main.setPosition(160,160);
-    this.control1.setPosition(400,80);
-    this.control2.setPosition(400,240);
-    stage.invalidateSize_();
-};
-
-/**
- *
- * @param {lime.Director} stage
- */
-racer.scene.Layout.prototype.goPortrait = function(stage) {
-    //alert("" + this.getDirector().getSize().width + " " + this.getDirector().getSize().height);
-    this.main.setPosition(160,160);
-    this.control1.setPosition(80,400);
-    this.control2.setPosition(240,400);
-    stage.invalidateSize_();
-};
-
 racer.scene.Layout.prototype.resizeHandler = function(event) {
 
     var stage = this.getDirector();
+
+    //alert("resizeHandler");
 
     if(goog.isNull(stage)) {
         return;
     }
 
-    var stageSize = goog.style.getSize(this.domElement.parentNode);
+    var stageSize = goog.style.getSize(stage.domElement.parentNode);
 
     if (this.domElement.parentNode == document.body) {
         window.scrollTo(0, 0);
@@ -143,23 +174,22 @@ racer.scene.Layout.prototype.resizeHandler = function(event) {
         }
     }
 
-    var portrait = stageSize.height >= stageSize.width;
-    var size = this.getSize();
-    if(portrait && size.width > size.height) {
+    var portrait = (stageSize.height >= stageSize.width);
+    var size = stage.getSize();
+    if(portrait && size.height < size.width) {
         // Portrait
-        //stage.setSize(320,480);
+        stage.setSize(320,480);
         this.setSize(320,480);
         this.goPortrait(stage);
     }
-    else {
+    else if(!portrait && size.height >= size.width) {
         // Landscape
-        //stage.setSize(480,320);
+        stage.setSize(480,320);
         this.setSize(480,320);
         this.goLandscape(stage);
     }
+
 }
-
-
 
 racer.scene.Layout.prototype.wasAddedToTree = function() {
     // call super
@@ -173,4 +203,5 @@ racer.scene.Layout.prototype.wasAddedToTree = function() {
         this.resizeHandler();
     }
 }
+*/
 

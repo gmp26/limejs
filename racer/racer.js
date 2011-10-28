@@ -9,7 +9,7 @@
 goog.provide('racer');
 
 // get requirements
-goog.require('lime.Director');
+goog.require('org.maths.Stage');
 
 // app requirements
 //goog.require('racer.Model');
@@ -61,7 +61,7 @@ goog.require('org.maths.signals');
 racer.start = function() {
 
     // set the dimensions to iPhone portrait allowing for 20px status bar
-    racer.stage = new lime.Director(document.body, 320, 480);
+    racer.stage = new org.maths.Stage(document.body, 320, 480);
 
     racer.stage.setDisplayFPS(true);
 
