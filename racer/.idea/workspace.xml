@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Layout.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Layout.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scene/Layout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="20" selection-start="1915" selection-end="1915" vertical-scroll-proportion="0.15831135">
+            <state line="80" column="20" selection-start="1915" selection-end="1915" vertical-scroll-proportion="-2.3076923">
               <folding />
             </state>
           </provider>
@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stage.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Stage.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../org/maths/Stage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="0" selection-start="2424" selection-end="2424" vertical-scroll-proportion="0.0">
+            <state line="100" column="32" selection-start="3880" selection-end="3880" vertical-scroll-proportion="0.97243106">
               <folding />
             </state>
           </provider>
@@ -134,8 +134,8 @@
         <option value="$PROJECT_DIR$/scripts/deps.sh" />
         <option value="$PROJECT_DIR$/scene/Startup.js" />
         <option value="$PROJECT_DIR$/racer.js" />
-        <option value="$PROJECT_DIR$/../org/maths/Stage.js" />
         <option value="$PROJECT_DIR$/scene/Layout.js" />
+        <option value="$PROJECT_DIR$/../org/maths/Stage.js" />
       </list>
     </option>
   </component>
@@ -372,8 +372,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32945737" sideWeight="0.0" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2859546" sideWeight="0.5865633" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41343668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2859546" sideWeight="0.57881135" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42118862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -517,13 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../org/maths/Stage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2424" selection-end="2424" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../lime/src/animation/moveto.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="3" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
@@ -533,7 +526,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scene/Layout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="20" selection-start="1915" selection-end="1915" vertical-scroll-proportion="0.15831135">
+        <state line="80" column="20" selection-start="1915" selection-end="1915" vertical-scroll-proportion="-2.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../org/maths/Stage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="32" selection-start="3880" selection-end="3880" vertical-scroll-proportion="0.97243106">
           <folding />
         </state>
       </provider>

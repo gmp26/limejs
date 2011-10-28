@@ -6,6 +6,8 @@
  */
 goog.provide('org.maths.Stage');
 goog.require('lime.Director');
+goog.require('lime.animation.ScaleTo')
+goog.require('lime.animation.MoveTo')
 
 /**
  * org.maths.Stage is a lime.Director which reconfigures its layout depending on device
@@ -71,13 +73,16 @@ org.maths.Stage.prototype.invalidateSize_ = function() {
     var realSize = size.clone().scaleToFit(screenSize);
 
     var scale = realSize.width / this.getSize().width;
-    this.setScale(scale);
+    this.runAction(new lime.animation.ScaleTo(scale));
+    //this.setScale(scale);
 
     if (screenSize.aspectRatio() < realSize.aspectRatio()) {
-        this.setPosition(0, (screenSize.height - realSize.height) / 2);
+        this.runAction(new lime.animation.MoveTo(0, (screenSize.height - realSize.height) / 2));
+        //this.setPosition(0, (screenSize.height - realSize.height) / 2);
     }
     else {
-        this.setPosition((screenSize.width - realSize.width) / 2, 0);
+        this.runAction(new lime.animation.MoveTo((screenSize.width - realSize.width) / 2, 0));
+        //this.setPosition((screenSize.width - realSize.width) / 2, 0);
     }
 
     this.updateDomOffset_();
