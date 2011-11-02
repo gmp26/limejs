@@ -918,7 +918,12 @@ lime.Node.prototype.appendChild = function(child, opt_pos) {
     child.parent_ = this;
     
     if (opt_pos == undefined) {
+        try {
         this.children_.push(child);
+        }
+        catch(e) {
+            alert(e.message);
+        }
     }
     else {
         goog.array.insertAt(this.children_, child, opt_pos);

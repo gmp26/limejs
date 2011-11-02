@@ -60,7 +60,6 @@ goog.require('org.maths.signals');
 // entry point
 racer.start = function() {
 
-    // set the dimensions to iPhone portrait allowing for 20px status bar
     racer.stage = new org.maths.Stage(document.body, 320, 480);
 
     racer.stage.setDisplayFPS(true);

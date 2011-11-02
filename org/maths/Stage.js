@@ -32,10 +32,10 @@ goog.require('lime.animation.MoveTo')
  */
 org.maths.Stage = function(parentElement, opt_width, opt_height) {
 
-    alert(goog.orientation);
+    //alert(goog.orientation);
 
     var width, parentSize = goog.style.getSize(parentElement);
-    alert("" + parentSize.width + " " + parentSize.height);
+    //alert("" + parentSize.width + " " + parentSize.height);
 
     this.originalSize = new goog.math.Size(
         width = arguments[1] || parentSize.width || lime.Director.DEFAULT_WIDTH,
@@ -73,16 +73,16 @@ org.maths.Stage.prototype.invalidateSize_ = function() {
     var realSize = size.clone().scaleToFit(screenSize);
 
     var scale = realSize.width / this.getSize().width;
-    this.runAction(new lime.animation.ScaleTo(scale));
-    //this.setScale(scale);
+    //this.runAction(new lime.animation.ScaleTo(scale));
+    this.setScale(scale);
 
     if (screenSize.aspectRatio() < realSize.aspectRatio()) {
-        this.runAction(new lime.animation.MoveTo(0, (screenSize.height - realSize.height) / 2));
-        //this.setPosition(0, (screenSize.height - realSize.height) / 2);
+        //this.runAction(new lime.animation.MoveTo(0, (screenSize.height - realSize.height) / 2));
+        this.setPosition(0, (screenSize.height - realSize.height) / 2);
     }
     else {
-        this.runAction(new lime.animation.MoveTo((screenSize.width - realSize.width) / 2, 0));
-        //this.setPosition((screenSize.width - realSize.width) / 2, 0);
+        //this.runAction(new lime.animation.MoveTo((screenSize.width - realSize.width) / 2, 0));
+        this.setPosition((screenSize.width - realSize.width) / 2, 0);
     }
 
     this.updateDomOffset_();

@@ -23,37 +23,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="size.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../closure/closure/goog/math/size.js">
+      <file leaf-file-name="Startup.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scene/Startup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="25" selection-start="2740" selection-end="2740" vertical-scroll-proportion="0.0">
+            <state line="60" column="0" selection-start="1354" selection-end="1432" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Layout.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scene/Layout.js">
+      <file leaf-file-name="Editor.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/Editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="20" selection-start="1915" selection-end="1915" vertical-scroll-proportion="-2.3076923">
+            <state line="46" column="28" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="moveto.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lime/src/animation/moveto.js">
+      <file leaf-file-name="ColumnVector.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../org/maths/ui/ColumnVector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="3" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
+            <state line="93" column="16" selection-start="2297" selection-end="2297" vertical-scroll-proportion="0.7058824">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stage.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../org/maths/Stage.js">
+      <file leaf-file-name="signals.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../org/maths/signals.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="32" selection-start="3880" selection-end="3880" vertical-scroll-proportion="0.97243106">
+            <state line="158" column="0" selection-start="4912" selection-end="4936" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,16 +62,25 @@
       <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="991" column="0" selection-start="32659" selection-end="32659" vertical-scroll-proportion="0.0">
+            <state line="989" column="0" selection-start="32592" selection-end="32592" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listener.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/listener.js">
+      <file leaf-file-name="pools.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/pools.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="158" column="0" selection-start="3895" selection-end="3895" vertical-scroll-proportion="0.0">
+            <state line="170" column="0" selection-start="5327" selection-end="5327" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="director.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../lime/src/director.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="235" column="0" selection-start="6683" selection-end="6683" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,34 +89,25 @@
       <file leaf-file-name="eventdispatcher.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../lime/src/events/eventdispatcher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="0" selection-start="5269" selection-end="5269" vertical-scroll-proportion="0.0">
+            <state line="155" column="0" selection-start="5043" selection-end="5043" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventtarget.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/eventtarget.js">
+      <file leaf-file-name="racer.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/racer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="176" column="0" selection-start="6136" selection-end="6136" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../closure/closure/goog/base.js">
+      <file leaf-file-name="scroll.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../lime/demos/tests/scroll.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1470" column="0" selection-start="47336" selection-end="47336" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lime/src/node.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="401" column="0" selection-start="10251" selection-end="10384" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="784" selection-end="848" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,15 +127,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/racer.html" />
-        <option value="$PROJECT_DIR$/closure/closure/goog/deps.js" />
-        <option value="$PROJECT_DIR$/views/Panel.js" />
         <option value="$PROJECT_DIR$/scripts/sync.sh" />
         <option value="$PROJECT_DIR$/scripts/deps.sh" />
-        <option value="$PROJECT_DIR$/scene/Startup.js" />
-        <option value="$PROJECT_DIR$/racer.js" />
-        <option value="$PROJECT_DIR$/scene/Layout.js" />
+        <option value="$PROJECT_DIR$/../closure/closure/goog/dom/a11y.js" />
+        <option value="$PROJECT_DIR$/../org/maths/ui/LabelInput.js" />
+        <option value="$PROJECT_DIR$/views/Panel.js" />
+        <option value="$PROJECT_DIR$/views/ColumnVector.js" />
+        <option value="$PROJECT_DIR$/../closure/closure/goog/base.js" />
+        <option value="$PROJECT_DIR$/../lime/src/node.js" />
         <option value="$PROJECT_DIR$/../org/maths/Stage.js" />
+        <option value="$PROJECT_DIR$/scene/Layout.js" />
+        <option value="$PROJECT_DIR$/racer.js" />
+        <option value="$PROJECT_DIR$/scene/Startup.js" />
+        <option value="$PROJECT_DIR$/../lime/src/ui/scroller.js" />
+        <option value="$PROJECT_DIR$/views/Editor.js" />
+        <option value="$PROJECT_DIR$/view/Editor.js" />
+        <option value="$PROJECT_DIR$/../org/maths/ui/ColumnVector.js" />
       </list>
     </option>
   </component>
@@ -165,6 +172,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -175,34 +183,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="racer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="racer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="racer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="racer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="racer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scene" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -240,25 +220,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="racer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lime" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="animation" />
+              <option name="myItemId" value="demos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,16 +232,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -363,8 +329,28 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="103" y="24" width="1238" height="866" extended-state="0" />
+    <frame x="11" y="29" width="1238" height="866" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -372,14 +358,15 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32945737" sideWeight="0.0" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2859546" sideWeight="0.57881135" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42118862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23801515" sideWeight="0.5245478" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47545218" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32945737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4625323" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968882" sideWeight="0.65762275" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -425,115 +412,112 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../lime/src/node.js</url>
+          <line>924</line>
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../lime/src/schedulemanager.js">
+    <entry file="file://$PROJECT_DIR$/../lime/src/helper/glossybutton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="0" selection-start="7108" selection-end="7108" vertical-scroll-proportion="0.021067416">
+        <state line="35" column="44" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/racer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="41" selection-start="1958" selection-end="1958" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/tests/all_tests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/demos/tests/run.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/src/ui/scroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="19" selection-start="3339" selection-end="3339" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/src/node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="976" column="20" selection-start="27157" selection-end="27157" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/demos/tests/scroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="784" selection-end="848" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scene/Startup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="1354" selection-end="1432" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/racer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lime/src/director.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="0" selection-start="4466" selection-end="4466" vertical-scroll-proportion="176.53847">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lime/src/scene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/racer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="17" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scene/Startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="17" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1470" column="0" selection-start="47336" selection-end="47336" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lime/src/node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="401" column="0" selection-start="10251" selection-end="10384" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/listener.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="0" selection-start="3895" selection-end="3895" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../lime/src/events/eventdispatcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="0" selection-start="5269" selection-end="5269" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/eventtarget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="0" selection-start="6136" selection-end="6136" vertical-scroll-proportion="0.0">
+        <state line="155" column="0" selection-start="5043" selection-end="5043" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="991" column="0" selection-start="32659" selection-end="32659" vertical-scroll-proportion="0.0">
+        <state line="989" column="0" selection-start="32592" selection-end="32592" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/math/size.js">
+    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/pools.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="25" selection-start="2740" selection-end="2740" vertical-scroll-proportion="0.0">
+        <state line="170" column="0" selection-start="5327" selection-end="5327" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../lime/src/animation/moveto.js">
+    <entry file="file://$PROJECT_DIR$/../lime/src/director.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="3" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
+        <state line="235" column="0" selection-start="6683" selection-end="6683" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scene/Layout.js">
+    <entry file="file://$PROJECT_DIR$/../org/maths/signals.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="20" selection-start="1915" selection-end="1915" vertical-scroll-proportion="-2.3076923">
+        <state line="158" column="0" selection-start="4912" selection-end="4936" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../org/maths/Stage.js">
+    <entry file="file://$PROJECT_DIR$/view/Editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="32" selection-start="3880" selection-end="3880" vertical-scroll-proportion="0.97243106">
+        <state line="46" column="28" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../org/maths/ui/ColumnVector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="16" selection-start="2297" selection-end="2297" vertical-scroll-proportion="0.7058824">
           <folding />
         </state>
       </provider>

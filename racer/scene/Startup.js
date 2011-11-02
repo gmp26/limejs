@@ -34,22 +34,30 @@ racer.scene.Startup = function(nextSceneSignal) {
     // call super
     lime.Scene.call(this);
 
-    layer = new lime.Layer()
+    layer = new lime.Layer();
+
+    var background = new lime.Sprite()
+        .setFill('#EEA')
+        .setPosition(160,240)
+        .setSize(480,480);
+    layer.appendChild(background);
 
     var title = new lime.Label('Racer')
         .setFontSize(24)
-        .setPosition(160,240);
+        .setPosition(160,130);
     layer.appendChild(title);
 
     var startButton = new lime.GlossyButton("Start")
         .setSize(200,50)
-        .setPosition(160, 320)
-        .setColor('#CCCC00')
+        .setPosition(160, 190)
+        .setColor('#88AA00');
+    startButton.upstate.label.setFontColor('#FFF');
+    startButton.downstate.label.setFontColor('#FFF');
     layer.appendChild(startButton);
 
     this.appendChild(layer);
 
-    goog.events.listen(startButton, ["mousedown", "touchstart"], this.gotoLayout)
+    goog.events.listen(startButton, ["click", "touchstart"], this.gotoLayout)
 
 
 };

@@ -12,6 +12,7 @@ goog.require('lime.Layer');
 goog.require('lime.animation.MoveTo');
 
 goog.require('org.maths.Panel');
+goog.require('racer.views.Editor');
 
 
 /**
@@ -40,7 +41,7 @@ racer.scene.Layout = function() {
         .setRadius(10);
     layer.appendChild(this.control1);
 
-    this.control2 = new org.maths.Panel("CTRL2")
+    this.control2 = new racer.views.Editor("CTRL2")
         .setSize(160,160)
         .setFill('#06E')
 //        .setPosition(240,400)
@@ -84,124 +85,20 @@ racer.scene.Layout.prototype.setSize = function(value, opt_height) {
 
         if(portrait) {
             // Portrait
-            this.control1.runAction(new lime.animation.MoveTo(80,400));
-            this.control2.runAction(new lime.animation.MoveTo(240,400));
-            /*
+            //this.control1.runAction(new lime.animation.MoveTo(80,400));
+            //this.control2.runAction(new lime.animation.MoveTo(240,400));
+
             this.control1.setPosition(80,400);
             this.control2.setPosition(240,400);
-            */
+
         }
         else {
             // Landscape
-            this.control1.runAction(new lime.animation.MoveTo(400,80));
-            this.control2.runAction(new lime.animation.MoveTo(400,240));
-            //this.control1.setPosition(400,80);
-            //this.control2.setPosition(400,240);
+            //this.control1.runAction(new lime.animation.MoveTo(400,80));
+            //this.control2.runAction(new lime.animation.MoveTo(400,240));
+            this.control1.setPosition(400,80);
+            this.control2.setPosition(400,240);
         }
     }
     return this;
 }
-
-
-/**
- * this code has move to org.maths.Stage
- *
- * @param {lime.Director} stage
- *
-racer.scene.Layout.prototype.goLandscape = function() {
-    // Landscape
-    //alert("" + this.getDirector().getSize().width + " " + this.getDirector().getSize().height);
-    this.main.setPosition(160,160);
-    this.control1.setPosition(400,80);
-    this.control2.setPosition(400,240);
-};
-
-/**
- *
- * @param {lime.Director} stage
- *
-
-racer.scene.Layout.prototype.goPortrait = function() {
-    //alert("" + this.getDirector().getSize().width + " " + this.getDirector().getSize().height);
-    this.main.setPosition(160,160);
-    this.control1.setPosition(80,400);
-    this.control2.setPosition(240,400);
-};
-
-
-racer.scene.Layout.prototype.orientationChange_ = function(event) {
-
-    var stage = this.getDirector();
-
-    if(goog.isNull(stage)) {
-        return;
-    }
-
-    if(goog.isDefAndNotNull(goog.global.orientation)) {
-        var orientation = goog.global.orientation;
-
-        if(orientation === 0 || orientation === 180) {
-            // Portrait
-            stage.setSize(320,480);
-            this.setSize(320,480);
-            this.goPortrait(stage);
-        }
-        else {
-            // Landscape
-            stage.setSize(480,320);
-            this.setSize(480,320);
-            this.goLandscape(stage);
-        }
-    }
-}
-
-racer.scene.Layout.prototype.resizeHandler = function(event) {
-
-    var stage = this.getDirector();
-
-    //alert("resizeHandler");
-
-    if(goog.isNull(stage)) {
-        return;
-    }
-
-    var stageSize = goog.style.getSize(stage.domElement.parentNode);
-
-    if (this.domElement.parentNode == document.body) {
-        window.scrollTo(0, 0);
-        if (goog.isNumber(window.innerHeight)) {
-            stageSize.height = window.innerHeight;
-        }
-    }
-
-    var portrait = (stageSize.height >= stageSize.width);
-    var size = stage.getSize();
-    if(portrait && size.height < size.width) {
-        // Portrait
-        stage.setSize(320,480);
-        this.setSize(320,480);
-        this.goPortrait(stage);
-    }
-    else if(!portrait && size.height >= size.width) {
-        // Landscape
-        stage.setSize(480,320);
-        this.setSize(480,320);
-        this.goLandscape(stage);
-    }
-
-}
-
-racer.scene.Layout.prototype.wasAddedToTree = function() {
-    // call super
-    goog.base(this, 'wasAddedToTree');
-
-    // setup for current orientation
-    if(goog.isDefAndNotNull(goog.global.orientation)) {
-        this.orientationChange_();
-    }
-    else {
-        this.resizeHandler();
-    }
-}
-*/
-
