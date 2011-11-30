@@ -138,7 +138,6 @@ lime.ui.Scroller.prototype.measureLimits = function() {
         this.LOW -= diff;
         this.HIGH += diff;
     }
-    console.log("low = "+this.LOW, " high = "+this.HIGH);
 };
 
 /**

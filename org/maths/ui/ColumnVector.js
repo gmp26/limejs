@@ -58,8 +58,8 @@ org.maths.ui.ColumnVector = function(x,y, touchedSignal) {
     this.appendChild(this.bottomLabel);
 
     this.setSize(57,80);
-
-    goog.events.listen(this, ["mousedown", "touchstart"], this.touched, false, this);
+    if(goog.isDefAndNotNull(this.touchedSignal))
+        goog.events.listen(this, ["mousedown", "touchstart"], this.touched, false, this);
 
 };
 goog.inherits(org.maths.ui.ColumnVector, lime.Sprite);
@@ -86,10 +86,59 @@ org.maths.ui.ColumnVector.prototype.toggleEdit = function(event) {
 }
 
 org.maths.ui.ColumnVector.prototype.touched = function(event) {
-    this.touchedSignal.dispatch(this);
+    if(goog.isDefAndNotNull(this.touchedSignal))
+        this.touchedSignal.dispatch(this);
 }
 
-org.maths.ui.ColumnVector.prototype.setData = function(data) {
-    this.data = data;
+/**
+ *
+ * @param {Number} val
+ * @return {org.maths.ui.ColumnVector} this
+ */
+org.maths.ui.ColumnVector.prototype.setX = function(val) {
+    this.x = val;
+    this.topLabel.setText(val.toString());
     return this;
+}
+
+/**
+ * @return {Number}
+ */
+org.maths.ui.ColumnVector.prototype.getX = function() {
+    return this.x;
+}
+
+/**
+ *
+ * @param {Number} val
+ * @return {org.maths.ui.ColumnVector} this
+ */
+org.maths.ui.ColumnVector.prototype.setY = function(val) {
+    this.y = val;
+    this.bottomLabel.setText(val.toString());
+    return this;
+}
+
+/**
+ * @return {Number}
+ */
+org.maths.ui.ColumnVector.prototype.getY = function() {
+    return this.y;
+}
+
+/**
+ *
+ * @param {Number} val
+ * @return {org.maths.ui.ColumnVector} this
+ */
+org.maths.ui.ColumnVector.prototype.setData = function(val) {
+    this.data_ = val;
+    return this;
+}
+
+/**
+ * @return {Number}
+ */
+org.maths.ui.ColumnVector.prototype.getData = function() {
+    return this.data_;
 }

@@ -18,6 +18,9 @@ goog.require('lime.animation.RotateBy');
 goog.require('lime.animation.RotateTo');
 goog.require('lime.animation.Delay');
 
+goog.require('goog.events.Event');
+
+
 goog.require('lime.audio.Audio');
 
 /**
@@ -79,6 +82,8 @@ billiards.Bell.prototype.remoteRing = function(event) {
         bell = this
     }
     bell.remoteBellSound.play();
+
+    bell.dispatchEvent(new goog.events.Event("ManualBell"));
 }
 
 billiards.Bell.prototype.animateRing = function(event) {

@@ -106,7 +106,7 @@ billiards.scene.BackRoom = function(nextSceneSignal, modelUpdated) {
         .setRadius(3)
         .setFill('#CC0000')
         .setStroke(2, '#000')
-        .setPosition(138,60);
+        .setPosition(180,60);
     layer.appendChild(this.redRect);
 
     this.redScorePad = new lime.RoundedRect()
@@ -117,12 +117,13 @@ billiards.scene.BackRoom = function(nextSceneSignal, modelUpdated) {
         .setPosition(20,40);
     this.redRect.appendChild(this.redScorePad);
 
-    this.redCount = new lime.Label("0");
+    this.redCount = new lime.Label("0")
+        .setFontSize(12);
     this.redScorePad.appendChild(this.redCount);
 
     this.redBell = new billiards.Bell()
         .setAnchorPoint(0,0)
-        .setPosition(158,56);
+        .setPosition(200,56);
     layer.appendChild(this.redBell);
 
     this.greenRect = new lime.RoundedRect()
@@ -131,7 +132,7 @@ billiards.scene.BackRoom = function(nextSceneSignal, modelUpdated) {
         .setRadius(3)
         .setFill('#00CC00')
         .setStroke(2, '#000')
-        .setPosition(180,60);
+        .setPosition(138,60);
 
     this.greenScorePad = new lime.RoundedRect()
         .setSize(30,30)
@@ -141,14 +142,15 @@ billiards.scene.BackRoom = function(nextSceneSignal, modelUpdated) {
         .setPosition(20,40);
     this.greenRect.appendChild(this.greenScorePad);
 
-    this.greenCount = new lime.Label("0");
+    this.greenCount = new lime.Label("0")
+        .setFontSize(12);
     this.greenScorePad.appendChild(this.greenCount);
 
     layer.appendChild(this.greenRect);
 
     this.greenBell = new billiards.Bell()
         .setAnchorPoint(0,0)
-        .setPosition(200,56);
+        .setPosition(158,56);
     layer.appendChild(this.greenBell);
 
     this.openDoor = new lime.Sprite()
@@ -191,11 +193,12 @@ billiards.scene.BackRoom = function(nextSceneSignal, modelUpdated) {
 */
     this.estNumerator = new lime.Label('1')
         .setFontSize(12)
+        .setSize(70,1)
         .setPosition(205,305);
     layer.appendChild(this.estNumerator);
 
     this.fracBar = new lime.RoundedRect()
-        .setPosition(205,315)
+        .setPosition(205,320)
         .setFill('#000')
         .setSize(30,1)
         .setRadius(0)
@@ -203,11 +206,13 @@ billiards.scene.BackRoom = function(nextSceneSignal, modelUpdated) {
 
     this.decimal = new lime.Label('= 0.5')
         .setFontSize(12)
+        .setSize(100,1)
         .setPosition(245,315);
     layer.appendChild(this.decimal);
 
     this.estDenominator = new lime.Label('2')
         .setFontSize(12)
+        .setSize(70,1)
         .setPosition(205,325);
     layer.appendChild(this.estDenominator);
 
@@ -272,6 +277,10 @@ billiards.scene.BackRoom = function(nextSceneSignal, modelUpdated) {
 
     goog.events.listen(this.clockButton, ['mousedown','touchstart'], function(event) {
         var scene = event.target.getScene();
+
+        event.swallow(['touchend'], function(e) {
+            e.release();
+        });
 
         if(scene.going) {
             scene.going = false;

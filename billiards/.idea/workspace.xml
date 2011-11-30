@@ -13,7 +13,6 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-    <option name="REVERSE_PATCH" value="false" />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
@@ -23,37 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="billiards.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/billiards.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="27" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signals.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../org/maths/signals.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="26" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BackRoom.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scene/BackRoom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="21" selection-start="910" selection-end="910" vertical-scroll-proportion="0.0">
+            <state line="312" column="0" selection-start="9149" selection-end="9407" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,7 +34,7 @@
       <file leaf-file-name="Room.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scene/Room.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="21" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
+            <state line="61" column="0" selection-start="1465" selection-end="1583" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,7 +43,7 @@
       <file leaf-file-name="Startup.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scene/Startup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
+            <state line="27" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,7 +52,7 @@
       <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="0" selection-start="2321" selection-end="2321" vertical-scroll-proportion="0.0">
+            <state line="143" column="12" selection-start="4246" selection-end="4246" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,7 +70,7 @@
       <file leaf-file-name="billiards.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/billiards.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="257" vertical-scroll-proportion="0.0">
+            <state line="9" column="40" selection-start="0" selection-end="257" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,7 +79,25 @@
       <file leaf-file-name="BilliardTable.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scene/BilliardTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="234" column="5" selection-start="6392" selection-end="6392" vertical-scroll-proportion="-0.4002809">
+            <state line="315" column="0" selection-start="8598" selection-end="8598" vertical-scroll-proportion="0.6818182">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bell.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/Bell.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="14" selection-start="792" selection-end="797" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/event.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="0" selection-start="690" selection-end="725" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,7 +120,6 @@
         <option value="$PROJECT_DIR$/components/Plan.js" />
         <option value="$PROJECT_DIR$/../lime/src/audio/audio.js" />
         <option value="$PROJECT_DIR$/../lime/src/node.js" />
-        <option value="$PROJECT_DIR$/components/Bell.js" />
         <option value="$PROJECT_DIR$/Model.js" />
         <option value="$PROJECT_DIR$/scripts/build.sh" />
         <option value="$PROJECT_DIR$/scripts/install.sh" />
@@ -139,12 +128,19 @@
         <option value="$PROJECT_DIR$/signals.js" />
         <option value="$PROJECT_DIR$/billiards.js" />
         <option value="$PROJECT_DIR$/models/Model.js" />
-        <option value="$PROJECT_DIR$/scene/BackRoom.js" />
-        <option value="$PROJECT_DIR$/scene/BilliardTable.js" />
         <option value="$PROJECT_DIR$/scene/Room.js" />
         <option value="$PROJECT_DIR$/scene/Startup.js" />
+        <option value="$PROJECT_DIR$/components/Bell.js" />
+        <option value="$PROJECT_DIR$/scene/BackRoom.js" />
+        <option value="$PROJECT_DIR$/scene/BilliardTable.js" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="143" />
+    <option name="y" value="22" />
+    <option name="width" value="1238" />
+    <option name="height" value="866" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -172,12 +168,16 @@
       <sortByType ProjectPane="true" />
     </navigator>
     <panes>
-      <pane id="Favorites">
-        <subPane subId="billiards">
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
+              <option name="myItemId" value="billiards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billiards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -210,22 +210,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Favorites">
+        <subPane subId="billiards">
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="billiards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billiards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billiards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -235,10 +225,10 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="JavaScript.Libraries" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -254,9 +244,7 @@
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
-      <method>
-        <option name="PhingTarget" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="false" name="Billiards" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
@@ -300,6 +288,24 @@
     <configuration useDefault="true">$USER_HOME$/.subversion_IDEA</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
+  <component name="SvnConfiguration17" maxAnnotateRevisions="500">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="false">$USER_HOME$/.subversion_IDEA</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="07a82cf8-5210-4db3-b71d-b732407f958e" name="Default" comment="" />
@@ -309,26 +315,32 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="89" y="81" width="1238" height="866" extended-state="0" />
+    <frame x="143" y="22" width="1238" height="866" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3212784" sideWeight="0.5413437" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45865634" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3325103" sideWeight="0.39429313" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6057069" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2635659" sideWeight="0.96741855" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -354,6 +366,12 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
@@ -388,21 +406,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/compiled/Billiards.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/build.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/install.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="110" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/makePngs.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" />
@@ -433,24 +436,29 @@
         <state line="12" column="26" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/demos/zlizer/zlizer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="590" selection-end="590" vertical-scroll-proportion="0.7359813" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scene/BackRoom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="21" selection-start="910" selection-end="910" vertical-scroll-proportion="0.0" />
+        <state line="312" column="0" selection-start="9149" selection-end="9407" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scene/Room.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0" />
+        <state line="61" column="0" selection-start="1465" selection-end="1583" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scene/Startup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" />
+        <state line="27" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2321" selection-end="2321" vertical-scroll-proportion="0.0" />
+        <state line="143" column="12" selection-start="4246" selection-end="4246" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../closure/closure/goog/base.js">
@@ -462,12 +470,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/billiards.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="257" vertical-scroll-proportion="0.0" />
+        <state line="9" column="40" selection-start="0" selection-end="257" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Bell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="14" selection-start="792" selection-end="797" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/events/event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="690" selection-end="725" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scene/BilliardTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="5" selection-start="6392" selection-end="6392" vertical-scroll-proportion="-0.4002809">
+        <state line="315" column="0" selection-start="8598" selection-end="8598" vertical-scroll-proportion="0.6818182">
           <folding />
         </state>
       </provider>

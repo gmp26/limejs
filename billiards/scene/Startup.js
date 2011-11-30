@@ -36,7 +36,7 @@ billiards.scene.Startup = function(nextSceneSignal) {
     var title = new lime.Label('The Bayes Billiard Table Problem')
         .setSize(200,2)
         .setAnchorPoint(0,0)
-        .setFontSize(24)
+        .setFontSize(20)
         .setPosition(20,20);
 
     var backdrop = new lime.Sprite()
@@ -58,7 +58,7 @@ billiards.scene.Startup = function(nextSceneSignal) {
     var instruction = new lime.Label('Select or Pull')
         .setSize(200,1)
         .setAnchorPoint(0,0)
-        .setFontSize(24)
+        .setFontSize(20)
         .setPosition(20,400);
 
     var self = this;

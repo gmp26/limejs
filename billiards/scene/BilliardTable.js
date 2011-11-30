@@ -52,6 +52,8 @@ billiards.scene.BilliardTable = function(nextSceneSignal, modelUpdated) {
 
     billiards.scene.Room.call(this, "BilliardTable", nextSceneSignal, modelUpdated);
 
+    this.pausing = false;
+
     layer = new lime.Layer();
     this.appendChild(layer);
 
@@ -90,6 +92,7 @@ billiards.scene.BilliardTable = function(nextSceneSignal, modelUpdated) {
 
     this.whiteBell = new billiards.Bell(this.whiteNote).setPosition(30, 56);//.init();
     layer.appendChild(this.whiteBell);
+    goog.events.listen(this.whiteBell, "ManualBell", this.pullWhite, false, this);
 
     this.blackNote = new lime.Sprite()
         .setAnchorPoint(0, 0)
@@ -101,6 +104,7 @@ billiards.scene.BilliardTable = function(nextSceneSignal, modelUpdated) {
 
     this.blackBell = new billiards.Bell(this.blackNote).setPosition(73, 56);//.init();
     layer.appendChild(this.blackBell);
+    goog.events.listen(this.blackBell, "ManualBell", this.manualBell, false, this);
 
 
     this.closedDoor = new lime.Sprite()
@@ -152,7 +156,7 @@ billiards.scene.BilliardTable = function(nextSceneSignal, modelUpdated) {
     this.blackMessage = new lime.Label('')
         .setAnchorPoint(0.5, 0)
         .setPosition(160, 370)
-        .setFontColor('#000')
+        .setFontColor('#FFF')
         .setSize(250,1)
         .setFontSize(14)
         .setOpacity(0);
@@ -197,6 +201,8 @@ billiards.scene.BilliardTable.prototype.wasAddedToTree = function() {
     lime.Node.prototype.wasAddedToTree.call(this);
 
     //alert("Welcome to the billiards room");
+
+    this.pausing = false;
 
     if(!this.whitePulled) {
 
@@ -291,6 +297,9 @@ billiards.scene.BilliardTable.prototype.animateCue = function(ball) {
  * animate cueing of black ball
  */
 billiards.scene.BilliardTable.prototype.animateBlackCue = function() {
+    if(this.pausing) {
+        return;
+    }
     this.animateCue(this.blackBall);
     lime.scheduleManager.callAfter(this.animateBlackBall, this, 2100);
 };
@@ -339,6 +348,7 @@ billiards.scene.BilliardTable.prototype.drawZones = function() {
  * Simulate black pull
  */
 billiards.scene.BilliardTable.prototype.simulateBlackPull = function() {
+
     this.blackBell.animateRing();
     this.blackMessage.setOpacity(0);
     lime.scheduleManager.callAfter(
@@ -351,7 +361,15 @@ billiards.scene.BilliardTable.prototype.animateBlackBall = function() {
     var anim = this.animateBall(this.blackBall);
     var scene = this;
 
+    if(this.pausing) {
+        return;
+    }
+
     goog.events.listen(anim, lime.animation.Event.STOP, function() {
+
+        if(scene.pausing) {
+            return;
+        }
 
         if(billiards.scene2 !== billiards.stage.getCurrentScene()) {
             return;
@@ -446,3 +464,32 @@ billiards.scene.BilliardTable.prototype.placeWhiteBall = function() {
     ball.setPosition(position);
 }
 
+billiards.scene.BilliardTable.prototype.manualBell = function(event) {
+    //alert("ManualBell");
+    this.pausing = !this.pausing;
+    if(!this.pausing) {
+        this.simulateBlackPull();
+    }
+}
+
+/**
+ * pull White and reset model
+ * @param model
+ */
+
+billiards.scene.BilliardTable.prototype.pullWhite = function(event) {
+    this.pausing = !this.pausing;
+
+    if(!this.pausing) {
+            this.whiteBell.animateRing();
+        lime.scheduleManager.callAfter(
+            this.animateWhiteCue,
+            this,
+            250);
+
+        this.whitePulled = true;
+    }
+
+    lime.scheduleManager.unschedule(billiards.timeMachine, event.target.getScene());
+    billiards.model.reset();
+}

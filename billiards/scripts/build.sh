@@ -1,2 +1,2 @@
 cd ~/limejs
-/bin/lime.py build billiards -o billiards/compiled/billiards.js -a
+bin/lime.py build billiards -o billiards/compiled/billiards.js -a
