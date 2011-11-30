@@ -58,8 +58,10 @@ org.maths.ui.ColumnVector = function(x,y, touchedSignal) {
     this.appendChild(this.bottomLabel);
 
     this.setSize(57,80);
-    if(goog.isDefAndNotNull(this.touchedSignal))
+
+    if(goog.isDefAndNotNull(this.touchedSignal)) {
         goog.events.listen(this, ["mousedown", "touchstart"], this.touched, false, this);
+    }
 
 };
 goog.inherits(org.maths.ui.ColumnVector, lime.Sprite);
@@ -72,22 +74,29 @@ goog.inherits(org.maths.ui.ColumnVector, lime.Sprite);
 org.maths.ui.ColumnVector.prototype.setEditable = function(isEditable) {
     this.highlight.setOpacity(isEditable ? 1 : 0);
     return this;
-}
+};
 
 /**
  * @return {Boolean} true if editable
  */
 org.maths.ui.ColumnVector.prototype.getEditable = function() {
     return this.highlight.getOpacity() !== 0;
-}
+};
 
 org.maths.ui.ColumnVector.prototype.toggleEdit = function(event) {
     this.setEditable(!this.getEditable());
-}
+};
 
-org.maths.ui.ColumnVector.prototype.touched = function(event) {
-    if(goog.isDefAndNotNull(this.touchedSignal))
-        this.touchedSignal.dispatch(this);
+org.maths.ui.ColumnVector.prototype.touched = function(e) {
+    if(goog.isDefAndNotNull(this.touchedSignal)) {
+        if (e.type == 'mousedown' || e.type == 'touchstart') {
+             e.swallow(['mouseup', 'touchend'], this.touchComplete);
+        }
+    }
+};
+
+org.maths.ui.ColumnVector.prototype.touchComplete = function(e) {
+    this.touchedSignal.dispatch(this);
 }
 
 /**

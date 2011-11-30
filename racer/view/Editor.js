@@ -23,8 +23,6 @@ racer.views.Editor = function(colour, initialPosition, initialVelocity) {
 
     lime.RoundedRect.call(this);
 
-    this.maxEmpty = 0;
-
     // Create region of scrolling vectors
     this.scroll = new lime.ui.Scroller()
         .setFill(colour)
@@ -52,11 +50,13 @@ racer.views.Editor = function(colour, initialPosition, initialVelocity) {
 
     // Create inc and dec buttons for the selected vector
     for(var row=-1; row <= 1; row+=2) {
-        for(var inc=-1; inc<=1; inc++) {
-            var button = new lime.GlossyButton((inc >= 0 ? "+" : "") + inc)
-                .setPosition(50*inc,44*row)
+        for(var inc=-1; inc<=1; inc+=2) {
+            var button = new lime.GlossyButton((inc >= 0 ? "+" : "-") )
+                .setPosition(25*inc,44*row)
                 .setColor('#44CC00')
                 .setSize(44,44);
+            button.upstate.label.setFontSize(36);
+            button.downstate.label.setFontSize(36);
             button.row = row;
             button.delta = row < 0 ? new goog.math.Vec2(inc, 0) : new goog.math.Vec2(0, inc);
             this.appendChild(button);
@@ -114,12 +114,13 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
         }
         if(vector.x === "" || vector.y === "") {
 
+/*
             if(this.maxEmpty < vector.getData()+1)
                 this.maxEmpty = vector.getData()+1;
             else {
                 console.log("weird");
             }
-
+*/
             // first time we have set up this vector. Append another
             var index = vector.getData();
             var prev = this.vectors[index-1];
@@ -136,11 +137,17 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
         }
         vector.setEditable(true);
         this.cursor = vector;
+
+        // save delta in track
+        this.track.setDeltaAt(new goog.math.Vec2(0,0), index);
+
         console.log(vector.getPosition().x);
-        this.scroll.scrollTo(10*vector.getPosition().x, 1);
+        //this.scroll.scrollTo(10*vector.getPosition().x, 1);
 
     }
-}
+};
+
+racer.maxDelta = 2;
 
 racer.views.Editor.prototype.changeHandler = function(event) {
 
@@ -149,20 +156,53 @@ racer.views.Editor.prototype.changeHandler = function(event) {
 
     var index = this.cursor.getData();
 
-    if(index == 0) {
-        if(event.target.row < 0)
-            this.cursor.setX(event.target.delta.x);
-        else
-            this.cursor.setY(event.target.delta.y);
+    /** {goog.math.Vec2} */
+    var old = new goog.math.Vec2(0, 0);
+    if(index > 0) {
+        var oldv = this.vectors[index-1];
+        old.x = oldv.x;
+        old.y = oldv.y;
+    }
+
+    if(event.target.row < 0) {
+        var newx = this.cursor.x + event.target.delta.x;
+        if(Math.abs(newx-old.x) > racer.maxDelta)
+            return;
+        this.cursor.setX(newx);
     }
     else {
-        var old = this.vectors[index-1];
-        if(event.target.row < 0)
-            this.cursor.setX(event.target.delta.x+old.x);
-        else
-            this.cursor.setY(event.target.delta.y+old.y);
-    }
+        var newy = this.cursor.y + event.target.delta.y;
+        if(Math.abs(newy-old.y) > racer.maxDelta)
+            return;
+        this.cursor.setY(newy);
+    };
+
+    // save delta in track
+    /** {goog.math.Vec2} */
+    var delta = new goog.math.Vec2(this.cursor.x, this.cursor.y)
+            .subtract(old);
+    this.track.setDeltaAt(delta, index);
+
+    // ripple changes downstream
+    this.updateTrackView();
+
     return;
 
 };
+
+racer.views.Editor.prototype.updateTrackView = function() {
+
+    /** {racer.WayPoints} */
+    var wayPoints = this.track.wayPoints();
+
+    var len = wayPoints.length;
+    for(var i=1; i < len; i++) {
+        var v = this.vectors[i-1];
+
+        /** {racer.WayPoint} */
+        var wp = wayPoints[i];
+        v.setX(wp.velocity.x);
+        v.setY(wp.velocity.y);
+    }
+}
 

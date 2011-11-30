@@ -69,9 +69,9 @@ racer.model.Track.prototype.wayPoints = function() {
         /** {goog.math.Vec2} */
         var delta = this.deltas[i];
 
-        points[i] = {
-            position: goog.math.Vec2.sum(points[i-1].position, points[i-1].velocity),
-            velocity: goog.math.Vec2.sum(points[i-1].velocity, delta)
+        points[i+1] = {
+            position: goog.math.Vec2.sum(points[i].position, points[i].velocity),
+            velocity: goog.math.Vec2.sum(points[i].velocity, delta)
         }
     }
 
