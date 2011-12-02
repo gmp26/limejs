@@ -29,13 +29,13 @@ test.start = function() {
 	
 	var layer = new lime.Layer();
 	gamescene.appendChild(layer);
-	
+	/*
 	var cvs = document.createElement('canvas');
 	cvs.width= 300;
 	cvs.height = 300;
 	layer.appendChild(cvs);
 	var ctx = cvs.getContext('2d');
-	
+	*/
 
 	
 	var smile = new lime.CanvasContext().setSize(110,110).setPosition(100,100).setScale(.8).setRotation(20);

@@ -27,6 +27,8 @@ racer.model.Track = function(initialPosition, initialVelocity) {
 
     this.deltas = [];
 
+    this.selected = null;
+
  };
 
 /**
@@ -41,6 +43,15 @@ racer.model.Track.prototype.setDeltaAt = function(delta, index) {
 
     if(index <= len)
         this.deltas[index] = delta;
+
+    this.selected = index;
+
+    return this;
+};
+
+racer.model.Track.prototype.deselect = function() {
+
+    this.selected = null;
 
     return this;
 };

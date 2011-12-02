@@ -11,8 +11,10 @@ goog.require('lime.Scene');
 goog.require('lime.Layer');
 goog.require('lime.animation.MoveTo');
 
+goog.require('org.maths.signals');
 goog.require('org.maths.Panel');
 goog.require('racer.views.Editor');
+goog.require('racer.views.Course');
 goog.require('goog.math.Vec2');
 
 
@@ -23,30 +25,27 @@ racer.scene.Layout = function() {
 
     // super
     goog.base(this);
-//    lime.Scene.call(this);
+
+    /** {org.maths.signals.Signal} */
+    this.trackUpdated = new org.maths.signals.Signal();
 
     var layer = new lime.Layer();
     this.appendChild(layer);
 
-    this.main = new org.maths.Panel("MAIN")
+    this.main = new racer.views.Course(0, this.trackUpdated)
         .setSize(320,320)
-        .setFill('#C04')
-//        .setPosition(160,160)
-        .setRadius(10);
+        .setRadius(5);
     layer.appendChild(this.main);
 
     this.control1 = new org.maths.Panel("CTRL1")
         .setSize(160,160)
         .setFill('#4C0')
-//        .setPosition(80,400)
-        .setRadius(10);
+        .setRadius(5);
     layer.appendChild(this.control1);
 
-    this.control2 = new racer.views.Editor("#FFEEEE", new goog.math.Vec2(0,0), new goog.math.Vec2(0,0))
+    this.control2 = new racer.views.Editor(0,2, this.trackUpdated)
         .setSize(160,160)
-        .setFill('#06E')
-//        .setPosition(240,400)
-        .setRadius(10);
+        .setRadius(5);
     layer.appendChild(this.control2);
 
 //    this.orientation = 0;
