@@ -21,14 +21,17 @@ racer.model.Courses = [
         colours: [
             {
                 colour:'#CC6644',
+                highlight:'#FF0000',
                 start: new goog.math.Vec2(-12,5)
             },
            {
                 colour:'#4466CC',
+                highlight:'#0044FF',
                 start: new goog.math.Vec2(-11,4)
            },
            {
                 colour:'#77BB22',
+                highlight: '#00FF00',
                 start: new goog.math.Vec2(-10,3.1)
            }
         ],

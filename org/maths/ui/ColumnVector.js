@@ -96,6 +96,7 @@ org.maths.ui.ColumnVector.prototype.touched = function(e) {
 };
 
 org.maths.ui.ColumnVector.prototype.touchComplete = function(e) {
+    e.release();
     this.touchedSignal.dispatch(this);
 }
 

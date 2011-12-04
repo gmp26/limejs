@@ -7,8 +7,11 @@
 goog.provide('racer.views.Editor');
 goog.require('lime.RoundedRect');
 goog.require('org.maths.ui.ColumnVector');
-goog.require('lime.ui.Scroller');
+goog.require('org.maths.ui.Scroller');
+goog.require('lime.Sprite');
+goog.require('lime.Button');
 goog.require('lime.GlossyButton');
+goog.require('lime.fill.LinearGradient');
 goog.require('org.maths.signals');
 goog.require('racer.model.CourseInfo');
 goog.require('racer.model.Track');
@@ -40,19 +43,32 @@ racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
     /** {org.maths.signals.Signal} */
     this.trackUpdated = trackUpdated;
 
+    /** {number} */
+    this.scrollIndex = 1;
+
     /** {string} */
     var colour = colourInfo.colour;
 
 
     this.setFill(colour);
 
+    this.track = new racer.model.Track(colourInfo.start, new goog.math.Vec2(0,0));
+
+    this.fill = new lime.fill.LinearGradient()
+        .setDirection(0,0,1,0.01)
+        .addColorStop(0,'#444')
+        .addColorStop(0.05,'#EEE')
+        .addColorStop(0.5,'#FFF')
+        .addColorStop(0.95,'#EEE')
+        .addColorStop(1,'#444');
 
     // Create region of scrolling vectors
-    this.scroll = new lime.ui.Scroller()
-        .setFill('#FFFFFF')
+    this.scroll = new org.maths.ui.Scroller()
+        .setStroke(2, '#000')
         .setAnchorPoint(0, 0.5)
-        .setPosition(-70,0)
-        .setSize(140, 100);
+        .setPosition(-80+(160-90)/2,0)
+        .setSize(90, 44)
+        .setFill(this.fill);
     this.appendChild(this.scroll);
 
     // create array of columnVectors
@@ -63,14 +79,10 @@ racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
 
     // initially create two dummy vectors to make sure first one is central
     this.makePadVector(0);
-    this.makePadVector(1);
 
     // create first vector in tracks
     var vector = this.appendVector(0, this.touchedSignal);
-
-    this.track = new racer.model.Track(colourInfo.start, new goog.math.Vec2(0,0));
-
-    this.scroll.scrollTo(76*30);
+    this.toggleEdit(vector);
 
     // Create inc and dec buttons for the selected vector
     for(var row=-1; row <= 1; row+=2) {
@@ -87,6 +99,28 @@ racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
             goog.events.listen(button, ["mousedown", "touchstart"], this.changeHandler, false, this);
         }
     }
+
+    // Create left scroller button
+    var leftUp = new lime.Sprite()
+        .setFill('assets/leftUp.png');
+    var leftDown = new lime.Sprite()
+        .setFill('assets/leftDown.png');
+    var leftButton = new lime.Button(leftUp, leftDown)
+        .setPosition(-80+20, 0);
+    this.appendChild(leftButton);
+
+    // Create right scroller button
+    var rightUp = new lime.Sprite()
+        .setFill('assets/rightUp.png');
+    var rightDown = new lime.Sprite()
+        .setFill('assets/rightDown.png');
+    var rightButton = new lime.Button(rightUp, rightDown)
+        .setPosition(80-20, 0);
+    this.appendChild(rightButton);
+
+
+    goog.events.listen(leftButton, ["mousedown","touchstart"], this.scrollLeft, false, this);
+    goog.events.listen(rightButton, ["mousedown","touchstart"], this.scrollRight, false, this);
 };
 goog.inherits(racer.views.Editor, lime.RoundedRect);
 
@@ -97,7 +131,7 @@ goog.inherits(racer.views.Editor, lime.RoundedRect);
 racer.views.Editor.prototype.makePadVector = function(index) {
     var vector = new org.maths.ui.ColumnVector(0, 0, null)
         .setPosition(30*(index), 0)
-        .setOpacity(index == 0 ? 0 : 0.5)
+        .setOpacity(0.5)//index == 0 ? 0 : 0.5)
         .setScale(0.5,0.5);
     this.scroll.appendChild(vector);
 
@@ -112,7 +146,7 @@ racer.views.Editor.prototype.makePadVector = function(index) {
 racer.views.Editor.prototype.appendVector = function(index, touchedSignal) {
     console.log("append "+index);
     var vector = new org.maths.ui.ColumnVector("", "", touchedSignal)
-        .setPosition(30*(index+2), 0)
+        .setPosition(30*(index+1), 0)
         .setData(index)
         .setScale(0.5,0.5);
     this.scroll.appendChild(vector);
@@ -130,6 +164,7 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
 
     if(vector.getEditable()) {
         vector.setEditable(false);
+        this.track.selected = null;
         this.cursor = null;
         return;
     }
@@ -166,6 +201,7 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
     }
     vector.setEditable(true);
     this.cursor = vector;
+    this.track.selected = vector.getData();
 
 
     // ripple changes downstream
@@ -175,6 +211,30 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
     //this.scroll.scrollTo(10*vector.getPosition().x, 1);
 
 };
+
+/**
+ * deselects current selection
+ */
+racer.views.Editor.prototype.deselect = function() {
+
+    if(goog.isDefAndNotNull(this.cursor)) {
+        console.log("deselect "+this.cursor.getData());
+        this.cursor.setEditable(false);
+        this.cursor = null;
+        this.track.selected = null;
+    }
+};
+
+/**
+ * selects given index
+ */
+racer.views.Editor.prototype.select = function(index) {
+    this.deselect();
+    console.log("select "+index);
+    this.cursor = this.vectors[index];
+    this.cursor.setEditable(true);
+    this.track.selected = index;
+}
 
 racer.maxDelta = 2;
 
@@ -235,5 +295,45 @@ racer.views.Editor.prototype.updateTrackView = function() {
     }
 
     this.trackUpdated.dispatch(this.courseIndex, this.colourIndex, this.track);
-}
+};
+
+racer.views.Editor.prototype.scrollLeft = function(e) {
+    if (e.type == 'mousedown' || e.type == 'touchstart') {
+         e.swallow(['mouseup', 'touchend'], this.scrollLeftComplete);
+    }
+};
+
+racer.views.Editor.prototype.scrollRight = function(e) {
+    if (e.type == 'mousedown' || e.type == 'touchstart') {
+         e.swallow(['mouseup', 'touchend'], this.scrollRightComplete);
+    }
+};
+
+racer.views.Editor.prototype.scrollLeftComplete = function(e) {
+    e.release();
+
+    var editor = this.getParent();
+    if(editor.scrollIndex > 0)
+        --editor.scrollIndex;
+
+    editor.scroll.scrollTo((editor.scrollIndex)*30,1);
+    editor.select(editor.scrollIndex);
+
+    console.log("scrollTo "+editor.scrollIndex);
+};
+
+racer.views.Editor.prototype.scrollRightComplete = function(e) {
+    e.release();
+
+    var editor = this.getParent();
+    if(editor.scrollIndex < editor.vectors.length-1)
+        ++editor.scrollIndex;
+
+    editor.scroll.scrollTo((editor.scrollIndex-1)*30,1);
+    editor.select(editor.scrollIndex-1);
+
+    console.log("scrollTo "+(editor.scrollIndex-1));
+};
+
+
 
