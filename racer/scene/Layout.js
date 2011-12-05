@@ -13,6 +13,7 @@ goog.require('lime.animation.MoveTo');
 
 goog.require('org.maths.signals');
 goog.require('org.maths.Panel');
+goog.require('racer.views.Settings');
 goog.require('racer.views.Editor');
 goog.require('racer.views.Course');
 goog.require('goog.math.Vec2');
@@ -37,9 +38,9 @@ racer.scene.Layout = function() {
         .setRadius(5);
     layer.appendChild(this.main);
 
-    this.control1 = new org.maths.Panel("CTRL1")
+    this.control1 = new racer.views.Settings()
         .setSize(160,160)
-        .setFill('#4C0')
+//        .setFill('#4C0')
         .setRadius(5);
     layer.appendChild(this.control1);
 

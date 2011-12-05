@@ -62,7 +62,7 @@ racer.start = function() {
 
     racer.stage = new org.maths.Stage(document.body, 320, 480);
 
-    racer.stage.setDisplayFPS(true);
+    racer.stage.setDisplayFPS(false);
 
     // create the signal handling screen switching
     racer.nextSceneSignal = new org.maths.signals.Signal();

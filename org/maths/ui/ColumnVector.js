@@ -90,7 +90,7 @@ org.maths.ui.ColumnVector.prototype.toggleEdit = function(event) {
 org.maths.ui.ColumnVector.prototype.touched = function(e) {
     if(goog.isDefAndNotNull(this.touchedSignal)) {
         if (e.type == 'mousedown' || e.type == 'touchstart') {
-             e.swallow(['mouseup', 'touchend'], this.touchComplete);
+             e.swallow(['mouseup', 'touchend', 'touchcancel'], this.touchComplete);
         }
     }
 };

@@ -102,8 +102,10 @@ racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
 
     // Create left scroller button
     var leftUp = new lime.Sprite()
+        .setScale(0.5)
         .setFill('assets/leftUp.png');
     var leftDown = new lime.Sprite()
+        .setScale(0.5)
         .setFill('assets/leftDown.png');
     var leftButton = new lime.Button(leftUp, leftDown)
         .setPosition(-80+20, 0);
@@ -111,16 +113,19 @@ racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
 
     // Create right scroller button
     var rightUp = new lime.Sprite()
+        .setScale(0.5)
         .setFill('assets/rightUp.png');
     var rightDown = new lime.Sprite()
+        .setScale(0.5)
         .setFill('assets/rightDown.png');
     var rightButton = new lime.Button(rightUp, rightDown)
         .setPosition(80-20, 0);
     this.appendChild(rightButton);
 
+    this.scrollTo(1, 1);
 
-    goog.events.listen(leftButton, ["mousedown","touchstart"], this.scrollLeft, false, this);
-    goog.events.listen(rightButton, ["mousedown","touchstart"], this.scrollRight, false, this);
+    goog.events.listen(leftButton, ["mousedown","touchstart"], this.scrollLeft, true, this);
+    goog.events.listen(rightButton, ["mousedown","touchstart"], this.scrollRight, true, this);
 };
 goog.inherits(racer.views.Editor, lime.RoundedRect);
 
@@ -198,6 +203,8 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
          // save delta in track
          // TODO: understand why a possibly void index is better than vector.getData() here
          this.track.setDeltaAt(new goog.math.Vec2(0,0), index);
+
+        this.scrollTo(index, 1);
     }
     vector.setEditable(true);
     this.cursor = vector;
@@ -299,41 +306,54 @@ racer.views.Editor.prototype.updateTrackView = function() {
 
 racer.views.Editor.prototype.scrollLeft = function(e) {
     if (e.type == 'mousedown' || e.type == 'touchstart') {
-         e.swallow(['mouseup', 'touchend'], this.scrollLeftComplete);
+        e.event.stopPropagation();
+        e.swallow(['mouseup', 'touchend'], this.scrollLeftComplete);
     }
 };
 
 racer.views.Editor.prototype.scrollRight = function(e) {
     if (e.type == 'mousedown' || e.type == 'touchstart') {
-         e.swallow(['mouseup', 'touchend'], this.scrollRightComplete);
+        e.event.stopPropagation();
+        e.swallow(['mouseup', 'touchend'], this.scrollRightComplete);
     }
 };
 
 racer.views.Editor.prototype.scrollLeftComplete = function(e) {
+    e.event.stopPropagation();
     e.release();
 
     var editor = this.getParent();
     if(editor.scrollIndex > 0)
         --editor.scrollIndex;
 
-    editor.scroll.scrollTo((editor.scrollIndex)*30,1);
+    editor.scroll.scrollTo(editor.scrollIndex);
     editor.select(editor.scrollIndex);
 
     console.log("scrollTo "+editor.scrollIndex);
 };
 
 racer.views.Editor.prototype.scrollRightComplete = function(e) {
+    e.event.stopPropagation();
     e.release();
 
     var editor = this.getParent();
     if(editor.scrollIndex < editor.vectors.length-1)
         ++editor.scrollIndex;
 
-    editor.scroll.scrollTo((editor.scrollIndex-1)*30,1);
+    editor.scrollTo(editor.scrollIndex-1);
     editor.select(editor.scrollIndex-1);
 
     console.log("scrollTo "+(editor.scrollIndex-1));
 };
 
+/**
+ * scroll to a vector index
+ * @param index of the columnVector to scroll to
+ * @opt_duration optional duration of scroll in seconds
+ */
+racer.views.Editor.prototype.scrollTo = function(index, opt_duration) {
+    var duration = opt_duration || 0;
+    this.scroll.scrollTo(index*30, duration);
+}
 
 
