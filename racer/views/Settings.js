@@ -24,7 +24,7 @@ racer.views.Settings = function() {
     var labelRenderer = new org.maths.ui.LabelRendererFactory;
     this.courseCombo = new org.maths.ui.Selector(this.getCourseNames(), labelRenderer)
         .setDirection(org.maths.ui.Scroller.Direction.VERTICAL)
-        .setItemsShowing(3);
+        .setItemsShowing(1);
 
     this.appendChild(this.courseCombo);
 };

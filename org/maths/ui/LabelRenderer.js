@@ -39,5 +39,5 @@ org.maths.ui.LabelRenderer.prototype.setData = function(data) {
  * @return lime.Label
  */
 org.maths.ui.LabelRenderer.prototype.getItem = function() {
-    return new lime.Label(this.text_);
+    return new lime.Label(this.text_).setPadding(5);
 }

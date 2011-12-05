@@ -32,6 +32,8 @@ org.maths.ui.Scroller = function() {
         this.downHandler_, false, this);
 
 
+    this.stepSize = 1;
+
     this.setDirection(org.maths.ui.Scroller.Direction.HORIZONTAL);
 
 };
@@ -301,12 +303,21 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
     }
 
     lime.scheduleManager.unschedule(this.captureVelocity_, this);
-    var k = Math.log(0.5 / Math.abs(this.v)) /
-            Math.log(org.maths.ui.Scroller.FRICTION),
-        duration = k / 30,
+    var k,duration,endpos;
+    if(Math.abs(this.v > 1e-2)) {
+        k = Math.log(0.5 / Math.abs(this.v)) /
+            Math.log(org.maths.ui.Scroller.FRICTION);
+        duration = k / 30;
         endpos = (Math.abs(this.v) *
             (Math.pow(org.maths.ui.Scroller.FRICTION, k) - 1)) /
             (org.maths.ui.Scroller.FRICTION - 1) * (this.v > 0 ? 1 : -1);
+    }
+    else {
+        k = 0;
+        duration = 1;
+        endpos = 0;
+    }
+    //console.log("k=",k, "d=",duration, "end=",endpos, "av=",activeval);
 
     activeval += endpos;
     this.ismove = 0;
@@ -337,6 +348,10 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
         duration = .3;
     }
 
+    if(!goog.isNumber(activeval))
+        console.log("not a number");
+    activeval = this.quantise(activeval);
+
     if (dir == org.maths.ui.Scroller.Direction.HORIZONTAL) {
         pos.x = activeval;
     }
@@ -344,11 +359,48 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
         pos.y = activeval;
     }
 
-    if (Math.abs(duration) < 10) {
-         this.moving_.runAction(new lime.animation.MoveTo(pos.x, pos.y).
-            setDuration(duration).enableOptimizations().
-            setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97)));
+    //console.log("pos.y=",pos.y, "d=",duration);
+
+    if (!goog.isNumber(duration) || duration > 2) {
+        duration = 2;
     }
-
-
+    this.moving_.runAction(new lime.animation.MoveTo(pos.x, pos.y).
+        setDuration(duration).enableOptimizations().
+        setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97)));
 };
+
+
+/**
+ * @return the number of stops
+ */
+org.maths.ui.Scroller.prototype.getStops = function() {
+    return this.stops;
+}
+
+/**
+ * set the number of stops
+ * @param val
+ */
+org.maths.ui.Scroller.prototype.setStops = function(n) {
+    this.stops = n;
+    this.setDirty(lime.Dirty.LAYOUT);
+    return this;
+}
+
+
+/**
+ * Force scroller to stop at certain values only.
+ *
+ * @param val
+ */
+org.maths.ui.Scroller.prototype.quantise = function(val) {
+    var newval;
+    if(this.stops < 2)
+        newval = this.LOW;
+    else {
+        var q = (this.HIGH - this.LOW)/(this.stops - 1);
+        newval = this.LOW + q * Math.round((val-this.LOW)/q);
+    }
+    console.log("val=",val,"new=",newval);
+    return newval;
+}
