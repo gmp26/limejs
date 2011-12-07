@@ -22,10 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Selector.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Selector.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../org/maths/ui/Selector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="20" selection-start="1163" selection-end="1163" vertical-scroll-proportion="-0.33333334">
+            <state line="35" column="33" selection-start="963" selection-end="963" vertical-scroll-proportion="14.423077">
               <folding>
                 <element signature="e#0#94#0" expanded="false" />
               </folding>
@@ -33,19 +33,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scroller.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Scroller.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../org/maths/ui/Scroller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="352" column="39" selection-start="8959" selection-end="8959" vertical-scroll-proportion="-185.76923">
+            <state line="224" column="48" selection-start="5629" selection-end="5645" vertical-scroll-proportion="0.33126935">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Layout.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scene/Layout.js">
+      <file leaf-file-name="schedulemanager.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../lime/src/schedulemanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="39" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0">
+            <state line="138" column="21" selection-start="3562" selection-end="3562" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -65,16 +65,7 @@
       <file leaf-file-name="CourseInfo.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="31" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../closure/closure/goog/base.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="864" column="10" selection-start="27827" selection-end="27832" vertical-scroll-proportion="-5.769231">
+            <state line="59" column="6" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -84,33 +75,6 @@
         <entry file="file://$PROJECT_DIR$/views/Editor.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="63" column="0" selection-start="1394" selection-end="1597" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lime.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lime/src/lime.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="4" selection-start="1950" selection-end="1950" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sprite.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lime/src/sprite.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="36" selection-start="1647" selection-end="1665" vertical-scroll-proportion="-32.307693">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lime/src/node.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="693" column="9" selection-start="19203" selection-end="19209" vertical-scroll-proportion="44.423077">
               <folding />
             </state>
           </provider>
@@ -144,16 +108,15 @@
         <option value="$PROJECT_DIR$/../org/maths/ui/LabelRenderer.js" />
         <option value="$PROJECT_DIR$/views/Settings.js" />
         <option value="$PROJECT_DIR$/model/CourseInfo.js" />
-        <option value="$PROJECT_DIR$/../org/maths/ui/Scroller.js" />
         <option value="$PROJECT_DIR$/../org/maths/ui/Selector.js" />
+        <option value="$PROJECT_DIR$/../org/maths/ui/Scroller.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="55" />
-    <option name="width" value="1238" />
-    <option name="height" value="866" />
+    <option name="y" value="22" />
+    <option name="width" value="984" />
+    <option name="height" value="864" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -545,15 +508,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="55" width="1238" height="866" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="984" height="864" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32945737" sideWeight="0.0" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33246753" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24717286" sideWeight="0.6818182" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3181818" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22459349" sideWeight="0.5182292" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48177084" sideWeight="0.99898374" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299748" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -622,22 +585,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../org/maths/ui/LabelRenderer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="50" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#94#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/testing/mockclock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="https://ssl.gstatic.com/gb/js/abc/gcm_e9b1c8ddbdbba9ea5c035548a0320af1.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
@@ -699,9 +646,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
+    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="31" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0">
+        <state line="864" column="10" selection-start="27827" selection-end="27832" vertical-scroll-proportion="-5.769231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/src/animation/animation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -715,26 +669,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../closure/closure/goog/base.js">
+    <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="864" column="10" selection-start="27827" selection-end="27832" vertical-scroll-proportion="-5.769231">
+        <state line="59" column="6" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../org/maths/ui/Scroller.js">
+    <entry file="file://$PROJECT_DIR$/../lime/src/schedulemanager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="352" column="39" selection-start="8959" selection-end="8959" vertical-scroll-proportion="-185.76923">
+        <state line="138" column="21" selection-start="3562" selection-end="3562" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../org/maths/ui/Selector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="20" selection-start="1163" selection-end="1163" vertical-scroll-proportion="-0.33333334">
+        <state line="35" column="33" selection-start="963" selection-end="963" vertical-scroll-proportion="14.423077">
           <folding>
             <element signature="e#0#94#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../org/maths/ui/Scroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="224" column="48" selection-start="5629" selection-end="5645" vertical-scroll-proportion="0.33126935">
+          <folding />
         </state>
       </provider>
     </entry>

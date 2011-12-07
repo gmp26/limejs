@@ -36,6 +36,9 @@ org.maths.ui.Scroller = function() {
 
     this.setDirection(org.maths.ui.Scroller.Direction.HORIZONTAL);
 
+    this.lastTime = goog.now();
+
+
 };
 goog.inherits(org.maths.ui.Scroller, lime.RoundedRect);
 
@@ -225,6 +228,9 @@ org.maths.ui.Scroller.prototype.captureVelocity_ = function() {
         this.oldvalue = this.posvalue;
     }
     this.v *= org.maths.ui.Scroller.FRICTION;
+    console.log(this.ismove, this.v, goog.now()-this.lastTime);
+    this.lastTime = goog.now();
+
 };
 
 /**
