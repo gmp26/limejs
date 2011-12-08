@@ -122,7 +122,7 @@ racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
         .setPosition(80-20, 0);
     this.appendChild(rightButton);
 
-    this.scrollTo(1, 1);
+    this.scrollTo(1, 2);
 
     goog.events.listen(leftButton, ["mousedown","touchstart"], this.scrollLeft, true, this);
     goog.events.listen(rightButton, ["mousedown","touchstart"], this.scrollRight, true, this);
@@ -204,7 +204,7 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
          // TODO: understand why a possibly void index is better than vector.getData() here
          this.track.setDeltaAt(new goog.math.Vec2(0,0), index);
 
-        this.scrollTo(index, 1);
+        this.scrollTo(index, 2);
     }
     vector.setEditable(true);
     this.cursor = vector;

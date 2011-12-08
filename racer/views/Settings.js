@@ -8,8 +8,11 @@ goog.provide('racer.views.Settings');
 goog.require('racer.model.CourseInfo');
 goog.require('lime.RoundedRect');
 goog.require('org.maths.ui.Scroller');
-goog.require('org.maths.ui.Selector');
+goog.require('org.maths.ui.Scroller.Direction');
+goog.require('org.maths.ui.ArrowSelector');
 goog.require('org.maths.ui.LabelRendererFactory');
+goog.require('goog.events');
+goog.require('goog.ui.ComboBox');
 
 /**
  * @constructor
@@ -22,10 +25,17 @@ racer.views.Settings = function() {
 
     var courseNames = this.getCourseNames();
     var labelRenderer = new org.maths.ui.LabelRendererFactory;
+
+    this.courseCombo = new org.maths.ui.ArrowSelector(
+        this.getCourseNames(),
+        labelRenderer,
+        org.maths.ui.Scroller.Direction.HORIZONTAL)
+        .setItemsShowing(1);
+/*
     this.courseCombo = new org.maths.ui.Selector(this.getCourseNames(), labelRenderer)
         .setDirection(org.maths.ui.Scroller.Direction.VERTICAL)
         .setItemsShowing(1);
-
+*/
     this.appendChild(this.courseCombo);
 };
 goog.inherits(racer.views.Settings, lime.RoundedRect);

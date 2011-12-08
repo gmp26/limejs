@@ -5,6 +5,7 @@
  * Copyright University of Cambridge
  */
 goog.provide('org.maths.ui.Scroller');
+goog.provide('org.maths.ui.Scroller.Direction');
 
 goog.require('lime.RoundedRect');
 goog.require('lime.animation.MoveTo');
@@ -20,8 +21,8 @@ org.maths.ui.Scroller = function() {
     //need default size for autoresize
     this.setSize(100, 100);
 
-    this.clipper = new lime.Sprite().setFill('#c00').setSize(100, 100).
-        setAutoResize(lime.AutoResize.ALL);
+    this.clipper = new lime.Sprite().setFill('#c00').setSize(98, 98).
+        setAutoResize(lime.AutoResize.ALL).setPosition(1,1);
     this.appendChild(this.clipper);
     this.setMask(this.clipper);
 
@@ -173,6 +174,9 @@ org.maths.ui.Scroller.prototype.scrollTo = function(offset, opt_duration) {
         if (pos.y < this.LOW) pos.y = this.LOW;
     }
 
+    if(isNaN(pos.x) || isNaN(pos.y))
+        console.log("pos NaN");
+
     if (duration) {
         this.moving_.runAction(new lime.animation.MoveTo(pos.x, pos.y).
             setDuration(duration).enableOptimizations().
@@ -203,6 +207,9 @@ org.maths.ui.Scroller.prototype.downHandler_ = function(e) {
         this.oldvalue = this.posvalue = this.moving_.getPosition().y;
     }
 
+    if(isNaN(this.oldvalue))
+        console.log("old NaN");
+
     this.measureLimits();
 
     lime.animation.actionManager.stopAll(this.moving_);
@@ -229,8 +236,10 @@ org.maths.ui.Scroller.prototype.captureVelocity_ = function() {
     }
     this.v *= org.maths.ui.Scroller.FRICTION;
     console.log(this.ismove, this.v, goog.now()-this.lastTime);
+    if(isNaN(this.v)) {
+        console.log("bad v");
+    }
     this.lastTime = goog.now();
-
 };
 
 /**
@@ -276,6 +285,9 @@ org.maths.ui.Scroller.prototype.moveHandler_ = function(e) {
     }
 
     this.posvalue = activeval;
+    if(isNaN(activeval)) {
+        console.log("pos NaN");
+    }
 
     if (dir == org.maths.ui.Scroller.Direction.HORIZONTAL) {
         pos.x = activeval;
@@ -354,7 +366,7 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
         duration = .3;
     }
 
-    if(!goog.isNumber(activeval))
+    if(isNaN(activeval))
         console.log("not a number");
     activeval = this.quantise(activeval);
 
@@ -367,12 +379,21 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
 
     //console.log("pos.y=",pos.y, "d=",duration);
 
+
     if (!goog.isNumber(duration) || duration > 2) {
         duration = 2;
     }
     this.moving_.runAction(new lime.animation.MoveTo(pos.x, pos.y).
         setDuration(duration).enableOptimizations().
         setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97)));
+
+/*
+    if (Math.abs(duration) < 10) {
+          this.moving_.runAction(new lime.animation.MoveTo(pos.x, pos.y).
+             setDuration(duration).enableOptimizations().
+             setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97)));
+     }
+*/
 };
 
 
@@ -401,12 +422,12 @@ org.maths.ui.Scroller.prototype.setStops = function(n) {
  */
 org.maths.ui.Scroller.prototype.quantise = function(val) {
     var newval;
-    if(this.stops < 2)
+    if(!goog.isDefAndNotNull(this.stops) || this.stops < 2)
         newval = this.LOW;
     else {
         var q = (this.HIGH - this.LOW)/(this.stops - 1);
         newval = this.LOW + q * Math.round((val-this.LOW)/q);
     }
-    console.log("val=",val,"new=",newval);
+//    console.log("val=",val,"new=",newval);
     return newval;
 }

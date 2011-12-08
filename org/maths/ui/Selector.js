@@ -33,16 +33,17 @@ org.maths.ui.Selector = function(dataProvider, itemRendererFactory) {
     this.fill = new lime.fill.LinearGradient()
         .setDirection(0,1,1,1)
         .addColorStop(0,'#444')
-        .addColorStop(0.1,'#EEE')
+        .addColorStop(0.3,'#EEE')
         .addColorStop(0.5,'#FFF')
-        .addColorStop(0.9,'#EEE')
+        .addColorStop(0.7,'#EEE')
         .addColorStop(1,'#444');
 
     // Create scrolling region
     this.scroll = new org.maths.ui.Scroller()
-        .setStroke(1, '#000')
+        .setStroke(2, '#000')
         .setDirection(org.maths.ui.Scroller.Direction.HORIZONTAL)
         .setFill(this.fill)
+        .setRadius(2)
         .setSize(100, 100);
     this.appendChild(this.scroll);
 
