@@ -9,15 +9,26 @@ goog.provide('org.maths.ui.Selector');
 goog.require('lime.RoundedRect');
 goog.require('lime.fill.LinearGradient');
 goog.require('org.maths.ui.Scroller');
+goog.require('org.maths.ui.Scroller.Direction');
 goog.require('org.maths.ui.interfaces.ItemRendererFactory');
 goog.require('org.maths.ui.interfaces.ItemRenderer');
+goog.require('org.maths.signals');
 
 /**
  * @param {Array} dataProvider
  * @param {org.maths.ui.interfaces.ItemRendererFactory} itemRendererFactory
+ * @param {number} items showing in menu
+ * @param {org.maths.ui.Scroller.Direction}
+ * @param {org.maths.signals.Signal} scrollStartedSignal
+ * @param {org.maths.signals.Signal} scrollStoppedSignal
  * @constructor
  */
-org.maths.ui.Selector = function(dataProvider, itemRendererFactory) {
+org.maths.ui.Selector = function(dataProvider,
+                                 itemRendererFactory,
+                                 itemsShowing,
+                                 direction,
+                                 scrollStartedSignal,
+                                 scrollStoppedSignal) {
     goog.base(this);
 
     /** {Array} */
@@ -27,7 +38,10 @@ org.maths.ui.Selector = function(dataProvider, itemRendererFactory) {
     this.itemRendererFactory = itemRendererFactory;
 
     /** {number} */
-    this.itemsShowing = 1;
+    this.itemsShowing = itemsShowing;
+
+    /** {number} */
+    this.selectedIndex = 0;
 
     /** fills */
     this.fill = new lime.fill.LinearGradient()
@@ -38,14 +52,20 @@ org.maths.ui.Selector = function(dataProvider, itemRendererFactory) {
         .addColorStop(0.7,'#EEE')
         .addColorStop(1,'#444');
 
+    // intercept scroller did stop signal so we can resignal with new selectedIndex
+    var scrollerDidStop = new org.maths.signals.Signal();
+
+    scrollerDidStop.add(function(stop) {
+        this.selectedIndex = stop;//this.scroll.stop;
+        scrollStoppedSignal.dispatch(this.selectedIndex);
+    }, this);
+
     // Create scrolling region
-    this.scroll = new org.maths.ui.Scroller()
+    this.scroll = new org.maths.ui.Scroller(scrollStartedSignal, scrollerDidStop)
         .setStroke(2, '#000')
-        .setDirection(org.maths.ui.Scroller.Direction.HORIZONTAL)
         .setFill(this.fill)
         .setRadius(2)
         .setSize(100, 100);
-    this.appendChild(this.scroll);
 
     // Create items according to the data in the dataProvider
     this.items = [];
@@ -56,19 +76,37 @@ org.maths.ui.Selector = function(dataProvider, itemRendererFactory) {
         itemRenderer.setData(data);
 
         var item = this.items[i] = itemRenderer.getItem();
-        this.itemSize.width = Math.max(this.itemSize.width, item.getSize().width);
-        this.itemSize.height = Math.max(this.itemSize.height, item.getSize().height);
+        this.itemSize.width = Math.ceil(Math.max(this.itemSize.width, item.getSize().width));
+        this.itemSize.height = Math.ceil(Math.max(this.itemSize.height, item.getSize().height));
         this.scroll.appendChild(item);
     }
 
+    // needs items first!
+    this.setDirection(direction);
+
+    this.appendChild(this.scroll);
+
+    // horizontal by default
+    this.stepSize = this.itemSize.width;
+    if(direction === org.maths.ui.Scroller.Direction.VERTICAL) {
+        this.stepSize = this.itemSize.height;
+    }
+
+    //console.log("itemWidth=",this.itemSize.width,"Height=",this.itemSize.height);
+
+    this.updateView();
 };
 goog.inherits(org.maths.ui.Selector, lime.RoundedRect);
 
 
 /** @inheritDoc */
-org.maths.ui.Selector.prototype.update = function() {
+org.maths.ui.Selector.prototype.updateView = function() {
 
-    if(this.getDirty()) {
+    //lime.Node.prototype.update.apply(this,arguments);
+
+    //if(this.getDirty()) {
+
+    //console.log("selector updateView");
 
         var i,w,h,item;
         if(this.scroll.getDirection() == org.maths.ui.Scroller.Direction.HORIZONTAL) {
@@ -88,16 +126,15 @@ org.maths.ui.Selector.prototype.update = function() {
             }
         }
         this.scroll.setSize(w,h);
-        this.scroll.scrollTo(0);
+        this.scroll.scrollToStop(0);
 
-        lime.Node.prototype.update.apply(this,arguments);
-    }
+    //}
 
 };
 
 /**
  * get items showing
- * @return {org.maths.ui.Scroller.Direction}
+ * @return {number}
  */
 org.maths.ui.Selector.prototype.getItemsShowing = function() {
     return this.itemsShowing;
@@ -124,19 +161,49 @@ org.maths.ui.Selector.prototype.getDirection = function() {
 /**
  * set direction of scroller - horizontal or vertical
  * @param {org.maths.ui.Scroller.Direction} direction
+ * @return {org.maths.ui.Selector} this
  */
 org.maths.ui.Selector.prototype.setDirection = function(direction) {
     this.scroll.setDirection(direction);
     if(direction === org.maths.ui.Scroller.Direction.HORIZONTAL) {
-        this.scroll.setAnchorPoint(0, 0.5)
+        this.scroll
             .setFill(this.fill.setDirection(0,0,1,0.01))
             .setStops(this.items.length);
     }
     else {
-        this.scroll.setAnchorPoint(0.5, 0)
+        this.scroll
             .setFill(this.fill.setDirection(1,0,1,1))
             .setStops(this.items.length);
     }
     this.setDirty(lime.Dirty.LAYOUT);
     return this;
 };
+
+/**
+ * @return {number} current selectedIndex
+ */
+org.maths.ui.Selector.prototype.getSelectedIndex = function() {
+    return this.selectedIndex;
+};
+
+/**
+ * set the selected index
+ * @param n
+ * @return {org.maths.ui.Selector} this
+ */
+org.maths.ui.Selector.prototype.setSelectedIndex = function(n) {
+
+    if(n < 0) n = 0;
+    if(n > this.items.length - 1)
+        n = this.items.length - 1;
+
+    if(n === this.selectedIndex) {
+         return this;
+    }
+
+    this.selectedIndex = n;
+    this.scroll.scrollToStop(n, 0.5);
+
+    return this;
+};
+

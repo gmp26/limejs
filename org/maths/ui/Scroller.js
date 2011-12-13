@@ -9,14 +9,20 @@ goog.provide('org.maths.ui.Scroller.Direction');
 
 goog.require('lime.RoundedRect');
 goog.require('lime.animation.MoveTo');
+goog.require('org.maths.signals');
 
 /**
+ * @param {org.maths.signals.Signal} scrollStartedSignal
+ * @param {org.maths.signals.Signal} scrollStoppedSignal
  * @constructor
  * @extends lime.Sprite
  */
-org.maths.ui.Scroller = function() {
+org.maths.ui.Scroller = function(scrollStartedSignal, scrollStoppedSignal) {
 
     goog.base(this);
+
+    this.scrollStartedSignal = scrollStartedSignal;
+    this.scrollStoppedSignal = scrollStoppedSignal;
 
     //need default size for autoresize
     this.setSize(100, 100);
@@ -32,13 +38,12 @@ org.maths.ui.Scroller = function() {
     goog.events.listen(this, ['mousedown', 'touchstart'],
         this.downHandler_, false, this);
 
-
-    this.stepSize = 1;
+    /** number */
+    this.stop = 0;
 
     this.setDirection(org.maths.ui.Scroller.Direction.HORIZONTAL);
 
     this.lastTime = goog.now();
-
 
 };
 goog.inherits(org.maths.ui.Scroller, lime.RoundedRect);
@@ -150,6 +155,7 @@ org.maths.ui.Scroller.prototype.measureLimits = function() {
         this.LOW -= diff;
         this.HIGH += diff;
     }
+    //console.log("LOW=", this.LOW, "HIGH=",this.HIGH);
 };
 
 /**
@@ -168,21 +174,39 @@ org.maths.ui.Scroller.prototype.scrollTo = function(offset, opt_duration) {
     if (this.getDirection() == org.maths.ui.Scroller.Direction.HORIZONTAL) {
         pos.x = this.HIGH - offset;
         if (pos.x < this.LOW) pos.x = this.LOW;
+        pos.x = this.quantise(pos.x);
     }
     else {
         pos.y = this.HIGH - offset;
         if (pos.y < this.LOW) pos.y = this.LOW;
+        pos.y = this.quantise(pos.y);
     }
 
     if(isNaN(pos.x) || isNaN(pos.y))
         console.log("pos NaN");
 
-    if (duration) {
-        this.moving_.runAction(new lime.animation.MoveTo(pos.x, pos.y).
-            setDuration(duration).enableOptimizations().
-            setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97)));
+    if(goog.isDefAndNotNull(this.scrollStartedSignal)) {
+        this.scrollStartedSignal.dispatch(this);
     }
-    else this.moving_.setPosition(pos);
+
+    if (duration) {
+        var anim = new lime.animation.MoveTo(pos.x, pos.y).
+                    setDuration(duration).enableOptimizations().
+                    setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97));
+        this.moving_.runAction(anim);
+        goog.events.listen(anim, lime.animation.Event.STOP, function(event) {
+             if(goog.isDefAndNotNull(this.scrollStoppedSignal)) {
+                 this.scrollStoppedSignal.dispatch(this.stop);
+             }
+        }, false, this);
+    }
+    else {
+        // immediate move
+        this.moving_.setPosition(pos);
+        if(goog.isDefAndNotNull(this.scrollStoppedSignal)) {
+            this.scrollStoppedSignal.dispatch(this.stop);
+        }
+    }
 };
 
 /**
@@ -192,6 +216,10 @@ org.maths.ui.Scroller.prototype.scrollTo = function(offset, opt_duration) {
  */
 org.maths.ui.Scroller.prototype.downHandler_ = function(e) {
     if (this.ismove) return;
+
+    if(goog.isDefAndNotNull(this.scrollStartedSignal)) {
+        this.scrollStartedSignal.dispatch(this);
+    }
 
     e.position = this.localToNode(e.position, this.moving_);
     this.downx = e.position.x;
@@ -235,7 +263,7 @@ org.maths.ui.Scroller.prototype.captureVelocity_ = function() {
         this.oldvalue = this.posvalue;
     }
     this.v *= org.maths.ui.Scroller.FRICTION;
-    console.log(this.ismove, this.v, goog.now()-this.lastTime);
+    //console.log(this.ismove, this.v, goog.now()-this.lastTime);
     if(isNaN(this.v)) {
         console.log("bad v");
     }
@@ -297,8 +325,6 @@ org.maths.ui.Scroller.prototype.moveHandler_ = function(e) {
     }
 
     this.moving_.setPosition(pos);
-
-
 };
 
 /**
@@ -307,6 +333,8 @@ org.maths.ui.Scroller.prototype.moveHandler_ = function(e) {
  * @param {lime.events.Event} e Event.
  */
 org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
+
+    //console.log("UP");
     var pos = e.position.clone(), dir = this.getDirection(), activeval;
 
     if (dir == org.maths.ui.Scroller.Direction.HORIZONTAL) {
@@ -316,7 +344,7 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
     }
     else {
         pos.x = this.downx;
-        pos.y -= this.downy;
+        pos.y -= (this.downy - this.getSize().height/2);
         activeval = pos.y;
     }
 
@@ -367,7 +395,7 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
     }
 
     if(isNaN(activeval))
-        console.log("not a number");
+        console.log("upHandler: activeval NaN");
     activeval = this.quantise(activeval);
 
     if (dir == org.maths.ui.Scroller.Direction.HORIZONTAL) {
@@ -377,15 +405,24 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
         pos.y = activeval;
     }
 
-    //console.log("pos.y=",pos.y, "d=",duration);
-
-
-    if (!goog.isNumber(duration) || duration > 2) {
-        duration = 2;
+    if (isNaN(duration) || duration > 1) {
+        duration = 1;
     }
-    this.moving_.runAction(new lime.animation.MoveTo(pos.x, pos.y).
-        setDuration(duration).enableOptimizations().
-        setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97)));
+
+    //console.log("activeval=",activeval, "d=",duration);
+
+    var anim = new lime.animation.MoveTo(pos.x, pos.y)
+        .setDuration(duration)
+        .enableOptimizations()
+        .setEasing(lime.animation.getEasingFunction(.19, .6, .35, .97));
+
+    goog.events.listen(anim, lime.animation.Event.STOP, function(event) {
+        if(goog.isDefAndNotNull(this.scrollStoppedSignal)) {
+            this.scrollStoppedSignal.dispatch(this.stop);
+        }
+    }, false, this);
+
+    this.moving_.runAction(anim);
 
 /*
     if (Math.abs(duration) < 10) {
@@ -395,7 +432,6 @@ org.maths.ui.Scroller.prototype.upHandler_ = function(e) {
      }
 */
 };
-
 
 /**
  * @return the number of stops
@@ -418,16 +454,36 @@ org.maths.ui.Scroller.prototype.setStops = function(n) {
 /**
  * Force scroller to stop at certain values only.
  *
- * @param val
+ * @param {number} val
  */
 org.maths.ui.Scroller.prototype.quantise = function(val) {
-    var newval;
-    if(!goog.isDefAndNotNull(this.stops) || this.stops < 2)
-        newval = this.LOW;
-    else {
-        var q = (this.HIGH - this.LOW)/(this.stops - 1);
-        newval = this.LOW + q * Math.round((val-this.LOW)/q);
+    var newval = this.HIGH;
+    var q = (this.HIGH - this.LOW);
+    this.stop = 0;
+    if(goog.isDefAndNotNull(this.stops) && this.stops >= 2) {
+        q /= (this.stops - 1);
+        this.stop = Math.round((this.HIGH - val)/q);
+        newval = this.HIGH - q * (this.stop + 0.5);
     }
-//    console.log("val=",val,"new=",newval);
+    //console.log("quantise: val=",val,"newval=",newval, "stop=",this.stop);
+    if(isNaN(this.stop) || !goog.isDefAndNotNull(this.stop)) {
+        console.log("BAD");
+    }
     return newval;
-}
+};
+
+/**
+ * scroll to a specific stop
+ * @param {number} n
+ * @param {number?} opt_duration of transition
+ */
+org.maths.ui.Scroller.prototype.scrollToStop = function(n, opt_duration) {
+    this.measureLimits();
+    //console.log("HIGH=", this.HIGH, "LOW=", this.LOW);
+
+    var q = (this.HIGH - this.LOW);
+    if(goog.isDefAndNotNull(this.stops) && this.stops >= 2) {
+        q /= (this.stops - 1);
+    }
+    this.scrollTo(q*n, opt_duration);
+};

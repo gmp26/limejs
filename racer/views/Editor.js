@@ -6,6 +6,7 @@
  */
 goog.provide('racer.views.Editor');
 goog.require('lime.RoundedRect');
+goog.require('lime.ui.Scroller');
 goog.require('org.maths.ui.ColumnVector');
 goog.require('org.maths.ui.Scroller');
 goog.require('lime.Sprite');
@@ -13,35 +14,27 @@ goog.require('lime.Button');
 goog.require('lime.GlossyButton');
 goog.require('lime.fill.LinearGradient');
 goog.require('org.maths.signals');
+goog.require('racer.model.Context');
 goog.require('racer.model.CourseInfo');
 goog.require('racer.model.Track');
 goog.require('goog.math.Vec2');
 
 /**
  * @constructor
- * @param {number} courseIndex
- * @param {number} colourIndex
- * @param {org.maths.signals.Signal} trackUpdated
+ * @param {racer.model.Context} context
  */
-racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
+racer.views.Editor = function(context) {
 
     // super
     goog.base(this);
 
+    this.context = context;
+
     /** {racer.CourseInfo} */
-    var courseInfo = racer.model.Courses[courseIndex];
+    var courseInfo = racer.model.Courses[context.courseIndex];
 
     /** {racer.ColourInfo} */
-    var colourInfo = courseInfo.colours[colourIndex];
-
-    /** {number} */
-    this.courseIndex = courseIndex;
-
-    /** {number} */
-    this.colourIndex = colourIndex;
-
-    /** {org.maths.signals.Signal} */
-    this.trackUpdated = trackUpdated;
+    var colourInfo = courseInfo.colours[context.colourIndex];
 
     /** {number} */
     this.scrollIndex = 1;
@@ -63,7 +56,7 @@ racer.views.Editor = function(courseIndex, colourIndex, trackUpdated) {
         .addColorStop(1,'#444');
 
     // Create region of scrolling vectors
-    this.scroll = new org.maths.ui.Scroller()
+    this.scroll = new lime.ui.Scroller()//new org.maths.ui.Scroller()
         .setStroke(2, '#000')
         .setAnchorPoint(0, 0.5)
         .setPosition(-80+(160-90)/2,0)
@@ -136,7 +129,7 @@ goog.inherits(racer.views.Editor, lime.RoundedRect);
 racer.views.Editor.prototype.makePadVector = function(index) {
     var vector = new org.maths.ui.ColumnVector(0, 0, null)
         .setPosition(30*(index), 0)
-        .setOpacity(0.5)//index == 0 ? 0 : 0.5)
+        .setOpacity(0.5) //index == 0 ? 0 : 0.5)
         .setScale(0.5,0.5);
     this.scroll.appendChild(vector);
 
@@ -301,7 +294,7 @@ racer.views.Editor.prototype.updateTrackView = function() {
         v.setY(wp.velocity.y);
     }
 
-    this.trackUpdated.dispatch(this.courseIndex, this.colourIndex, this.track);
+    this.context.trackUpdated.dispatch(this.context.courseIndex, this.context.colourIndex, this.track);
 };
 
 racer.views.Editor.prototype.scrollLeft = function(e) {

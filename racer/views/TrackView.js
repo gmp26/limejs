@@ -24,7 +24,6 @@ racer.views.TrackView = function(courseIndex, colourIndex, track) {
     this.courseIndex = courseIndex;
     this.colourIndex = colourIndex;
     this.track = track;
-    //this.setOpacity(0.5);
 
 } ;
 goog.inherits(racer.views.TrackView, lime.CanvasContext);

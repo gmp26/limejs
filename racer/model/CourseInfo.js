@@ -17,7 +17,7 @@ racer.CourseInfo;
 racer.model.Courses = [
     {
         name: 'Intro',
-        mapUrl: 'assets/Charlie.png',
+        mapUrl: 'assets/Intro.png',
         colours: [
             {
                 colour:'#CC6644',

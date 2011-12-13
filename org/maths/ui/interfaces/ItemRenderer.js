@@ -25,3 +25,5 @@ org.maths.ui.interfaces.ItemRenderer.prototype.getData = function() {};
  * @param {*}
  */
 org.maths.ui.interfaces.ItemRenderer.prototype.setData = function(data) {};
+
+org.maths.ui.interfaces.ItemRenderer.prototype.getItem = function() {};

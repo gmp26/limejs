@@ -36,8 +36,10 @@ org.maths.ui.LabelRenderer.prototype.setData = function(data) {
 };
 
 /**
- * @return lime.Label
+ * @return {lime.Label}
  */
 org.maths.ui.LabelRenderer.prototype.getItem = function() {
-    return new lime.Label(this.text_).setPadding(5);
+    return new lime.Label(this.text_)
+        .setAlign("center")
+        .setPadding(5);
 }

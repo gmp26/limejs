@@ -13,9 +13,12 @@ goog.require('lime.animation.MoveTo');
 
 goog.require('org.maths.signals');
 goog.require('org.maths.Panel');
+goog.require('org.maths.signals');
+
+goog.require('racer.model.Context');
 goog.require('racer.views.Settings');
 goog.require('racer.views.Editor');
-goog.require('racer.views.Course');
+goog.require('racer.views.CoursesView');
 goog.require('goog.math.Vec2');
 
 
@@ -27,27 +30,29 @@ racer.scene.Layout = function() {
     // super
     goog.base(this);
 
-    /** {org.maths.signals.Signal} */
-    this.trackUpdated = new org.maths.signals.Signal();
+    this.context = new racer.model.Context();
 
     var layer = new lime.Layer();
     this.appendChild(layer);
 
-    this.main = new racer.views.Course(0, this.trackUpdated)
+    this.main = new racer.views.CoursesView(this.context)
         .setSize(320,320)
         .setRadius(5);
     layer.appendChild(this.main);
 
-    this.control1 = new racer.views.Settings()
+//    var trackChangedSignal = new org.maths.signals.Signal();
+//    trackChangedSignal.add(this.trackChanged, this);
+
+    this.settings = new racer.views.Settings(this.context)
         .setSize(160,160)
 //        .setFill('#4C0')
         .setRadius(5);
-    layer.appendChild(this.control1);
+    layer.appendChild(this.settings);
 
-    this.control2 = new racer.views.Editor(0,2, this.trackUpdated)
+    this.editor = new racer.views.Editor(this.context)
         .setSize(160,160)
         .setRadius(5);
-    layer.appendChild(this.control2);
+    layer.appendChild(this.editor);
 
 //    this.orientation = 0;
 
@@ -89,17 +94,35 @@ racer.scene.Layout.prototype.setSize = function(value, opt_height) {
             //this.control1.runAction(new lime.animation.MoveTo(80,400));
             //this.control2.runAction(new lime.animation.MoveTo(240,400));
 
-            this.control1.setPosition(80,400);
-            this.control2.setPosition(240,400);
+            this.settings.setPosition(80,400);
+            this.editor.setPosition(240,400);
 
         }
         else {
             // Landscape
             //this.control1.runAction(new lime.animation.MoveTo(400,80));
             //this.control2.runAction(new lime.animation.MoveTo(400,240));
-            this.control1.setPosition(400,80);
-            this.control2.setPosition(400,240);
+            this.settings.setPosition(400,80);
+            this.editor.setPosition(400,240);
         }
     }
     return this;
+};
+
+/**
+ * Respond to a track changed signal
+ * @param {number} selectedIndex
+ * @param {object} selectedItem
+ */
+racer.scene.Layout.prototype.trackChangeStarted = function() {
+    console.log("track change started ");
 }
+
+/**
+  * Respond to a track changed signal
+  * @param {number} selectedIndex
+  * @param {object} selectedItem
+  */
+ racer.scene.Layout.prototype.trackChangeStopped = function() {
+     console.log("track change stopped ");
+ }
