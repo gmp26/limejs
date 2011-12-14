@@ -29,6 +29,21 @@ racer.views.TrackView = function(courseIndex, colourIndex, track) {
 goog.inherits(racer.views.TrackView, lime.CanvasContext);
 
 
+racer.views.TrackView.prototype.setTrack = function(track) {
+    this.track = track;
+    this.setDirty(lime.Dirty.CONTENT);
+}
+
+racer.views.TrackView.prototype.setCourseIndex = function(courseIndex) {
+    this.courseIndex = courseIndex;
+    this.setDirty(lime.Dirty.CONTENT);
+}
+
+racer.views.TrackView.prototype.setColourIndex = function(colourIndex) {
+    this.colourIndex = colourIndex;
+    this.setDirty(lime.Dirty.CONTENT);
+}
+
 /**
  * Draw a single track draw
  */
@@ -81,4 +96,14 @@ racer.views.TrackView.prototype.draw = function(ctx) {
 
 
     ctx.stroke();
-}
+
+    //this.testImageData(ctx);
+};
+
+/*
+racer.views.TrackView.prototype.testImageData = function(ctx) {
+    // test for getpixeldata
+    var imageData = ctx.getImageData(100,100,10,10);
+    console.log('imageData');
+};
+*/

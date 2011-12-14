@@ -6,7 +6,7 @@
  */
 goog.provide('racer.views.Editor');
 goog.require('lime.RoundedRect');
-goog.require('lime.ui.Scroller');
+//goog.require('lime.ui.Scroller');
 goog.require('org.maths.ui.ColumnVector');
 goog.require('org.maths.ui.Scroller');
 goog.require('lime.Sprite');
@@ -56,7 +56,7 @@ racer.views.Editor = function(context) {
         .addColorStop(1,'#444');
 
     // Create region of scrolling vectors
-    this.scroll = new lime.ui.Scroller()//new org.maths.ui.Scroller()
+    this.scroll = new org.maths.ui.Scroller()//new org.maths.ui.Scroller()
         .setStroke(2, '#000')
         .setAnchorPoint(0, 0.5)
         .setPosition(-80+(160-90)/2,0)
@@ -294,7 +294,7 @@ racer.views.Editor.prototype.updateTrackView = function() {
         v.setY(wp.velocity.y);
     }
 
-    this.context.trackUpdated.dispatch(this.context.courseIndex, this.context.colourIndex, this.track);
+    this.context.trackUpdated.dispatch(this.context, this.track);
 };
 
 racer.views.Editor.prototype.scrollLeft = function(e) {

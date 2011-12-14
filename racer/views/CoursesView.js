@@ -63,6 +63,9 @@ racer.views.CoursesView.prototype.finishCourseSwitch = function(index) {
         this.appendChild(view);
     }
 
+    // it may be possible to delete this?
+    view.updateView(this.context);
+
     anim = new lime.animation.Sequence(
         new lime.animation.Delay().setDuration(0.1),
         new lime.animation.FadeTo(1).setDuration(0.5)

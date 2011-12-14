@@ -42,7 +42,7 @@ racer.views.CourseView = function(context) {
     this.trackViews = [];
     var len = this.courseInfo.colours.length;
     for(var i=0; i < len; i++) {
-        var trackView = new racer.views.TrackView(0, 2, null)
+        var trackView = new racer.views.TrackView(context.courseIndex, i, null)
             .setSize(320,320);
         this.trackViews[i] = trackView;
         this.appendChild(trackView);
@@ -80,6 +80,7 @@ racer.views.CourseView.prototype.updateView = function(context, track) {
             this.drawTrack(this.courseIndex, i);
         }
     }
+
 };
 
 /**
@@ -87,11 +88,13 @@ racer.views.CourseView.prototype.updateView = function(context, track) {
  * @param context
  */
 racer.views.CourseView.prototype.clearTracks = function(context) {
+    /*
     var len = this.trackViews.length;
     for(var i=0; i < len; i++) {
         this.removeChild(this.trackViews[i]);
     }
     this.trackViews = [];
+    */
 }
 
 
@@ -115,13 +118,16 @@ racer.views.CourseView.prototype.drawTrack = function(courseIndex, colourIndex, 
         this.trackViews[colourIndex] = trackView;
     }
     else {
-        // draw existing track at colourIndex
-        trackView = this.trackViews[colourIndex];
+        // draw any existing track at colourIndex
+        if(colourIndex < this.trackViews.length) {
+            trackView = this.trackViews[colourIndex];
+        }
     }
 
-    this.appendChild(trackView);
+    if(goog.isDefAndNotNull(trackView)) {
+        this.appendChild(trackView);
+    }
 };
-
 
 
 

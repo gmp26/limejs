@@ -194,13 +194,19 @@ org.maths.signals.Signal.prototype = {
 
         if (prevIndex !== -1) { //avoid creating a new Binding for same listener if already added to list
             binding = this._bindings[prevIndex];
-            if (binding.isOnce() !== isOnce) {
-                throw new Error('You cannot add'+ (isOnce? '' : 'Once') +'() then add'+ (!isOnce? '' : 'Once') +'() the same listener without removing the relationship first.');
+
+            if(binding.context === scope) {
+                if (binding.isOnce() !== isOnce) {
+                    throw new Error('You cannot add'+ (isOnce? '' : 'Once') +'() then add'+ (!isOnce? '' : 'Once') +'() the same listener without removing the relationship first.');
+                }
+                return binding;
             }
-        } else {
-            binding = new org.maths.signals.SignalBinding(this, listener, isOnce, scope, priority);
-            this._addBinding(binding);
+
+            // different scope so we still need a new binding
         }
+
+        binding = new org.maths.signals.SignalBinding(this, listener, isOnce, scope, priority);
+        this._addBinding(binding);
 
         return binding;
     },
