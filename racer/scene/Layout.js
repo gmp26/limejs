@@ -17,7 +17,7 @@ goog.require('org.maths.signals');
 
 goog.require('racer.model.Context');
 goog.require('racer.views.Settings');
-goog.require('racer.views.Editor');
+goog.require('racer.views.ColourSelectorsView');
 goog.require('racer.views.CoursesView');
 goog.require('goog.math.Vec2');
 
@@ -40,22 +40,19 @@ racer.scene.Layout = function() {
         .setRadius(5);
     layer.appendChild(this.main);
 
-//    var trackChangedSignal = new org.maths.signals.Signal();
-//    trackChangedSignal.add(this.trackChanged, this);
-
     this.settings = new racer.views.Settings(this.context)
         .setSize(160,160)
-//        .setFill('#4C0')
         .setRadius(5);
     layer.appendChild(this.settings);
 
-    this.editor = new racer.views.Editor(this.context)
+    //TODO: Work out why we get -moz-transform errors
+
+
+/*    this.colourSelectors = new racer.views.ColourSelectorsView(this.context)
         .setSize(160,160)
         .setRadius(5);
-    layer.appendChild(this.editor);
-
-//    this.orientation = 0;
-
+    layer.appendChild(this.colourSelectors);
+*/
 };
 goog.inherits(racer.scene.Layout, lime.Scene);
 
@@ -91,20 +88,16 @@ racer.scene.Layout.prototype.setSize = function(value, opt_height) {
 
         if(portrait) {
             // Portrait
-            //this.control1.runAction(new lime.animation.MoveTo(80,400));
-            //this.control2.runAction(new lime.animation.MoveTo(240,400));
-
             this.settings.setPosition(80,400);
-            this.editor.setPosition(240,400);
+            this.colourSelectors.setPosition(240,400);
 
         }
         else {
             // Landscape
-            //this.control1.runAction(new lime.animation.MoveTo(400,80));
-            //this.control2.runAction(new lime.animation.MoveTo(400,240));
             this.settings.setPosition(400,80);
-            this.editor.setPosition(400,240);
+//            this.colourSelectors.setPosition(400,240);
         }
+
     }
     return this;
 };

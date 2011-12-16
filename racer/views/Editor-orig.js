@@ -37,17 +37,8 @@ racer.views.Editor = function(context, opt_courseIndex) {
     /** {racer.CourseInfo} */
     var courseInfo = racer.model.Courses[this.courseIndex];
 
-    // Alert if we are misconfigured
-    if(!goog.isDefAndNotNull(courseInfo.colours) || courseInfo.colours.length < 1) {
-        alert('Course ' + this.courseIndex, ' has no team colours');
-        return;
-    }
-
-    /** {number} */
-    var colourIndex = 0;
-
     /** {racer.ColourInfo} */
-    var colourInfo = courseInfo.colours[colourIndex];
+    var colourInfo = courseInfo.colours[context.colourIndex];
 
     /** {number} */
     this.scrollIndex = 1;
@@ -60,10 +51,9 @@ racer.views.Editor = function(context, opt_courseIndex) {
         .setPosition(0,30);
     this.appendChild(this.scrollContainer);
 
-    // create our track and signal that a corresponding TrackView should be made
-    /** {racer.model.Track} */
+    this.setFill(colour);
+
     this.track = new racer.model.Track(colourInfo.start, new goog.math.Vec2(0,0));
-    context.trackCreated.dispatch(this.courseIndex, colourIndex, this.track);
 
     this.fill = new lime.fill.LinearGradient()
         .setDirection(0,0,1,0.01)
@@ -138,7 +128,7 @@ racer.views.Editor = function(context, opt_courseIndex) {
     goog.events.listen(leftButton, ["mousedown","touchstart"], this.scrollLeft, true, this);
     goog.events.listen(rightButton, ["mousedown","touchstart"], this.scrollRight, true, this);
 };
-goog.inherits(racer.views.Editor, lime.Layer);
+goog.inherits(racer.views.Editor, lime.RoundedRect);
 
 /**
  * appends an empty vector to the path, and selects it

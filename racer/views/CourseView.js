@@ -13,19 +13,17 @@ goog.require('racer.model.Track');
 goog.require('org.maths.signals');
 
 
-
 /**
  * ViewController for a Race Course on the screen.
  * @constructor
  * @param {racer.model.Context} context
  */
-racer.views.CourseView = function(context) {
+racer.views.CourseView = function(context, opt_courseIndex) {
 
     // super
     goog.base(this);
 
-    /** {number} */
-    this.courseIndex = context.courseIndex;
+    this.courseIndex = opt_courseIndex || context.courseIndex;
 
     /** {racer.model.Context} */
     this.context = context;
@@ -35,21 +33,48 @@ racer.views.CourseView = function(context) {
 
     this.setFill(this.courseInfo.mapUrl);
 
+    // create TrackViews when necessary
+    context.trackCreated.add(this.createTrackView, this);
+
     // update the course view when the track needs refreshing
     context.trackUpdated.add(this.updateView, this);
 
-    // make all the trackViews
     this.trackViews = [];
-    var len = this.courseInfo.colours.length;
-    for(var i=0; i < len; i++) {
-        var trackView = new racer.views.TrackView(context.courseIndex, i, null)
-            .setSize(320,320);
-        this.trackViews[i] = trackView;
-        this.appendChild(trackView);
-    }
 
 }
 goog.inherits(racer.views.CourseView, lime.RoundedRect);
+
+
+/**
+ * Create a new track view
+ * @param {number} courseIndex
+ * @param {number} colourIndex
+ * @param {racer.model.Track} track
+ */
+racer.views.CourseView.prototype.createTrackView = function(courseIndex, colourIndex, track) {
+
+    // Update this course view only if this is the currently displayed course
+    if(this.context.courseIndex != this.courseIndex) {
+        return;
+    }
+
+    // Check we haven't already created this trackView
+    if(colourIndex < this.trackViews.length && goog.isDefAndNotNull(this.trackViews[colourIndex])) {
+        return;
+    }
+
+    // Create the track
+    var trackView = new racer.views.TrackView(courseIndex, colourIndex, track)
+            .setSize(640,640);
+
+    // save this new TrackView
+    this.trackViews[colourIndex] = trackView;
+
+    // add to stage
+    this.appendChild(trackView);
+
+}
+
 
 /**
  * update view
@@ -65,19 +90,25 @@ racer.views.CourseView.prototype.updateView = function(context, track) {
 
     console.log("redraw course: ", this.courseIndex);
 
-    // clear all existing tracks
-    this.clearTracks(context);
+    /** number */
+    var i,len;
 
-    if(context.colourIndex >= 0) {
-        // draw one track only
-        console.log("colour: ", context.colourIndex);
-        this.drawTrack(this.courseIndex, context.colourIndex, track);
+    // clear all existing tracks
+    // this.clearTracks(context);
+    if(context.editing) {
+        // draw only the current track
+        /** {number} */
+        len = this.trackViews.length;
+        for(i = 0; i < len; i++) {
+            this.trackViews[i].setHidden(i != context.colourIndex);
+        }
+        this.drawTrack(this.courseIndex, context.colourIndex);
     }
     else {
-        // draw all existing tracks
-        var len = this.trackViews.length;
+        // update all existing tracks
+        len = this.trackViews.length;
         for(var i = 0; i < len; i++) {
-            this.drawTrack(this.courseIndex, i);
+            this.drawRace(this.courseIndex, i, context.raceStep);
         }
     }
 
@@ -98,21 +129,59 @@ racer.views.CourseView.prototype.clearTracks = function(context) {
 }
 
 
+
 /**
  * draws one track by adding its TrackView
  * @param {number} courseIndex
  * @param {number} colourIndex
  * @param {racer.model.Track} opt_track
  */
+racer.views.CourseView.prototype.drawTrack = function(courseIndex, colourIndex) {
+
+
+    var trackView = null;
+    if(colourIndex < this.trackViews.length) {
+        trackView = this.trackViews[colourIndex];
+    }
+
+    if(goog.isDefAndNotNull(trackView)) {
+        trackView.updateView(null);
+    }
+};
+
+/**
+ * draws a track up to the current raceStep
+ * @param {number} courseIndex
+ * @param {number} colourIndex
+ * @param {number} raceStep
+ */
+racer.views.CourseView.prototype.drawRace = function(courseIndex, colourIndex, raceStep) {
+
+    var trackView = this.trackViews[colourIndex];
+
+    if(goog.isDefAndNotNull(trackView)) {
+        trackView.updateView(raceStep);
+    }
+};
+
+/**
+ * draws one track by adding its TrackView
+ * @param {number} courseIndex
+ * @param {number} colourIndex
+ * @param {racer.model.Track} opt_track
+ */
+/*
 racer.views.CourseView.prototype.drawTrack = function(courseIndex, colourIndex, opt_track) {
 
     var trackView;
 
     if(goog.isDefAndNotNull(opt_track)) {
 
+        console.log("creating TrackView:", courseIndex, colourIndex);
+
         // create new track
         trackView = new racer.views.TrackView(courseIndex, colourIndex, opt_track)
-                .setSize(320,320);
+                .setSize(640,640);
 
         // save this new TrackView
         this.trackViews[colourIndex] = trackView;
@@ -129,5 +198,5 @@ racer.views.CourseView.prototype.drawTrack = function(courseIndex, colourIndex, 
     }
 };
 
-
+*/
 

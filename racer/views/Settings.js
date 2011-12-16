@@ -8,6 +8,7 @@ goog.provide('racer.views.Settings');
 goog.require('racer.model.Context');
 goog.require('racer.model.CourseInfo');
 goog.require('lime.RoundedRect');
+goog.require('lime.fill.LinearGradient');
 goog.require('org.maths.ui.Scroller');
 goog.require('org.maths.ui.Scroller.Direction');
 goog.require('org.maths.ui.ArrowSelector');
@@ -23,7 +24,17 @@ goog.require('goog.events');
 racer.views.Settings = function(context) {
     goog.base(this);
 
-    this.setFill('#CCC');
+
+    var fill = new lime.fill.LinearGradient()
+        .setDirection(0,0,1,1)
+        .addColorStop(0,'#CCC')
+        .addColorStop(0.2,'#EEE')
+        .addColorStop(0.4,'#EEE')
+        .addColorStop(0.6,'#CCC')
+        .addColorStop(0.7,'#BBB');
+
+    this.setFill(fill);
+    this.setStroke(2, '#888');
     this.setSize(160,160);
 
     // Create Course Selector
@@ -42,19 +53,17 @@ racer.views.Settings = function(context) {
 
     this.appendChild(this.courseCombo);
 
-    // Create Team Colour Selector
-    var colourNames = this.getCourseColours(0);
-    var colourRenderer = new racer.views.renderers.ColourRendererFactory;
-    this.colourCombo = new org.maths.ui.ArrowSelector(
-        colourNames,
-        colourRenderer,
-        1,
-        org.maths.ui.Scroller.Direction.HORIZONTAL,
-        context.colourChangeStarted,
-        context.colourChangeEnded
-    ).setItemsShowing(1)
-     .setPosition(0,13);
-    this.appendChild(this.colourCombo);
+    var editButton = new lime.GlossyButton('Edit')
+        .setSize(44,44)
+        .setPosition(-50,50);
+    this.appendChild(editButton);
+
+    var playButton = new lime.GlossyButton('Play')
+        .setSize(44,44)
+        .setPosition(50,50);
+    this.appendChild(playButton);
+
+
 };
 goog.inherits(racer.views.Settings, lime.RoundedRect);
 
@@ -69,17 +78,3 @@ racer.views.Settings.prototype.getCourseNames = function() {
     }
     return names;
 };
-
-/**
- * get the team colours for a course
- * @param {number} courseIndex
- * @return {Array.<string>} colours in use
- */
-racer.views.Settings.prototype.getCourseColours = function(courseIndex) {
-    var course = racer.model.Courses[courseIndex];
-    var colours = [];
-    for(var i=0; i < course.colours.length; i++) {
-        colours[i] = course.colours[i].colour;
-    }
-    return colours;
-}

@@ -57,7 +57,8 @@ org.maths.ui.Selector = function(dataProvider,
 
     scrollerDidStop.add(function(stop) {
         this.selectedIndex = stop;//this.scroll.stop;
-        scrollStoppedSignal.dispatch(this.selectedIndex);
+        if(goog.isDefAndNotNull(scrollStoppedSignal))
+            scrollStoppedSignal.dispatch(this.selectedIndex);
     }, this);
 
     // Create scrolling region

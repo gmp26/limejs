@@ -24,6 +24,7 @@ racer.views.TrackView = function(courseIndex, colourIndex, track) {
     this.courseIndex = courseIndex;
     this.colourIndex = colourIndex;
     this.track = track;
+    this.raceStep = null;
 
 } ;
 goog.inherits(racer.views.TrackView, lime.CanvasContext);
@@ -32,17 +33,26 @@ goog.inherits(racer.views.TrackView, lime.CanvasContext);
 racer.views.TrackView.prototype.setTrack = function(track) {
     this.track = track;
     this.setDirty(lime.Dirty.CONTENT);
-}
+};
 
 racer.views.TrackView.prototype.setCourseIndex = function(courseIndex) {
     this.courseIndex = courseIndex;
     this.setDirty(lime.Dirty.CONTENT);
-}
+};
 
 racer.views.TrackView.prototype.setColourIndex = function(colourIndex) {
     this.colourIndex = colourIndex;
     this.setDirty(lime.Dirty.CONTENT);
-}
+};
+
+/**
+ *
+ * @param {number?} opt_raceStep 0 (or null) means draw the whole track
+ */
+racer.views.TrackView.prototype.updateView = function(opt_raceStep) {
+    this.raceStep = opt_raceStep;
+    this.setDirty(lime.Dirty.CONTENT);
+};
 
 /**
  * Draw a single track draw
@@ -72,7 +82,12 @@ racer.views.TrackView.prototype.draw = function(ctx) {
     ctx.lineWidth = 2;
 	ctx.beginPath();
 
-    for(var i=0; i < wayPoints.length; i++) {
+    var steps = wayPoints.length;
+    if(goog.isDefAndNotNull(this.raceStep)) {
+        steps = Math.min(steps,this.raceStep);
+    }
+
+    for(var i=0; i < steps; i++) {
         var wp = wayPoints[i];
         var pos = wp.position;
         var v = wp.velocity;

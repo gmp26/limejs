@@ -16,6 +16,9 @@ goog.require('org.maths.signals');
  */
 racer.model.Context = function() {
 
+    /** {org.maths.signals.Signal}  */
+    this.trackCreated = new org.maths.signals.Signal();
+
     /** {org.maths.signals.Signal} indicates the track view needs refreshing */
     this.trackUpdated = new org.maths.signals.Signal();
 
@@ -30,6 +33,12 @@ racer.model.Context = function() {
 
     /** {org.maths.signals.Signal} animated colour change should end */
     this.colourChangeEnded = new org.maths.signals.Signal();
+
+    /** {boolean} true if we are editing, false if racing */
+    this.editing = true;
+
+    /** {number} where we are when racing */
+    this.raceStep = 0;
 
     /** {number} */
     this.courseIndex = 0;

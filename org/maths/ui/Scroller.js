@@ -465,6 +465,9 @@ org.maths.ui.Scroller.prototype.quantise = function(val) {
         this.stop = Math.round((this.HIGH - val)/q);
         newval = this.HIGH - q * (this.stop + 0.5);
     }
+    else {
+        newval = 0;
+    }
     //console.log("quantise: val=",val,"newval=",newval, "stop=",this.stop);
     if(isNaN(this.stop) || !goog.isDefAndNotNull(this.stop)) {
         console.log("BAD");
