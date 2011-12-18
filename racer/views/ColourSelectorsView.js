@@ -7,6 +7,8 @@
 goog.provide('racer.views.ColourSelectorsView');
 goog.require('racer.views.ColourSelector');
 goog.require('racer.model.Context');
+goog.require('lime.Layer');
+goog.require('lime.fill.LinearGradient');
 goog.require('lime.RoundedRect');
 goog.require('lime.animation.actionManager');
 goog.require('lime.animation.Spawn');
@@ -43,8 +45,7 @@ racer.views.ColourSelectorsView = function(context) {
 
     // make the initial screen
     for(var i = 0; i < racer.model.Courses.length; i++) {
-        colourSelector = new racer.views.ColourSelector(context, i)
-            .setPosition(i*160,0);
+        colourSelector = new racer.views.ColourSelector(context, i);
         this.colourSelectors[i] = colourSelector;
 
         // enable the current one
@@ -73,15 +74,11 @@ goog.inherits(racer.views.ColourSelectorsView, lime.RoundedRect);
 racer.views.ColourSelectorsView.prototype.startCourseSwitch = function() {
 
     var index = this.context.courseIndex;
-    var x = index*160;
     var count = this.context.coursesData.length;
     this.old = this.colourSelectors[index];
-    this.old.name="OLD";
     this.name = 'A colourSelectorsView';
 
-    anim = new lime.animation.FadeTo(0).setDuration(2);
-
-//    old.setEnabled(false);
+    anim = new lime.animation.FadeTo(0).setDuration(0.1);
 
     goog.events.listen(anim,lime.animation.Event.STOP, this.fadeOutComplete, false, this);
     this.old.runAction(anim);

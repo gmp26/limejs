@@ -48,11 +48,11 @@ racer.scene.Layout = function() {
     //TODO: Work out why we get -moz-transform errors
 
 
-/*    this.colourSelectors = new racer.views.ColourSelectorsView(this.context)
+    this.colourSelectors = new racer.views.ColourSelectorsView(this.context)
         .setSize(160,160)
         .setRadius(5);
     layer.appendChild(this.colourSelectors);
-*/
+
 };
 goog.inherits(racer.scene.Layout, lime.Scene);
 
@@ -95,7 +95,7 @@ racer.scene.Layout.prototype.setSize = function(value, opt_height) {
         else {
             // Landscape
             this.settings.setPosition(400,80);
-//            this.colourSelectors.setPosition(400,240);
+            this.colourSelectors.setPosition(400,240);
         }
 
     }

@@ -81,6 +81,7 @@ org.maths.ui.ArrowSelector = function(dataProvider,
 
     goog.events.listen(this.arrow1, ["mousedown","touchstart"], this.buttonHandler, true, this);
     goog.events.listen(this.arrow2, ["mousedown","touchstart"], this.buttonHandler, true, this);
+
 };
 goog.inherits(org.maths.ui.ArrowSelector, lime.Node);
 

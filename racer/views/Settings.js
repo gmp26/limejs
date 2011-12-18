@@ -53,6 +53,7 @@ racer.views.Settings = function(context) {
 
     this.appendChild(this.courseCombo);
 
+
     var editButton = new lime.GlossyButton('Edit')
         .setSize(44,44)
         .setPosition(-50,50);

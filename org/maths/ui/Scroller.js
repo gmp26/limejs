@@ -7,6 +7,7 @@
 goog.provide('org.maths.ui.Scroller');
 goog.provide('org.maths.ui.Scroller.Direction');
 
+goog.require('lime.Layer');
 goog.require('lime.RoundedRect');
 goog.require('lime.animation.MoveTo');
 goog.require('org.maths.signals');
@@ -27,13 +28,16 @@ org.maths.ui.Scroller = function(scrollStartedSignal, scrollStoppedSignal) {
     //need default size for autoresize
     this.setSize(100, 100);
 
-    this.clipper = new lime.Sprite().setFill('#c00').setSize(98, 98).
-        setAutoResize(lime.AutoResize.ALL).setPosition(1,1);
+    this.clipper = new lime.Sprite()
+        .setFill('#c00')
+        .setSize(100, 100)
+        .setAutoResize(lime.AutoResize.ALL);
     this.appendChild(this.clipper);
-    this.setMask(this.clipper);
 
     this.moving_ = new lime.Layer();
     lime.Node.prototype.appendChild.call(this, this.moving_);
+
+    this.moving_.setMask(this.clipper);
 
     goog.events.listen(this, ['mousedown', 'touchstart'],
         this.downHandler_, false, this);
