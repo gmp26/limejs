@@ -53,11 +53,11 @@ goog.inherits(racer.views.CourseView, lime.RoundedRect);
  */
 racer.views.CourseView.prototype.createTrackView = function(courseIndex, colourIndex, track) {
 
-    // Update this course view only if this is the currently displayed course
-    if(this.context.courseIndex != this.courseIndex) {
+/*    // Update this course view only if this is the currently displayed course
+    if(this.context.courseIndex !== this.courseIndex) {
         return;
     }
-
+*/
     // Check we haven't already created this trackView
     if(colourIndex < this.trackViews.length && goog.isDefAndNotNull(this.trackViews[colourIndex])) {
         return;

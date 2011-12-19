@@ -60,7 +60,7 @@ goog.require('org.maths.signals');
 // entry point
 racer.start = function() {
 
-    racer.stage = new org.maths.Stage(document.body, 320, 480);
+    racer.stage = new org.maths.Stage(document.body,480,320);//, 320, 480);
 
     racer.stage.setDisplayFPS(false);
 
@@ -74,6 +74,7 @@ racer.start = function() {
 
     // create the scenes
     racer.scene1 = new racer.scene.Startup(racer.nextSceneSignal);
+
     //racer.scene2 = new racer.scene.BilliardTable(racer.nextSceneSignal, racer.modelUpdated);
     //racer.scene3 = new racer.scene.BackRoom(racer.nextSceneSignal, racer.modelUpdated);
 
@@ -83,6 +84,7 @@ racer.start = function() {
 
 	// set current scene active
 	racer.stage.replaceScene(racer.scene1);
+    racer.scene1.setup();
 
 }
 

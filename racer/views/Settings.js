@@ -8,6 +8,7 @@ goog.provide('racer.views.Settings');
 goog.require('racer.model.Context');
 goog.require('racer.model.CourseInfo');
 goog.require('lime.RoundedRect');
+goog.require('lime.Label');
 goog.require('lime.fill.LinearGradient');
 goog.require('org.maths.ui.Scroller');
 goog.require('org.maths.ui.Scroller.Direction');
@@ -53,13 +54,16 @@ racer.views.Settings = function(context) {
 
     this.appendChild(this.courseCombo);
 
+    var label = new lime.Label('Select game')
+        .setPosition(0,-40)
+    this.appendChild(label);
 
     var editButton = new lime.GlossyButton('Edit')
         .setSize(44,44)
         .setPosition(-50,50);
     this.appendChild(editButton);
 
-    var playButton = new lime.GlossyButton('Play')
+    var playButton = new lime.GlossyButton('Race')
         .setSize(44,44)
         .setPosition(50,50);
     this.appendChild(playButton);

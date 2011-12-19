@@ -77,23 +77,21 @@ racer.views.ColourSelectorsView.prototype.startCourseSwitch = function() {
     var count = this.context.coursesData.length;
     this.old = this.colourSelectors[index];
     this.name = 'A colourSelectorsView';
+    var anim = new lime.animation.FadeTo(0).setDuration(1);
 
-    anim = new lime.animation.FadeTo(0).setDuration(0.1);
-
-    goog.events.listen(anim,lime.animation.Event.STOP, this.fadeOutComplete, false, this);
     this.old.runAction(anim);
 
 };
-
-racer.views.ColourSelectorsView.prototype.fadeOutComplete = function() {
-    this.removeChild(this.old);
-}
 
 /**
  * pan to the new view, creating it first if need be
  * @param {number} index of course to fade in
  */
 racer.views.ColourSelectorsView.prototype.finishCourseSwitch = function(index) {
+
+    lime.animation.actionManager.stopAll(this.old);
+
+    this.viewContainer.removeChild(this.old);
 
     this.context.courseIndex = index;
 
@@ -106,7 +104,7 @@ racer.views.ColourSelectorsView.prototype.finishCourseSwitch = function(index) {
     // view.updateView(this.context);
 
     view.setOpacity(0);
-    this.appendChild(view);
+    this.viewContainer.appendChild(view);
 
     lime.animation.actionManager.stopAll(this.viewContainer) ;
     anim = new lime.animation.FadeTo(1).setDuration(0.3);

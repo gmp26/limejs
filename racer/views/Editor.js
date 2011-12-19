@@ -23,28 +23,21 @@ goog.require('goog.math.Vec2');
 /**
  * @constructor
  * @param {racer.model.Context} context
- * @param {number?} opt_courseIndex
+ * @param {number} courseIndex - identifies the course
+ * @param {number} colourIndex - identifies the team colour?
  */
-racer.views.Editor = function(context, opt_courseIndex) {
+racer.views.Editor = function(context, courseIndex, colourIndex) {
 
     // super
     goog.base(this);
 
     this.context = context;
 
-    this.courseIndex = opt_courseIndex || context.courseIndex;
+    this.courseIndex = courseIndex;
+    this.colourIndex = colourIndex;
 
     /** {racer.CourseInfo} */
-    var courseInfo = racer.model.Courses[this.courseIndex];
-
-    // Alert if we are misconfigured
-    if(!goog.isDefAndNotNull(courseInfo.colours) || courseInfo.colours.length < 1) {
-        alert('Course ' + this.courseIndex, ' has no team colours');
-        return;
-    }
-
-    /** {number} */
-    var colourIndex = 0;
+    var courseInfo = racer.model.Courses[courseIndex];
 
     /** {racer.ColourInfo} */
     var colourInfo = courseInfo.colours[colourIndex];
@@ -63,7 +56,7 @@ racer.views.Editor = function(context, opt_courseIndex) {
     // create our track and signal that a corresponding TrackView should be made
     /** {racer.model.Track} */
     this.track = new racer.model.Track(colourInfo.start, new goog.math.Vec2(0,0));
-    context.trackCreated.dispatch(this.courseIndex, colourIndex, this.track);
+    context.trackCreated.dispatch(courseIndex, colourIndex, this.track);
 
     this.fill = new lime.fill.LinearGradient()
         .setDirection(0,0,1,0.01)
@@ -100,7 +93,7 @@ racer.views.Editor = function(context, opt_courseIndex) {
         for(var inc=-1; inc<=1; inc+=2) {
             var button = new lime.GlossyButton((inc >= 0 ? "+" : "-") )
                 .setPosition(25*inc,44*row)
-                .setColor('#44CC00')
+                .setColor(colour)
                 .setSize(44,44);
             button.upstate.label.setFontSize(36);
             button.downstate.label.setFontSize(36);

@@ -12,6 +12,10 @@ goog.require('org.maths.signals');
 goog.require('racer.views.renderers.ColourRendererFactory');
 goog.require('racer.views.Editor');
 
+goog.require('lime.animation.actionManager');
+goog.require('lime.animation.FadeTo');
+goog.require('lime.animation.Easing');
+
 /**
  * A panel for changing team colour while editing team tracks
  * @param {racer.model.Context} context
@@ -30,23 +34,33 @@ racer.views.ColourSelector = function(context, opt_courseIndex) {
 
     /** {racer.ColourInfo} */
     var colourInfo = null;
-    if(goog.isDefAndNotNull(courseInfo.colours) && context.colourIndex < courseInfo.colours.length) {
-        colourInfo = courseInfo.colours[context.colourIndex];
-    }
-    else {
+    if(!goog.isDefAndNotNull(courseInfo.colours)) {
         return;
     }
 
+    this.colourIndex = (context.colourIndex < courseInfo.colours.length) ? context.colourIndex : 0;
+    colourInfo = courseInfo.colours[this.colourIndex];
 
+    // Create all the track editors
+    this.editors = [];
+
+    for(var i = 0; i < courseInfo.colours.length; i++) {
+        var editor = new racer.views.Editor(this.context, this.courseIndex, i)
+                .setPosition(0,-10)
+                .setScale(0.9,0.9);
+        this.editors[i] = editor;
+        if(i === this.colourIndex) {
+            this.editor = editor;
+            this.appendChild(editor);
+        }
+    }
 
     // Define actions for ColourSelector
     var colourChangeStarted = new org.maths.signals.Signal();
     var colourChangeEnded = new org.maths.signals.Signal();
-    colourChangeStarted.add(this.startColourChange, this);
-    colourChangeEnded.add(this.finishColourChange, this);
 
     // Create Team Colour Selector
-    var colourNames = this.getCourseColours(0);
+    var colourNames = this.getCourseColours(this.courseIndex);
     var colourRenderer = new racer.views.renderers.ColourRendererFactory;
     this.colourCombo = new org.maths.ui.ArrowSelector(
         colourNames,
@@ -59,11 +73,10 @@ racer.views.ColourSelector = function(context, opt_courseIndex) {
      .setPosition(0,-60);
     this.appendChild(this.colourCombo);
 
-    // Add a track editor
-    this.editor = new racer.views.Editor(this.context, this.courseIndex)
-        .setPosition(0,-10)
-        .setScale(0.9,0.9);
-    this.appendChild(this.editor);
+    colourChangeStarted.add(this.startColourChange, this);
+    colourChangeEnded.add(this.finishColourChange, this);
+
+
 };
 goog.inherits(racer.views.ColourSelector, lime.RoundedRect);
 
@@ -86,6 +99,10 @@ racer.views.ColourSelector.prototype.getCourseColours = function(courseIndex) {
  * colour selector has started to move
  */
 racer.views.ColourSelector.prototype.startColourChange = function() {
+
+    var anim = new lime.animation.FadeTo(0).setDuration(1);
+    this.editor.runAction(anim);
+
     this.context.colourChangeStarted.dispatch();
 };
 
@@ -95,8 +112,22 @@ racer.views.ColourSelector.prototype.startColourChange = function() {
  */
 racer.views.ColourSelector.prototype.finishColourChange = function(index) {
 
-    // TODO: create or switch the track editor
-    // this.editor.changeTrack(index);
+    anim = new lime.animation.FadeTo(1).setDuration(0.3);
+
+    var editor = this.editors[index];
+    lime.animation.actionManager.stopAll(this.editor);
+    if(this.editor === editor) {
+        editor.setOpacity(1);
+        return;
+    }
+
+    this.removeChild(this.editor);
+
+    this.editor = editor;
+    editor.setOpacity(0);
+    this.appendChild(editor)
+
+    editor.runAction(anim);
 
     this.context.colourChangeEnded.dispatch(index);
 };

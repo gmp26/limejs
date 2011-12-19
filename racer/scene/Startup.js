@@ -34,22 +34,38 @@ racer.scene.Startup = function(nextSceneSignal) {
     // call super
     lime.Scene.call(this);
 
-    layer = new lime.Layer();
+};
+goog.inherits(racer.scene.Startup, lime.Scene);
+
+
+racer.scene.Startup.prototype.setup = function() {
+    var layer = new lime.Layer();
+
+    var stage = this.getDirector();
+    var stageSize = stage.getSize();
+
+    var fill = new lime.fill.LinearGradient()
+        .setDirection(0,0,1,1)
+        .addColorStop(0,'#CCC')
+        .addColorStop(0.2,'#EEE')
+        .addColorStop(0.4,'#EEE')
+        .addColorStop(0.6,'#CCC')
+        .addColorStop(0.7,'#BBB');
 
     var background = new lime.Sprite()
-        .setFill('#EEA')
+        .setFill(fill)
         .setPosition(160,240)
         .setSize(480,480);
     layer.appendChild(background);
 
     var title = new lime.Label('Racer')
         .setFontSize(24)
-        .setPosition(160,130);
+        .setPosition(160,100);
     layer.appendChild(title);
 
     var startButton = new lime.GlossyButton("Start")
         .setSize(200,50)
-        .setPosition(160, 190)
+        .setPosition(160, 160)
         .setColor('#88AA00');
     startButton.upstate.label.setFontColor('#FFF');
     startButton.downstate.label.setFontColor('#FFF');
@@ -59,10 +75,7 @@ racer.scene.Startup = function(nextSceneSignal) {
 
     goog.events.listen(startButton, ["click", "touchstart"], this.gotoLayout)
 
-
-};
-goog.inherits(racer.scene.Startup, lime.Scene);
-
+}
 
 racer.scene.Startup.prototype.gotoLayout = function(event) {
     racer.stage.replaceScene(new racer.scene.Layout());
