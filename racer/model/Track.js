@@ -17,7 +17,12 @@ goog.require('goog.math.Vec2');
  * @param {goog.math.Vec2} initialVelocity
  * @constructor
  */
+
+racer.model.trackCount = 0;
+
 racer.model.Track = function(initialPosition, initialVelocity) {
+
+    this.trackIndex = racer.model.trackCount++;
 
     /** goog.math.Vec2 */
     this.initialPosition = initialPosition;

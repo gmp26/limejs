@@ -40,15 +40,15 @@ racer.model.Courses = [
             {
                  colour:'#4466CC',
                  highlight:'#0044FF',
-                 start: new goog.math.Vec2(-11,4)
+                 start: new goog.math.Vec2(10.7,-1.8)
             },
             {
                 colour:'#CC6644',
                 highlight:'#FF0000',
-                start: new goog.math.Vec2(-12,5)
+                start: new goog.math.Vec2(11.7,-1.8)
             }
         ],
-        gridSize: 20,
+        gridSize: 20.3,
         origin: new goog.math.Vec2(0,0)
     },
     {

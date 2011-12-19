@@ -21,16 +21,16 @@ goog.require('lime.animation.Easing');
  * @param {racer.model.Context} context
  * @param {number?} opt_courseIndex
  */
-racer.views.ColourSelector = function(context, opt_courseIndex) {
+racer.views.ColourSelector = function(context, courseIndex) {
     // super
     goog.base(this);
 
     this.context = context;
 
-    this.courseIndex = opt_courseIndex | context.courseIndex;
+    this.courseIndex = courseIndex;
 
     /** {racer.CourseInfo} */
-    var courseInfo = racer.model.Courses[this.courseIndex];
+    var courseInfo = racer.model.Courses[courseIndex];
 
     /** {racer.ColourInfo} */
     var colourInfo = null;
@@ -45,7 +45,7 @@ racer.views.ColourSelector = function(context, opt_courseIndex) {
     this.editors = [];
 
     for(var i = 0; i < courseInfo.colours.length; i++) {
-        var editor = new racer.views.Editor(this.context, this.courseIndex, i)
+        var editor = new racer.views.Editor(this.context, courseIndex, i)
                 .setPosition(0,-10)
                 .setScale(0.9,0.9);
         this.editors[i] = editor;
@@ -60,7 +60,7 @@ racer.views.ColourSelector = function(context, opt_courseIndex) {
     var colourChangeEnded = new org.maths.signals.Signal();
 
     // Create Team Colour Selector
-    var colourNames = this.getCourseColours(this.courseIndex);
+    var colourNames = this.getCourseColours(courseIndex);
     var colourRenderer = new racer.views.renderers.ColourRendererFactory;
     this.colourCombo = new org.maths.ui.ArrowSelector(
         colourNames,
