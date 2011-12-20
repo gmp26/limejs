@@ -36,6 +36,8 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
     this.courseIndex = courseIndex;
     this.colourIndex = colourIndex;
 
+    this.name = "anEditor";
+
     /** {racer.CourseInfo} */
     var courseInfo = racer.model.Courses[courseIndex];
 
@@ -113,6 +115,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
         .setFill('assets/leftDown.png');
     var leftButton = new lime.Button(leftUp, leftDown)
         .setPosition(-80+20, 0);
+    leftButton.name = "leftButton";
     this.scrollContainer.appendChild(leftButton);
 
     // Create right scroller button
@@ -124,6 +127,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
         .setFill('assets/rightDown.png');
     var rightButton = new lime.Button(rightUp, rightDown)
         .setPosition(80-20, 0);
+    leftButton.name = "rightButton";
     this.scrollContainer.appendChild(rightButton);
 
     this.scrollTo(1, 2);
@@ -344,10 +348,10 @@ racer.views.Editor.prototype.scrollRightComplete = function(e) {
     if(editor.scrollIndex < editor.vectors.length-1)
         ++editor.scrollIndex;
 
-    editor.scrollTo(editor.scrollIndex-1);
-    editor.select(editor.scrollIndex-1);
+    editor.scrollTo(editor.scrollIndex);
+    editor.select(editor.scrollIndex);
 
-    console.log("scrollTo "+(editor.scrollIndex-1));
+    console.log(editor.name + " scrollTo "+(editor.scrollIndex-1));
 };
 
 /**
@@ -357,6 +361,7 @@ racer.views.Editor.prototype.scrollRightComplete = function(e) {
  */
 racer.views.Editor.prototype.scrollTo = function(index, opt_duration) {
     var duration = opt_duration || 0;
+    console.log("scrolling to:",index);
     this.scroll.scrollTo(index*30, duration);
 }
 

@@ -40,12 +40,12 @@ racer.model.Courses = [
             {
                  colour:'#4466CC',
                  highlight:'#0044FF',
-                 start: new goog.math.Vec2(10.7,-1.8)
+                 start: new goog.math.Vec2(10.7,-1.7)
             },
             {
                 colour:'#CC6644',
                 highlight:'#FF0000',
-                start: new goog.math.Vec2(11.7,-1.8)
+                start: new goog.math.Vec2(11.7,-1.7)
             }
         ],
         gridSize: 20.3,
@@ -58,20 +58,20 @@ racer.model.Courses = [
             {
                  colour:'#77BB22',
                  highlight: '#00FF00',
-                 start: new goog.math.Vec2(-10,3.1)
+                 start: new goog.math.Vec2(-10.1,3.1)
             },
             {
                  colour:'#4466CC',
                  highlight:'#0044FF',
-                 start: new goog.math.Vec2(-11,4)
+                 start: new goog.math.Vec2(-11.1,4.1)
             },
             {
                 colour:'#CC6644',
                 highlight:'#FF0000',
-                start: new goog.math.Vec2(-8,-6.4)
+                start: new goog.math.Vec2(-12.1,5.1)
             }
         ],
-        gridSize: 20,
+        gridSize: 20.5,
         origin: new goog.math.Vec2(0,0)
     }
 

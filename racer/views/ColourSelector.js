@@ -128,6 +128,7 @@ racer.views.ColourSelector.prototype.finishColourChange = function(index) {
     this.appendChild(editor)
 
     editor.runAction(anim);
+    this.context.colourIndex = index;
 
-    this.context.colourChangeEnded.dispatch(index);
+    this.context.colourChangeEnded.dispatch(this.context, index);
 };

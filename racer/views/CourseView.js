@@ -41,6 +41,8 @@ racer.views.CourseView = function(context, opt_courseIndex) {
 
     this.trackViews = [];
 
+    context.colourChangeEnded.add(this.updateView, this);
+
 }
 goog.inherits(racer.views.CourseView, lime.RoundedRect);
 
