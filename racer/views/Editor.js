@@ -190,13 +190,6 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
     }
     if(vector.x === "" || vector.y === "") {
 
-/*
-        if(this.maxEmpty < vector.getData()+1)
-            this.maxEmpty = vector.getData()+1;
-        else {
-            console.log("weird");
-        }
-*/
         // first time we have set up this vector. Append another
         var index = vector.getData();
         var prev = this.vectors[index-1];
@@ -251,6 +244,7 @@ racer.views.Editor.prototype.select = function(index) {
     console.log("select "+index);
     this.cursor = this.vectors[index];
     this.cursor.setEditable(true);
+    this.scrollIndex = index;
     this.track.selected = index;
 }
 
@@ -337,8 +331,9 @@ racer.views.Editor.prototype.scrollLeftComplete = function(e) {
     if(editor.scrollIndex > 0)
         --editor.scrollIndex;
 
-    editor.scroll.scrollTo(editor.scrollIndex);
     editor.select(editor.scrollIndex);
+    editor.scrollTo(editor.scrollIndex,2);
+    editor.updateTrackView();
 
     console.log("scrollTo "+editor.scrollIndex);
 };
@@ -348,12 +343,32 @@ racer.views.Editor.prototype.scrollRightComplete = function(e) {
     e.release();
 
     var editor = this.getParent().getParent();
-    if(editor.scrollIndex < editor.vectors.length-1)
+    /*
+    if(editor.scrollIndex === editor.vectors.length-1) {
+
+        var index = editor.scrollIndex;
+        var vector = editor.vectors[index];
+
+        // first time we have set up this vector. Append another
+        var prev = editor.vectors[index-1];
+        vector.setX(prev.x);
+        vector.setY(prev.y);
+
+        editor.appendVector(index+1, editor.touchedSignal);
+
+         // save delta in track
+        editor.track.setDeltaAt(new goog.math.Vec2(0,0), index);
+
+    }
+    */
+    if(editor.scrollIndex < editor.vectors.length-2)
         ++editor.scrollIndex;
 
-    editor.scrollTo(editor.scrollIndex);
     editor.select(editor.scrollIndex);
+    editor.scrollTo(editor.scrollIndex);
 
+    // ripple changes downstream
+    editor.updateTrackView();
     console.log(editor.name + " scrollTo "+(editor.scrollIndex-1));
 };
 
@@ -366,6 +381,7 @@ racer.views.Editor.prototype.scrollTo = function(index, opt_duration) {
     var duration = opt_duration || 0;
     console.log("scrolling to:",index);
     this.scroll.scrollTo(index*30, duration);
+    this.scrollIndex = index;
 }
 
 
