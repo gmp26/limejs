@@ -25,7 +25,7 @@
       <file leaf-file-name="Editor.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/Editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="0" selection-start="9620" selection-end="9620" vertical-scroll-proportion="-17.192308">
+            <state line="94" column="0" selection-start="2729" selection-end="2729" vertical-scroll-proportion="-15.0">
               <folding />
             </state>
           </provider>
@@ -40,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CourseInfo.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CourseInfo.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="18" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+            <state line="32" column="22" selection-start="873" selection-end="873" vertical-scroll-proportion="0.4512195">
               <folding />
             </state>
           </provider>
@@ -58,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scroller.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Scroller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../org/maths/ui/Scroller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="0" selection-start="3342" selection-end="3342" vertical-scroll-proportion="3.2254698">
+            <state line="463" column="0" selection-start="12064" selection-end="12064" vertical-scroll-proportion="-6.1153846">
               <folding />
             </state>
           </provider>
@@ -91,7 +91,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/../org/maths/ui/ArrowSelector.js" />
-        <option value="$PROJECT_DIR$/../org/maths/ui/Scroller.js" />
         <option value="$PROJECT_DIR$/scene/Layout.js" />
         <option value="$PROJECT_DIR$/../lime/src/node.js" />
         <option value="$PROJECT_DIR$/views/ColourSelectorsView.js" />
@@ -102,9 +101,10 @@
         <option value="$PROJECT_DIR$/views/TrackView.js" />
         <option value="$PROJECT_DIR$/model/Track.js" />
         <option value="www.assembla.com/javascripts/home_page_packaged.js?1323790455" />
-        <option value="$PROJECT_DIR$/views/Editor.js" />
         <option value="$PROJECT_DIR$/views/CourseView.js" />
         <option value="$PROJECT_DIR$/views/ColourSelector.js" />
+        <option value="$PROJECT_DIR$/../org/maths/ui/Scroller.js" />
+        <option value="$PROJECT_DIR$/views/Editor.js" />
         <option value="$PROJECT_DIR$/model/CourseInfo.js" />
       </list>
     </option>
@@ -534,13 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/Editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="0" selection-start="9620" selection-end="9620" vertical-scroll-proportion="-17.192308">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/ColourSelector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="125" column="25" selection-start="3573" selection-end="3573" vertical-scroll-proportion="0.0">
@@ -555,16 +548,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
+    <entry file="file://$PROJECT_DIR$/views/Editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="18" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+        <state line="94" column="0" selection-start="2729" selection-end="2729" vertical-scroll-proportion="-15.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../org/maths/ui/Scroller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="0" selection-start="3342" selection-end="3342" vertical-scroll-proportion="3.2254698">
+        <state line="463" column="0" selection-start="12064" selection-end="12064" vertical-scroll-proportion="-6.1153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="22" selection-start="873" selection-end="873" vertical-scroll-proportion="0.4512195">
           <folding />
         </state>
       </provider>

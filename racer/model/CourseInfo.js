@@ -30,7 +30,7 @@ racer.model.Courses = [
                  start: new goog.math.Vec2(-8,-6.4)
             }
         ],
-        gridSize: 20,
+        gridSize: 20.3,
         origin: new goog.math.Vec2(0,0)
     },
     {

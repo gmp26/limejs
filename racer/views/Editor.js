@@ -90,6 +90,8 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
     var vector = this.appendVector(0, this.touchedSignal);
     this.toggleEdit(vector);
 
+    this.scroll.setStops(1);
+
     // Create inc and dec buttons for the selected vector
     for(var row=-1; row <= 1; row+=2) {
         for(var inc=-1; inc<=1; inc+=2) {
@@ -163,6 +165,7 @@ racer.views.Editor.prototype.appendVector = function(index, touchedSignal) {
         .setData(index)
         .setScale(0.5,0.5);
     this.scroll.appendChild(vector);
+    this.scroll.setStops(this.scroll.getStops()+1);
     this.vectors.push(vector);
 
     return vector;

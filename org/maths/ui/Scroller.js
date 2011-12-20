@@ -159,7 +159,7 @@ org.maths.ui.Scroller.prototype.measureLimits = function() {
         this.LOW -= diff;
         this.HIGH += diff;
     }
-    //console.log("LOW=", this.LOW, "HIGH=",this.HIGH);
+    console.log("LOW=", this.LOW, "HIGH=",this.HIGH);
 };
 
 /**
