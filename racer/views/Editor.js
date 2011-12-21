@@ -45,7 +45,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
     var colourInfo = courseInfo.colours[colourIndex];
 
     /** {number} */
-    this.scrollIndex = 1;
+    this.scrollIndex = 0;
 
     /** {string} */
     var colour = colourInfo.colour;
@@ -60,6 +60,17 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
     this.track = new racer.model.Track(colourInfo.start, new goog.math.Vec2(0,0));
     context.trackCreated.dispatch(courseIndex, colourIndex, this.track);
 
+    /** fills */
+
+    this.fill = new lime.fill.LinearGradient()
+        .setDirection(0,0,1,0.01)
+        .addColorStop(0,'#444')
+        .addColorStop(0.3,'#EEE')
+        .addColorStop(0.5,'#FFF')
+        .addColorStop(0.7,'#EEE')
+        .addColorStop(1,'#444');
+
+/*
     this.fill = new lime.fill.LinearGradient()
         .setDirection(0,0,1,0.01)
         .addColorStop(0,'#444')
@@ -67,7 +78,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
         .addColorStop(0.5,'#FFF')
         .addColorStop(0.95,'#EEE')
         .addColorStop(1,'#444');
-
+*/
     // Create region of scrolling vectors
     this.scroll = new org.maths.ui.Scroller()//new org.maths.ui.Scroller()
         .setStroke(2, '#000')
@@ -381,7 +392,7 @@ racer.views.Editor.prototype.scrollTo = function(index, opt_duration) {
     var duration = opt_duration || 0;
     console.log("scrolling to:",index);
     this.scroll.scrollTo(index*30, duration);
-    this.scrollIndex = index;
+    //this.scrollIndex = index;
 }
 
 

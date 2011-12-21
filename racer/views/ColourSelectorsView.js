@@ -94,6 +94,8 @@ racer.views.ColourSelectorsView.prototype.finishCourseSwitch = function(index) {
     this.viewContainer.removeChild(this.old);
 
     this.context.courseIndex = index;
+//    this.context.colourIndex = this.context.coursesData[index]
+    this.context.colourChangeEnded.dispatch(0);
 
     var view = this.colourSelectors[index];
     if(!goog.isDefAndNotNull(view)) {

@@ -20,13 +20,13 @@ racer.model.Courses = [
         mapUrl: 'assets/Intro2.png',
         colours: [
             {
-                colour:'#CC6644',
-                highlight:'#FF0000',
+                colour:'#EE2200',
+                highlight:'#CC6644',
                 start: new goog.math.Vec2(-8,-6.4)
             },
             {
-                 colour:'#4466CC',
-                 highlight:'#0044FF',
+                 colour:'#0044FF',
+                 highlight:'#46C',
                  start: new goog.math.Vec2(-8,-6.4)
             }
         ],

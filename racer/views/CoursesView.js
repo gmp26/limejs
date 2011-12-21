@@ -72,6 +72,7 @@ racer.views.CoursesView.prototype.startCourseSwitch = function() {
 racer.views.CoursesView.prototype.finishCourseSwitch = function(index) {
 
     this.context.courseIndex = index;
+//    this.context.colourIndex = 0;
 
     var view = this.coursesView[index];
     if(!goog.isDefAndNotNull(view)) {

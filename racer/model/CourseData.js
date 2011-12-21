@@ -22,11 +22,8 @@ racer.model.CourseData = function(courseInfo) {
     // reference to course configuration info
     this.info = courseInfo;
 
-    /** {Array.<racer.model.Track>} stored tracks */
-    this.tracks = [];
-    var len = courseInfo.colours.length;
-    for(var i=0; i < len; i++) {
-        this.tracks[i] = new racer.model.Track(courseInfo.colours[i].start, new goog.math.Vec2(0,0));
-    }
+    // currently selected course colour
+    this.colourIndex = 0;
+
 };
 

@@ -79,7 +79,7 @@ racer.views.TrackView.prototype.draw = function(ctx) {
 	ctx.strokeStyle = colourInfo.colour;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 4;
 	ctx.beginPath();
 
     var steps = wayPoints.length;
@@ -91,21 +91,28 @@ racer.views.TrackView.prototype.draw = function(ctx) {
         var wp = wayPoints[i];
         var pos = wp.position;
         var v = wp.velocity;
+        var xFrom = pos.x*gx;
+        var xTo = xFrom + v.x*gx;
+        var yFrom = pos.y*gy;
+        var yTo = yFrom + v.y*gy;
         if(i === (selectedIndex+1)) {
             ctx.stroke();
             ctx.lineWidth = 4;
             ctx.strokeStyle = colourInfo.highlight;
             ctx.beginPath();
-            ctx.moveTo(pos.x*gx, pos.y*gy);
-            ctx.lineTo((pos.x+v.x)*gx, (pos.y+v.y)*gy);
+            ctx.moveTo(xFrom, yFrom);
+            ctx.lineTo(xTo, yTo);
+            ctx.rect(xTo-4, yTo-4, 8, 8)
             ctx.stroke();
             ctx.strokeStyle = colourInfo.colour;
             ctx.lineWidth = 2;
             ctx.beginPath();
         }
         else {
-            ctx.moveTo(pos.x*gx, pos.y*gy);
-            ctx.lineTo((pos.x+v.x)*gx, (pos.y+v.y)*gy);
+            ctx.moveTo(xFrom, yFrom);
+            ctx.lineTo(xTo, yTo);
+            ctx.rect(xTo-4, yTo-4, 8, 8)
+
         }
     }
 

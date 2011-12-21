@@ -38,7 +38,7 @@ racer.views.ColourSelector = function(context, courseIndex) {
         return;
     }
 
-    this.colourIndex = (context.colourIndex < courseInfo.colours.length) ? context.colourIndex : 0;
+    this.colourIndex = context.getColourIndex(); // < courseInfo.colours.length) ? context.getColourIndex() : 0;
     colourInfo = courseInfo.colours[this.colourIndex];
 
     // Create all the track editors
@@ -128,7 +128,7 @@ racer.views.ColourSelector.prototype.finishColourChange = function(index) {
     this.appendChild(editor)
 
     editor.runAction(anim);
-    this.context.colourIndex = index;
+    this.context.setColourIndex(index);
 
     this.context.colourChangeEnded.dispatch(this.context, index);
 };

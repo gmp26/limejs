@@ -43,14 +43,30 @@ racer.model.Context = function() {
     /** {number} */
     this.courseIndex = 0;
 
-    /** {number} */
-    this.colourIndex = 0;  // -1 indicates all colours should be drawn
+    ///** {number} */
+    //this.colourIndex = 0;  // -1 indicates all colours should be drawn
 
     /** {Array.<racer.model.CourseData>} run-time course data store */
     this.coursesData = [];
-    var len = racer.model.CourseData.length;
+    var len = racer.model.Courses.length;
     for(var i=0; i < len; i++) {
         this.coursesData[i] = new racer.model.CourseData(racer.model.Courses[i]);
     }
 
 };
+
+/**
+ * set the colourIndex of the current course
+ * @param index the colour index
+ */
+racer.model.Context.prototype.setColourIndex = function(index) {
+    this.coursesData[this.courseIndex].colourIndex = index;
+};
+
+/**
+ * set the colourIndex of the current course
+ * @param index the colour index
+ */
+racer.model.Context.prototype.getColourIndex = function() {
+    return this.coursesData[this.courseIndex].colourIndex;
+}

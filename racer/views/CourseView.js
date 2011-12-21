@@ -102,9 +102,9 @@ racer.views.CourseView.prototype.updateView = function(context, track) {
         /** {number} */
         len = this.trackViews.length;
         for(i = 0; i < len; i++) {
-            this.trackViews[i].setHidden(i != context.colourIndex);
+            this.trackViews[i].setHidden(i != context.getColourIndex());
         }
-        this.drawTrack(this.courseIndex, context.colourIndex);
+        this.drawTrack(this.courseIndex, context.getColourIndex());
     }
     else {
         // update all existing tracks
