@@ -48,7 +48,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
     this.scrollIndex = 0;
 
     /** {string} */
-    var colour = colourInfo.colour;
+    this.colour = colourInfo.colour;
 
     this.scrollContainer = new lime.Layer()
         .setScale(1,1)
@@ -62,7 +62,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
 
     /** fills */
 
-    this.fill = new lime.fill.LinearGradient()
+    var fill = new lime.fill.LinearGradient()
         .setDirection(0,0,1,0.01)
         .addColorStop(0,'#444')
         .addColorStop(0.3,'#EEE')
@@ -85,7 +85,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
         .setAnchorPoint(0, 0.5)
         .setPosition(-80+(160-90)/2,0)
         .setSize(90, 44)
-        .setFill(this.fill);
+        .setFill(fill);
     this.scrollContainer.appendChild(this.scroll);
 
     // create array of columnVectors
@@ -108,7 +108,7 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
         for(var inc=-1; inc<=1; inc+=2) {
             var button = new lime.GlossyButton((inc >= 0 ? "+" : "-") )
                 .setPosition(25*inc,44*row)
-                .setColor(colour)
+                .setColor('#44CC00')
                 .setSize(44,44);
             button.upstate.label.setFontSize(36);
             button.downstate.label.setFontSize(36);
@@ -121,10 +121,10 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
 
     // Create left scroller button
     var leftUp = new lime.Sprite()
-        .setScale(0.5)
+        .setScale(0.9)
         .setFill('assets/leftUp.png');
     var leftDown = new lime.Sprite()
-        .setScale(0.5)
+        .setScale(0.9)
         .setFill('assets/leftDown.png');
     var leftButton = new lime.Button(leftUp, leftDown)
         .setPosition(-80+20, 0);
@@ -133,10 +133,10 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
 
     // Create right scroller button
     var rightUp = new lime.Sprite()
-        .setScale(0.5)
+        .setScale(0.9)
         .setFill('assets/rightUp.png');
     var rightDown = new lime.Sprite()
-        .setScale(0.5)
+        .setScale(0.9)
         .setFill('assets/rightDown.png');
     var rightButton = new lime.Button(rightUp, rightDown)
         .setPosition(80-20, 0);
@@ -175,6 +175,7 @@ racer.views.Editor.prototype.appendVector = function(index, touchedSignal) {
         .setPosition(30*(index+1), 0)
         .setData(index)
         .setScale(0.5,0.5);
+    vector.highlight.setFill(this.colour)
     this.scroll.appendChild(vector);
     this.scroll.setStops(this.scroll.getStops()+1);
     this.vectors.push(vector);

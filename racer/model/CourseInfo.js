@@ -38,13 +38,13 @@ racer.model.Courses = [
         mapUrl: 'assets/Charlie.png',
         colours: [
             {
-                 colour:'#4466CC',
-                 highlight:'#0044FF',
+                 colour:'#0044FF',
+                 highlight:'#88AADD',
                  start: new goog.math.Vec2(10.7,-1.7)
             },
             {
-                colour:'#CC6644',
-                highlight:'#FF0000',
+                colour:'#EE2200',
+                highlight:'#CC6644',
                 start: new goog.math.Vec2(11.7,-1.7)
             }
         ],
@@ -56,18 +56,18 @@ racer.model.Courses = [
         mapUrl: 'assets/Showjumping.png',
         colours: [
             {
-                 colour:'#77BB22',
-                 highlight: '#00FF00',
+                 colour:'#00FF00',
+                 highlight: '#77BB22',
                  start: new goog.math.Vec2(-10.1,3.1)
             },
             {
-                 colour:'#4466CC',
-                 highlight:'#0044FF',
+                 colour:'#0044FF',
+                 highlight:'#4466CC',
                  start: new goog.math.Vec2(-11.1,4.1)
             },
             {
-                colour:'#CC6644',
-                highlight:'#FF0000',
+                colour:'#EE2200',
+                highlight:'#CC6644',
                 start: new goog.math.Vec2(-12.1,5.1)
             }
         ],

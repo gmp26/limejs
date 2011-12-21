@@ -59,6 +59,26 @@ org.maths.ui.ColumnVector = function(x,y, touchedSignal) {
 
     this.setSize(57,80);
 
+    this.placeHolder = new lime.Layer();
+    var p1 = new lime.Label('click')
+        .setFontSize(18)
+        .setFontColor('#888')
+        .setPosition(0,-17);
+    var p2 = new lime.Label('to')
+        .setFontSize(18)
+        .setFontColor('#888')
+        .setPosition(0,0);
+    var p3 = new lime.Label('add')
+        .setFontSize(18)
+        .setFontColor('#888')
+        .setPosition(0,17);
+    this.placeHolder.appendChild(p1);
+    this.placeHolder.appendChild(p2);
+    this.placeHolder.appendChild(p3);
+    this.appendChild(this.placeHolder);
+
+    this.placeHolder.setHidden(x!=="" && y!=="");
+
     if(goog.isDefAndNotNull(this.touchedSignal)) {
         goog.events.listen(this, ["mousedown", "touchstart"], this.touched, false, this);
     }
@@ -108,6 +128,8 @@ org.maths.ui.ColumnVector.prototype.touchComplete = function(e) {
 org.maths.ui.ColumnVector.prototype.setX = function(val) {
     this.x = val;
     this.topLabel.setText(val.toString());
+    this.placeHolder.setHidden(val!=="");
+
     return this;
 }
 
@@ -126,6 +148,7 @@ org.maths.ui.ColumnVector.prototype.getX = function() {
 org.maths.ui.ColumnVector.prototype.setY = function(val) {
     this.y = val;
     this.bottomLabel.setText(val.toString());
+    this.placeHolder.setHidden(val!=="");
     return this;
 }
 
