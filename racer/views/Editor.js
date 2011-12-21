@@ -344,7 +344,7 @@ racer.views.Editor.prototype.scrollLeftComplete = function(e) {
         --editor.scrollIndex;
 
     editor.select(editor.scrollIndex);
-    editor.scrollTo(editor.scrollIndex,2);
+    editor.scrollTo(editor.scrollIndex);
     editor.updateTrackView();
 
     console.log("scrollTo "+editor.scrollIndex);
@@ -355,24 +355,7 @@ racer.views.Editor.prototype.scrollRightComplete = function(e) {
     e.release();
 
     var editor = this.getParent().getParent();
-    /*
-    if(editor.scrollIndex === editor.vectors.length-1) {
 
-        var index = editor.scrollIndex;
-        var vector = editor.vectors[index];
-
-        // first time we have set up this vector. Append another
-        var prev = editor.vectors[index-1];
-        vector.setX(prev.x);
-        vector.setY(prev.y);
-
-        editor.appendVector(index+1, editor.touchedSignal);
-
-         // save delta in track
-        editor.track.setDeltaAt(new goog.math.Vec2(0,0), index);
-
-    }
-    */
     if(editor.scrollIndex < editor.vectors.length-2)
         ++editor.scrollIndex;
 

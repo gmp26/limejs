@@ -25,6 +25,7 @@ goog.require('goog.events');
 racer.views.Settings = function(context) {
     goog.base(this);
 
+    this.context = context;
 
     var fill = new lime.fill.LinearGradient()
         .setDirection(0,0,1,1)
@@ -63,10 +64,13 @@ racer.views.Settings = function(context) {
         .setPosition(-50,50);
     this.appendChild(editButton);
 
-    var playButton = new lime.GlossyButton('Race')
+    var raceButton = new lime.GlossyButton('Race')
         .setSize(44,44)
         .setPosition(50,50);
-    this.appendChild(playButton);
+    this.appendChild(raceButton);
+
+    goog.events.listen(raceButton, ["mousedown","touchstart"], this.raceTouched, true, this);
+    goog.events.listen(editButton, ["mousedown","touchstart"], this.editTouched, true, this);
 
 
 };
@@ -82,4 +86,35 @@ racer.views.Settings.prototype.getCourseNames = function() {
         names[i] = info[i].name;
     }
     return names;
+};
+
+/**
+ *
+ * @param {goog.events.Event} e button event
+ */
+racer.views.Settings.prototype.raceTouched = function(e) {
+    if (e.type == 'mousedown' || e.type == 'touchstart') {
+        e.swallow(['mouseup', 'touchend'], goog.partial(this.startRace,e,this), true);
+    }
+ };
+
+/**
+ *
+ * @param {goog.events.Event} e button event
+ */
+racer.views.Settings.prototype.editTouched = function(e) {
+    if (e.type == 'mousedown' || e.type == 'touchstart') {
+        e.swallow(['mouseup', 'touchend'], goog.partial(this.startEdit, e, this), true);
+    }
+ };
+
+racer.views.Settings.prototype.startRace = function(e, self) {
+    self.context.editing = false;
+    self.context.raceStep = 0;
+    self.context.raceStarted.dispatch();
+};
+
+racer.views.Settings.prototype.startEdit = function(e, self) {
+    self.context.editing = true;
+    self.context.raceEnded.dispatch();
 };

@@ -83,4 +83,13 @@ racer.model.Track.prototype.wayPoints = function() {
     }
 
     return points;
+};
+
+/**
+ * @return the number of waypoints in the track
+ */
+racer.model.Track.prototype.getTrackLength = function() {
+    return this.deltas.length + 1;
 }
+
+

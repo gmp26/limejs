@@ -8,6 +8,7 @@ goog.provide('racer.views.CourseView');
 goog.require('racer.model.Context');
 goog.require('racer.model.CourseInfo');
 goog.require('lime.RoundedRect');
+goog.require('lime.scheduleManager');
 goog.require('racer.views.TrackView');
 goog.require('racer.model.Track');
 goog.require('org.maths.signals');
@@ -42,6 +43,10 @@ racer.views.CourseView = function(context, opt_courseIndex) {
     this.trackViews = [];
 
     context.colourChangeEnded.add(this.updateView, this);
+
+    context.raceStarted.add(this.raceStarted, this);
+
+    context.raceEnded.add(this.raceEnded, this);
 
 }
 goog.inherits(racer.views.CourseView, lime.RoundedRect);
@@ -95,8 +100,6 @@ racer.views.CourseView.prototype.updateView = function(context, track) {
     /** number */
     var i,len;
 
-    // clear all existing tracks
-    // this.clearTracks(context);
     if(context.editing) {
         // draw only the current track
         /** {number} */
@@ -115,21 +118,6 @@ racer.views.CourseView.prototype.updateView = function(context, track) {
     }
 
 };
-
-/**
- * clear existing drawn tracks
- * @param context
- */
-racer.views.CourseView.prototype.clearTracks = function(context) {
-    /*
-    var len = this.trackViews.length;
-    for(var i=0; i < len; i++) {
-        this.removeChild(this.trackViews[i]);
-    }
-    this.trackViews = [];
-    */
-}
-
 
 
 /**
@@ -166,39 +154,41 @@ racer.views.CourseView.prototype.drawRace = function(courseIndex, colourIndex, r
     }
 };
 
-/**
- * draws one track by adding its TrackView
- * @param {number} courseIndex
- * @param {number} colourIndex
- * @param {racer.model.Track} opt_track
- */
-/*
-racer.views.CourseView.prototype.drawTrack = function(courseIndex, colourIndex, opt_track) {
+racer.views.CourseView.prototype.raceStarted = function() {
+    //todo
+    this.raceIndex = 0;
+    lime.scheduleManager.scheduleWithDelay(this.raceStep, this, 500);
+}
 
-    var trackView;
+racer.views.CourseView.prototype.raceEnded = function() {
+    //todo
+    if(this.context.courseIndex != this.courseIndex)
+        return;
 
-    if(goog.isDefAndNotNull(opt_track)) {
+    console.log('raceEnded')
+}
 
-        console.log("creating TrackView:", courseIndex, colourIndex);
 
-        // create new track
-        trackView = new racer.views.TrackView(courseIndex, colourIndex, opt_track)
-                .setSize(640,640);
+racer.views.CourseView.prototype.raceStep = function() {
+    if(this.context.courseIndex != this.courseIndex)
+        return;
 
-        // save this new TrackView
-        this.trackViews[colourIndex] = trackView;
-    }
-    else {
-        // draw any existing track at colourIndex
-        if(colourIndex < this.trackViews.length) {
-            trackView = this.trackViews[colourIndex];
+    var allDone = true;
+    var tracks = this.trackViews.length;
+    for(var colourIndex = 0; colourIndex < tracks; colourIndex++) {
+        var trackView = this.trackViews[colourIndex];
+        trackView.setHidden(false);
+        var trackLen = trackView.track.getTrackLength();
+        if(this.raceIndex <= trackLen) {
+            allDone = false;
+            console.log("racing course:",this.courseIndex, "colour:", colourIndex, "step:", this.raceIndex);
+            this.drawRace(this.courseIndex, colourIndex, this.raceIndex);
         }
     }
+    this.raceIndex++;
 
-    if(goog.isDefAndNotNull(trackView)) {
-        this.appendChild(trackView);
+    if(allDone) {
+        lime.scheduleManager.unschedule(racer.views.CourseView.prototype.raceStep, this);
+        this.context.raceEnded.dispatch();
     }
-};
-
-*/
-
+}

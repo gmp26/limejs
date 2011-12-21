@@ -34,6 +34,12 @@ racer.model.Context = function() {
     /** {org.maths.signals.Signal} animated colour change should end */
     this.colourChangeEnded = new org.maths.signals.Signal();
 
+    /** {org.maths.signals.Signal} race button pressed */
+    this.raceStarted = new org.maths.signals.Signal();
+
+    /** {org.maths.signals.Signal} race display has ended  */
+    this.raceEnded = new org.maths.signals.Signal();
+
     /** {boolean} true if we are editing, false if racing */
     this.editing = true;
 
@@ -65,7 +71,7 @@ racer.model.Context.prototype.setColourIndex = function(index) {
 
 /**
  * set the colourIndex of the current course
- * @param index the colour index
+ * @return index the colour index
  */
 racer.model.Context.prototype.getColourIndex = function() {
     return this.coursesData[this.courseIndex].colourIndex;
