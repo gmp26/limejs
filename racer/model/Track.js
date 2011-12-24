@@ -8,6 +8,8 @@ goog.provide('racer.model.Track');
 
 goog.require('goog.math.Vec2');
 
+racer.model.trackCount = 0;
+
 /**
  *
  * Tracks define a named player's track through the course starting
@@ -17,9 +19,6 @@ goog.require('goog.math.Vec2');
  * @param {goog.math.Vec2} initialVelocity
  * @constructor
  */
-
-racer.model.trackCount = 0;
-
 racer.model.Track = function(initialPosition, initialVelocity) {
 
     this.trackIndex = racer.model.trackCount++;

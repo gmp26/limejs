@@ -22,12 +22,12 @@ racer.model.Courses = [
             {
                 colour:'#EE2200',
                 highlight:'#CC6644',
-                start: new goog.math.Vec2(-8,-6.4)
+                start: new goog.math.Vec2(-7.9,-6.4)
             },
             {
                  colour:'#0044FF',
                  highlight:'#46C',
-                 start: new goog.math.Vec2(-8,-6.4)
+                 start: new goog.math.Vec2(-7.9,-6.4)
             }
         ],
         gridSize: 20.3,
@@ -53,10 +53,10 @@ racer.model.Courses = [
     },
     {
         name: 'Game 2',
-        mapUrl: 'assets/Showjumping.png',
+        mapUrl: 'assets/ShowJumping.png',
         colours: [
             {
-                 colour:'#00FF00',
+                 colour:'#00DD00',
                  highlight: '#77BB22',
                  start: new goog.math.Vec2(-10.1,3.1)
             },

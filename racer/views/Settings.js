@@ -56,7 +56,8 @@ racer.views.Settings = function(context) {
     this.appendChild(this.courseCombo);
 
     var label = new lime.Label('Select game')
-        .setPosition(0,-40)
+        .setPosition(0,-50)
+        .setFontSize(12)
     this.appendChild(label);
 
     var editButton = new lime.GlossyButton('Edit')

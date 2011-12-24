@@ -222,10 +222,19 @@ racer.views.Editor.prototype.toggleEdit = function(vector) {
 
         this.scrollTo(index, 2);
     }
-    vector.setEditable(true);
-    this.cursor = vector;
-    this.track.selected = vector.getData();
+    //vector.setEditable(true);
+    //this.cursor = vector;
+    //this.track.selected = vector.getData();
 
+    this.select(vector.getData());
+    /*
+    this.deselect();
+    console.log("select "+index);
+    this.cursor = this.vectors[index];
+    this.cursor.setEditable(true);
+    this.scrollIndex = index;
+    this.track.selected = index;
+    */
 
     // ripple changes downstream
     this.updateTrackView();
@@ -344,7 +353,7 @@ racer.views.Editor.prototype.scrollLeftComplete = function(e) {
         --editor.scrollIndex;
 
     editor.select(editor.scrollIndex);
-    editor.scrollTo(editor.scrollIndex);
+    editor.scrollTo(editor.scrollIndex, 2);
     editor.updateTrackView();
 
     console.log("scrollTo "+editor.scrollIndex);
@@ -360,7 +369,7 @@ racer.views.Editor.prototype.scrollRightComplete = function(e) {
         ++editor.scrollIndex;
 
     editor.select(editor.scrollIndex);
-    editor.scrollTo(editor.scrollIndex);
+    editor.scrollTo(editor.scrollIndex, 2);
 
     // ripple changes downstream
     editor.updateTrackView();
@@ -370,7 +379,7 @@ racer.views.Editor.prototype.scrollRightComplete = function(e) {
 /**
  * scroll to a vector index
  * @param index of the columnVector to scroll to
- * @opt_duration optional duration of scroll in seconds
+ * @param opt_duration optional duration of scroll in seconds
  */
 racer.views.Editor.prototype.scrollTo = function(index, opt_duration) {
     var duration = opt_duration || 0;

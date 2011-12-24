@@ -65,6 +65,9 @@ racer.views.ColourSelectorsView = function(context) {
     context.trackChangeStarted.add(this.startCourseSwitch, this);
     context.trackChangeEnded.add(this.finishCourseSwitch, this);
 
+    context.raceStarted.add(this.raceStarted, this);
+    context.raceEnded.add(this.raceEnded, this);
+
 };
 goog.inherits(racer.views.ColourSelectorsView, lime.RoundedRect);
 
@@ -112,4 +115,12 @@ racer.views.ColourSelectorsView.prototype.finishCourseSwitch = function(index) {
     anim = new lime.animation.FadeTo(1).setDuration(0.3);
     view.runAction(anim);
 
-}
+};
+
+racer.views.ColourSelectorsView.prototype.raceStarted = function() {
+    this.removeChild(this.viewContainer);
+};
+
+racer.views.ColourSelectorsView.prototype.raceEnded = function() {
+    this.appendChild(this.viewContainer);
+};

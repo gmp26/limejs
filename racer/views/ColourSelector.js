@@ -19,7 +19,8 @@ goog.require('lime.animation.Easing');
 /**
  * A panel for changing team colour while editing team tracks
  * @param {racer.model.Context} context
- * @param {number?} opt_courseIndex
+ * @param {number?} courseIndex
+ * @constructor
  */
 racer.views.ColourSelector = function(context, courseIndex) {
     // super

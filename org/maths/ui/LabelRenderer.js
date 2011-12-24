@@ -41,5 +41,5 @@ org.maths.ui.LabelRenderer.prototype.setData = function(data) {
 org.maths.ui.LabelRenderer.prototype.getItem = function() {
     return new lime.Label(this.text_)
         .setAlign("center")
-        .setPadding(5);
+        .setPadding(10);
 }

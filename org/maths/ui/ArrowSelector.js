@@ -19,7 +19,9 @@ goog.require('org.maths.signals');
  * @param {number} items showing in menu
  * @param {org.maths.ui.Scroller.Direction} direction
  * @param {org.maths.signals.Signal}
+ * @param {org.maths.signals.Signal}
  * @constructor
+ * @extends {lime.Node}
  */
 
 org.maths.ui.ArrowSelector = function(dataProvider,

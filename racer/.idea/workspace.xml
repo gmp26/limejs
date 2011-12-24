@@ -22,10 +22,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Context.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Context.js">
+      <file leaf-file-name="Settings.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0">
+            <state line="59" column="23" selection-start="1695" selection-end="1695" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Selector.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../org/maths/ui/Selector.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="40" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Scroller.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../org/maths/ui/Scroller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -34,52 +52,52 @@
       <file leaf-file-name="CourseView.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/CourseView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="35" selection-start="4621" selection-end="4621" vertical-scroll-proportion="-8.269231">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrackView.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/TrackView.js">
+      <file leaf-file-name="CoursesView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/CoursesView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="32" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Track.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Track.js">
+      <file leaf-file-name="ColourSelectorsView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/ColourSelectorsView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="2" selection-start="1883" selection-end="1883" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Editor.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/Editor.js">
+      <file leaf-file-name="ColourSelector.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/ColourSelector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="382" column="0" selection-start="11010" selection-end="11010" vertical-scroll-proportion="0.8231707">
+            <state line="65" column="53" selection-start="2019" selection-end="2032" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventdispatcher.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lime/src/events/eventdispatcher.js">
+      <file leaf-file-name="LabelRenderer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../org/maths/ui/LabelRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="76" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0">
+            <state line="43" column="22" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Layout.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scene/Layout.js">
+      <file leaf-file-name="CourseInfo.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
+            <state line="54" column="23" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.50489235">
               <folding />
             </state>
           </provider>
@@ -99,27 +117,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="www.assembla.com/javascripts/home_page_packaged.js?1323790455" />
-        <option value="$PROJECT_DIR$/../org/maths/ui/Scroller.js" />
-        <option value="$PROJECT_DIR$/views/TrackView.js" />
-        <option value="$PROJECT_DIR$/views/ColourSelector.js" />
-        <option value="$PROJECT_DIR$/views/ColourSelectorsView.js" />
-        <option value="$PROJECT_DIR$/views/CoursesView.js" />
-        <option value="$PROJECT_DIR$/model/CourseData.js" />
         <option value="a0.twimg.com/b/1/bundle/phoenix-core-en-201112200936.js" />
         <option value="i.istockimg.com/static/1323985864/js/protoculous.js" />
         <option value="$PROJECT_DIR$/../org/maths/ui/ColumnVector.js" />
-        <option value="$PROJECT_DIR$/model/CourseInfo.js" />
         <option value="$PROJECT_DIR$/model/Context.js" />
-        <option value="$PROJECT_DIR$/model/Track.js" />
         <option value="$PROJECT_DIR$/views/CourseView.js" />
-        <option value="$PROJECT_DIR$/views/Settings.js" />
+        <option value="ssl.gstatic.com/gb/js/abc/gcm_e9b1c8ddbdbba9ea5c035548a0320af1.js" />
+        <option value="$PROJECT_DIR$/views/ColourSelectorsView.js" />
+        <option value="$PROJECT_DIR$/../org/maths/ui/ArrowSelector.js" />
+        <option value="$PROJECT_DIR$/views/ColourSelector.js" />
         <option value="$PROJECT_DIR$/views/Editor.js" />
+        <option value="$PROJECT_DIR$/model/Track.js" />
+        <option value="ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" />
+        <option value="$PROJECT_DIR$/model/CourseInfo.js" />
+        <option value="$PROJECT_DIR$/views/Settings.js" />
+        <option value="$PROJECT_DIR$/../org/maths/ui/LabelRenderer.js" />
+        <option value="understandinguncertainty.org/sites/understandinguncertainty.org/files/js/js_HoV11dGZPFawmXjkAgvlTs7lxi0Nyd-JEPDssHq-VCc.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
+    <option name="x" value="14" />
     <option name="y" value="22" />
     <option name="width" value="1108" />
     <option name="height" value="874" />
@@ -199,7 +217,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scene" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="renderers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -230,6 +252,78 @@
               <option name="myItemId" value="racer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="racer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -239,18 +333,19 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="fileTemplates" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/build" />
       <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -367,15 +462,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="22" width="1108" height="874" extended-state="0" />
-    <editor active="true" />
+    <frame x="14" y="22" width="1108" height="874" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32831737" sideWeight="0.0" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3128889" sideWeight="0.36798906" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2746544" sideWeight="0.73377484" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26622516" sideWeight="0.998241" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2746544" sideWeight="0.7589404" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2410596" sideWeight="0.998241" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3128889" sideWeight="0.7004104" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299748" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -385,6 +479,7 @@
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968882" sideWeight="0.65762275" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -444,96 +539,86 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="http://i.istockimg.com/static/1323985864/js/protoculous.js">
+    <entry file="file://$PROJECT_DIR$/views/Editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="381" column="10" selection-start="10981" selection-end="10981" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Track.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/racer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="23" selection-end="23" vertical-scroll-proportion="-1.25" />
+      </provider>
+    </entry>
+    <entry file="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lime/src/shape/label.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/assets/ShowJumping.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="23" selection-start="1695" selection-end="1695" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../org/maths/ui/Selector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="40" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../org/maths/ui/Scroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/CourseView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/CoursesView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/ColourSelectorsView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/ColourSelector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="53" selection-start="2019" selection-end="2032" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../org/maths/ui/LabelRenderer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="22" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="http://understandinguncertainty.org/sites/understandinguncertainty.org/files/js/js_HoV11dGZPFawmXjkAgvlTs7lxi0Nyd-JEPDssHq-VCc.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/CourseInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="35" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lime/src/schedulemanager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="6" selection-start="2668" selection-end="2668" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../org/maths/ui/Selector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../org/maths/ui/ArrowSelector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="0" selection-start="3500" selection-end="3801" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../org/maths/ui/ColumnVector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="0" selection-start="3769" selection-end="3769" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Context.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../org/maths/signals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="0" selection-start="4653" selection-end="4653" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scene/Layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lime/src/events/eventdispatcher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="76" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lime/src/events/event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="28" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/TrackView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="32" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/CourseView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="35" selection-start="4621" selection-end="4621" vertical-scroll-proportion="-8.269231">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="2" selection-start="3339" selection-end="3339" vertical-scroll-proportion="2.7821782">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Track.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="2" selection-start="1883" selection-end="1883" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="382" column="0" selection-start="11010" selection-end="11010" vertical-scroll-proportion="0.8231707">
+        <state line="54" column="23" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.50489235">
           <folding />
         </state>
       </provider>
