@@ -17,61 +17,92 @@ racer.CourseInfo;
 racer.model.Courses = [
     {
         name: 'Practice',
-        mapUrl: 'assets/Intro2.png',
+        mapUrl: 'assets/Intro3.png',
         colours: [
             {
                 colour:'#EE2200',
                 highlight:'#CC6644',
-                start: new goog.math.Vec2(-7.9,-6.4)
+                start: new goog.math.Vec2(-7.9,-6.5)
             },
             {
                  colour:'#0044FF',
                  highlight:'#46C',
-                 start: new goog.math.Vec2(-7.9,-6.4)
+                 start: new goog.math.Vec2(-7.9,-6.5)
             }
         ],
-        gridSize: 20.3,
+        gridSize: 20.1,
         origin: new goog.math.Vec2(0,0)
     },
     {
         name: 'Game 1',
-        mapUrl: 'assets/Charlie.png',
+        mapUrl: 'assets/game1.png',
+        mapPdf: 'assets/game1.pdf',
         colours: [
             {
                  colour:'#0044FF',
                  highlight:'#88AADD',
-                 start: new goog.math.Vec2(10.7,-1.7)
+                 start: new goog.math.Vec2(11.0,-1.9)
             },
             {
                 colour:'#EE2200',
                 highlight:'#CC6644',
-                start: new goog.math.Vec2(11.7,-1.7)
+                start: new goog.math.Vec2(12.0,-1.9)
             }
         ],
-        gridSize: 20.3,
+        gridSize: 20.2,
         origin: new goog.math.Vec2(0,0)
     },
     {
         name: 'Game 2',
-        mapUrl: 'assets/ShowJumping.png',
+        mapUrl: 'assets/game2.png',
+        mapPdf: 'assets/game2.pdf',
         colours: [
             {
-                 colour:'#00DD00',
-                 highlight: '#77BB22',
-                 start: new goog.math.Vec2(-10.1,3.1)
+                colour:'#EE2200',
+                highlight:'#CC6644',
+                start: new goog.math.Vec2(-13.9,6.0)
             },
             {
+                colour:'#0044FF',
+                highlight:'#4466CC',
+                start: new goog.math.Vec2(-12.9,5.0)
+            },
+            {
+                colour:'#00DD00',
+                highlight: '#77BB22',
+                start: new goog.math.Vec2(-11.9,4.0)
+            },
+            {
+                colour:'#DE9927',
+                highlight:'#BBAA44',
+                start: new goog.math.Vec2(-10.9,3.0)
+            },
+            {
+                colour:'#A5509F',
+                highlight:'#BB44AA',
+                start: new goog.math.Vec2(-9.9,2.0)
+            }
+        ],
+        gridSize: 20.55,
+        origin: new goog.math.Vec2(0,0)
+    },
+    {
+        name: 'Game 3',
+        mapUrl: 'assets/game3.png',
+        mapPdf: 'assets/game3.pdf',
+        colours: [
+            {
                  colour:'#0044FF',
-                 highlight:'#4466CC',
-                 start: new goog.math.Vec2(-11.1,4.1)
+                 highlight:'#88AADD',
+                 start: new goog.math.Vec2(-14.0,-12.9)
             },
             {
                 colour:'#EE2200',
                 highlight:'#CC6644',
-                start: new goog.math.Vec2(-12.1,5.1)
+                start: new goog.math.Vec2(-13.0,-13.9)
             }
         ],
-        gridSize: 20.5,
+        gridSize: 20.4,
         origin: new goog.math.Vec2(0,0)
     }
 

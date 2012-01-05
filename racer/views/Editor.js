@@ -16,6 +16,7 @@ goog.require('lime.GlossyButton');
 goog.require('lime.fill.LinearGradient');
 goog.require('org.maths.signals');
 goog.require('racer.model.Context');
+goog.require('racer.model.CourseData');
 goog.require('racer.model.CourseInfo');
 goog.require('racer.model.Track');
 goog.require('goog.math.Vec2');
@@ -59,6 +60,9 @@ racer.views.Editor = function(context, courseIndex, colourIndex) {
     /** {racer.model.Track} */
     this.track = new racer.model.Track(colourInfo.start, new goog.math.Vec2(0,0));
     context.trackCreated.dispatch(courseIndex, colourIndex, this.track);
+
+    // Save track in CourseData
+    this.context.coursesData[courseIndex].appendTrack(this.track);
 
     /** fills */
 

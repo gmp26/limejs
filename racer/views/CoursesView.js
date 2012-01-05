@@ -57,6 +57,9 @@ racer.views.CoursesView.prototype.startCourseSwitch = function() {
 
     var x = this.context.courseIndex*320;
     var count = this.context.coursesData.length;
+
+    this.context.raceEnded.dispatch();
+
     anim = new lime.animation.Spawn(
         new lime.animation.MoveTo(-count*320/2,0).setDuration(2).setEasing(lime.animation.Easing.EASEINOUT),
         new lime.animation.ScaleTo(0.5,0.5).setDuration(2).setEasing(lime.animation.Easing.EASEINOUT)

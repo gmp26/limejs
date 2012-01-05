@@ -6,6 +6,8 @@
  */
 goog.provide('racer.views.ColourSelectorsView');
 goog.require('racer.views.ColourSelector');
+goog.require('racer.views.RacePanel');
+goog.require('racer.views.Editor');
 goog.require('racer.model.Context');
 goog.require('lime.Layer');
 goog.require('lime.fill.LinearGradient');
@@ -65,8 +67,9 @@ racer.views.ColourSelectorsView = function(context) {
     context.trackChangeStarted.add(this.startCourseSwitch, this);
     context.trackChangeEnded.add(this.finishCourseSwitch, this);
 
-    context.raceStarted.add(this.raceStarted, this);
-    context.raceEnded.add(this.raceEnded, this);
+    context.modeSignal.add(this.modeChange, this);
+
+    this.raceView = new racer.views.RacePanel(context);
 
 };
 goog.inherits(racer.views.ColourSelectorsView, lime.RoundedRect);
@@ -117,10 +120,13 @@ racer.views.ColourSelectorsView.prototype.finishCourseSwitch = function(index) {
 
 };
 
-racer.views.ColourSelectorsView.prototype.raceStarted = function() {
-    this.removeChild(this.viewContainer);
-};
-
-racer.views.ColourSelectorsView.prototype.raceEnded = function() {
-    this.appendChild(this.viewContainer);
+racer.views.ColourSelectorsView.prototype.modeChange = function() {
+    if(this.context.editing) {
+        this.appendChild(this.viewContainer);
+        this.removeChild(this.raceView);
+    }
+    else {
+        this.removeChild(this.viewContainer);
+        this.appendChild(this.raceView);
+    }
 };

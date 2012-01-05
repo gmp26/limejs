@@ -7,11 +7,14 @@
 goog.provide('racer.views.CourseView');
 goog.require('racer.model.Context');
 goog.require('racer.model.CourseInfo');
+goog.require('lime.Sprite');
+goog.require('lime.Button');
 goog.require('lime.RoundedRect');
 goog.require('lime.scheduleManager');
 goog.require('racer.views.TrackView');
 goog.require('racer.model.Track');
 goog.require('org.maths.signals');
+goog.require('goog.window');
 
 
 /**
@@ -47,6 +50,30 @@ racer.views.CourseView = function(context, opt_courseIndex) {
     context.raceStarted.add(this.raceStarted, this);
 
     context.raceEnded.add(this.raceEnded, this);
+
+    context.modeSignal.add(this.modeChange, this);
+
+    var pdf = this.courseInfo.mapPdf;
+    if(goog.isDefAndNotNull(pdf)) {
+        // Add a PDF download button
+        var upPdf = new lime.Sprite()
+            .setSize(44,44)
+            .setFill('assets/pdficon_large.gif')
+            .setOpacity(0.7);
+        var downPdf = new lime.Sprite()
+            .setSize(44,44)
+            .setFill('assets/pdficon_large.gif');
+        var pdfButton = new lime.Button(upPdf,downPdf)
+            .setPosition(280,280);
+        this.appendChild(pdfButton);
+
+        goog.events.listen(pdfButton,
+            ["mousedown", "touchstart"],
+            goog.bind(function(pdf) {
+                goog.window.open(pdf);
+            }, this, pdf), this
+        )
+    }
 
 }
 goog.inherits(racer.views.CourseView, lime.RoundedRect);
@@ -155,17 +182,15 @@ racer.views.CourseView.prototype.drawRace = function(courseIndex, colourIndex, r
 };
 
 racer.views.CourseView.prototype.raceStarted = function() {
-    //todo
+    if(this.courseIndex !== this.context.courseIndex ) return;
     this.raceIndex = 0;
     lime.scheduleManager.scheduleWithDelay(this.raceStep, this, 500);
 }
 
 racer.views.CourseView.prototype.raceEnded = function() {
-    //todo
-    if(this.context.courseIndex != this.courseIndex)
-        return;
-
-    console.log('raceEnded')
+    if(this.context.courseIndex !== this.courseIndex) return;
+    lime.scheduleManager.unschedule(racer.views.CourseView.prototype.raceStep, this);
+    this.raceIndex = 0;
 }
 
 
@@ -181,14 +206,28 @@ racer.views.CourseView.prototype.raceStep = function() {
         var trackLen = trackView.track.getTrackLength();
         if(this.raceIndex <= trackLen) {
             allDone = false;
-            console.log("racing course:",this.courseIndex, "colour:", colourIndex, "step:", this.raceIndex);
+//            console.log("racing course:",this.courseIndex, "colour:", colourIndex, "step:", this.raceIndex);
             this.drawRace(this.courseIndex, colourIndex, this.raceIndex);
         }
     }
     this.raceIndex++;
 
     if(allDone) {
-        lime.scheduleManager.unschedule(racer.views.CourseView.prototype.raceStep, this);
+//        lime.scheduleManager.unschedule(racer.views.CourseView.prototype.raceStep, this);
         this.context.raceEnded.dispatch();
     }
+};
+
+/**
+ * update the view on mode change
+ */
+racer.views.CourseView.prototype.modeChange = function() {
+
+    if(this.context.courseIndex != this.courseIndex)
+        return;
+
+    if(this.context.editing) { // change to edit has already happened
+        this.raceEnded();
+    }
+    this.updateView(this.context);
 }

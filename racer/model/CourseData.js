@@ -20,10 +20,19 @@ goog.require('racer.model.Track');
 racer.model.CourseData = function(courseInfo) {
 
     // reference to course configuration info
+    /** {racer.model.CourseInfo} */
     this.info = courseInfo;
+
+    /** {Array.<racer.model.Track>} */
+    this.tracks = [];
 
     // currently selected course colour
     this.colourIndex = 0;
 
 };
+
+racer.model.CourseData.prototype.appendTrack = function(track) {
+    this.tracks[this.tracks.length] = track;
+};
+
 

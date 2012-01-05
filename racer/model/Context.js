@@ -34,6 +34,9 @@ racer.model.Context = function() {
     /** {org.maths.signals.Signal} animated colour change should end */
     this.colourChangeEnded = new org.maths.signals.Signal();
 
+    /** {org.maths.signals.Signal} change of edit/race mode signalled */
+    this.modeSignal = new org.maths.signals.Signal();
+
     /** {org.maths.signals.Signal} race button pressed */
     this.raceStarted = new org.maths.signals.Signal();
 
@@ -75,4 +78,27 @@ racer.model.Context.prototype.setColourIndex = function(index) {
  */
 racer.model.Context.prototype.getColourIndex = function() {
     return this.coursesData[this.courseIndex].colourIndex;
+};
+
+/**
+ * Count how many tracks of a minimum length exist
+ * @param {number} minLength of tracks counted
+ * @return {number} count
+ */
+racer.model.Context.prototype.countEditedTracks = function(minLength) {
+
+    /** {number} */
+    var count = 0
+
+    var tracks = this.coursesData[this.courseIndex].tracks;
+    var tLen = tracks.length;
+    for(var j=0; j < tLen; j++) {
+        /** racer.model.Track */
+        var track = tracks[j];
+        if(goog.isDefAndNotNull(track) && track.getTrackLength() >= minLength) {
+            ++count;
+        }
+    }
+
+    return count;
 }

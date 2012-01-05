@@ -112,10 +112,11 @@ racer.views.Settings.prototype.editTouched = function(e) {
 racer.views.Settings.prototype.startRace = function(e, self) {
     self.context.editing = false;
     self.context.raceStep = 0;
-    self.context.raceStarted.dispatch();
+    self.context.modeSignal.dispatch(self);
 };
 
 racer.views.Settings.prototype.startEdit = function(e, self) {
     self.context.editing = true;
-    self.context.raceEnded.dispatch();
+    self.context.raceStep = 0;
+    self.context.modeSignal.dispatch(self);
 };

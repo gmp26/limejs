@@ -5,4 +5,6 @@ box2d
 bin/external/*
 bin/projects
 .DS_Store
+racer/build/*
+billiards/build/*
 
