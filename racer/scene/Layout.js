@@ -12,7 +12,7 @@ goog.require('lime.Layer');
 goog.require('lime.animation.MoveTo');
 
 goog.require('org.maths.signals');
-goog.require('org.maths.Panel');
+//goog.require('org.maths.ui.Panel');
 goog.require('org.maths.signals');
 
 goog.require('racer.model.Context');

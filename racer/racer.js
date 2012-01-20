@@ -60,7 +60,7 @@ goog.require('org.maths.signals');
 // entry point
 racer.start = function() {
 
-    racer.stage = new org.maths.Stage(document.body,480,320);//, 320, 480);
+    racer.stage = new org.maths.Stage(document.body,320,480);//, 320, 480);
 
     racer.stage.setDisplayFPS(false);
 

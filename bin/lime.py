@@ -164,6 +164,36 @@ def update():
     
     subprocess.call(call,shell=True)
     
+def creat1(name):
+
+    path = os.path.join(curdir,name)
+
+    if exists(path):
+        logging.error('Directory already exists: %s',path)
+        sys.exit(1) 
+
+    name = os.path.basename(path)
+
+    proj = os.path.relpath(path,basedir)
+    shutil.copytree(os.path.join(basedir,'lime/templates/t1'),path)
+
+    for root, dirs, files in os.walk(path):
+        for fname in files:
+            newname = fname.replace('__name__',name)
+            print(newname)
+            if fname.find("__name__")!=-1:
+                os.rename(os.path.join(path,fname),os.path.join(path,newname))
+            for line in fileinput.FileInput(os.path.join(root,newname),inplace=1):
+                line = line.replace('{name}',name)
+                print(line.rstrip())
+
+    print ('Created %s' % path)
+
+
+    if proj!='.':
+        makeProjectPaths(os.path.relpath(path,basedir))
+
+    update()
 
 def create(name):
     
@@ -367,6 +397,9 @@ Commands:
     
     elif args[0]=='create':
         create(args[1])
+        
+    elif args[0]=='creat1':
+        creat1(args[1])
         
     elif args[0]=='gensoy':
         genSoy(args[1])
